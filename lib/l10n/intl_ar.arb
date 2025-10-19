@@ -1,0 +1,15 @@
+{
+  "@@locale": "ar",
+  "firstOnboardingTitle": "الآن سيصبح قراءة الكتب أسهل",
+  "firstOnboardingBody": "اكتشف عوالم جديدة، انضم إلى مجتمع قراءة نشط. ابدأ مغامرتك القرائية بسهولة معنا.",
+  "secondOnboardingTitle": "رفيقك القرائي المثالي في انتظارك",
+  "secondOnboardingBody": "دعنا نكون دليلك إلى القراءة المناسبة لك. اكتشف كتبًا ملائمة لذوقك لتجربة ممتعة وملهمة.",
+  "thirdOnboardingTitle": "ابدأ مغامرتك",
+  "thirdOnboardingBody": "هل أنت مستعد لبدء رحلة مليئة بالإلهام والمعرفة؟ مغامرتك تبدأ الآن. هيا بنا!",
+  "getStartedButton": "ابدأ الآن",
+  "skipButton": "تخطي",
+  "nextButton": "التالي",
+  "continueButton": "استمرار",
+  "signInButton": "تسجيل الدخول",
+  "signUpButton": "إنشاء حساب"
+}

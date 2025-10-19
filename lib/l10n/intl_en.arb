@@ -1,0 +1,15 @@
+{
+  "@@locale": "en",
+  "firstOnboardingTitle": "Now reading being easier",
+  "firstOnboardingBody": "Discover new worlds, join a vibrant reading community. Start your reading adventure effortlessly with us.",
+  "secondOnboardingTitle": "Your Bookish Soulmate Awaits",
+  "secondOnboardingBody": "Let us be your guide to the perfect read. Discover books tailored to your tastes for a truly rewarding experience.",
+  "thirdOnboardingTitle": "Start Your Adventure",
+  "thirdOnboardingBody": "Ready to embark on a quest for inspiration and knowledge? Your adventure begins now. Let's go!",
+  "getStartedButton": "Get Started",
+  "skipButton": "Skip",
+  "nextButton": "Next",
+  "continueButton": "Continue",
+  "signInButton": "Sign In",
+  "signUpButton": "Sign Up"
+}

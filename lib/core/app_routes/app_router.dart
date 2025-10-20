@@ -1,7 +1,8 @@
 import 'package:bazar_app/core/app_routes/routes_strings.dart';
+import 'package:bazar_app/feature/login/presentation/login_screen/ui/login_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../feature/splash/ui/screens/onboarding_screen.dart';
+import '../../feature/onboarding/presentation/onboarding_screen/ui/onboarding_screen.dart';
 import '../../feature/splash/ui/screens/splash_screen.dart';
 
 class AppRouter {
@@ -14,13 +15,13 @@ class AppRouter {
       case Routing.onboardingScreen:
         return createRoute(OnboardingScreen());
 
+      case Routing.loginScreen:
+        return createRoute(LoginScreen());
+
       case Routing.homeScreen:
         return createRoute(
           const Scaffold(body: Center(child: Text('home Screen'))),
         );
-
-      case Routing.loginScreen:
-        return createRoute(Scaffold(body: Center(child: Text('Login Screen'))));
     }
     return createRoute(
       const Scaffold(body: Center(child: Text('No Route Found'))),

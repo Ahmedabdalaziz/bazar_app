@@ -2,11 +2,11 @@ import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/app_routes/routes_strings.dart';
-import '../../../../core/helpers/shared_preference/local_storage.dart';
-import '../../../../core/widgets/spaces.dart';
-import '../../../../generated/l10n.dart';
-import '../screens/onboarding_screen.dart';
+import '../../../../../../core/app_routes/routes_strings.dart';
+import '../../../../../../core/helpers/shared_preference/local_storage.dart';
+import '../../../../../../core/widgets/spaces.dart';
+import '../../../../../../generated/l10n.dart';
+import '../onboarding_screen.dart';
 import 'onboarding_actions.dart';
 import 'onboarding_image.dart';
 import 'onboarding_texts.dart';
@@ -84,9 +84,9 @@ class OnboardingBody extends StatelessWidget {
 
                   verticalSpace(10),
                   SignInActionButton(
-                    label: s.signInButton,
+                    label: s.login,
                     onPressed: () {
-                      context.pushReplacementNamed(Routing.signupScreen);
+                      context.pushReplacementNamed(Routing.loginScreen);
                     },
                   ),
                 ],

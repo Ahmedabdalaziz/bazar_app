@@ -10,6 +10,20 @@
   "skipButton": "Skip",
   "nextButton": "Next",
   "continueButton": "Continue",
-  "signInButton": "Sign In",
-  "signUpButton": "Sign Up"
+  "login": "Login",
+  "signUp": "Sign Up",
+  "welcomeMessage": "Welcome to Bazar",
+  "signToYourAccount": "Sign to your account",
+  "email": "Email",
+  "password": "Password",
+  "yourEmail": "Your Email",
+  "yourPassword": "Your Password",
+  "forgotPassword": "Forgot Password?",
+  "dontHaveAccount": "Don't have an account? ",
+  "haveAccount": "Already have an account? ",
+  "resetPassword": "Reset Password",
+  "resetPasswordInstruction": "Enter your email address below to receive password reset instructions.",
+  "orWith": "Or with",
+  "signupWithGoogle": "Sign up with Google",
+  "signupWithFacebook": "Sign up with Facebook"
 }

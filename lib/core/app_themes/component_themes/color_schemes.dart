@@ -16,6 +16,7 @@ class AppColorSchemes {
       onSurface: AppColors.gray900,
       onSecondaryContainer: AppColors.gray500,
       onError: AppColors.white,
+      outline: AppColors.whitePrimary,
     );
   }
 

@@ -8,7 +8,7 @@ class AppButtonTheme {
     return ElevatedButtonThemeData(
       style: ButtonStyle(
         textStyle: MaterialStateProperty.all(
-          const TextStyle(fontWeight: FontWeight.bold),
+          TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
         ),
         backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
@@ -16,6 +16,7 @@ class AppButtonTheme {
           }
           return AppColors.primary;
         }),
+        minimumSize: MaterialStateProperty.all(Size(double.infinity, 48.h)),
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
             return AppColors.gray500;
@@ -23,10 +24,10 @@ class AppButtonTheme {
           return AppColors.white;
         }),
         padding: MaterialStateProperty.all(
-          const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+          EdgeInsets.symmetric(vertical: 12.h, horizontal: 24.w),
         ),
         shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(48.r)),
         ),
         elevation: MaterialStateProperty.all(0),
       ),
@@ -37,7 +38,7 @@ class AppButtonTheme {
     return ElevatedButtonThemeData(
       style: ButtonStyle(
         textStyle: MaterialStateProperty.all(
-          const TextStyle(fontWeight: FontWeight.bold),
+          TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
         ),
         backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
@@ -45,6 +46,7 @@ class AppButtonTheme {
           }
           return AppColors.primary;
         }),
+        minimumSize: MaterialStateProperty.all(Size(double.infinity, 48.h)),
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
             return AppColors.gray500;
@@ -52,7 +54,7 @@ class AppButtonTheme {
           return AppColors.white;
         }),
         padding: MaterialStateProperty.all(
-          const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+          EdgeInsets.symmetric(vertical: 12.h, horizontal: 24.w),
         ),
         shape: MaterialStateProperty.all(
           RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
@@ -66,7 +68,7 @@ class AppButtonTheme {
     return TextButtonThemeData(
       style: ButtonStyle(
         textStyle: MaterialStateProperty.all(
-          const TextStyle(fontWeight: FontWeight.bold),
+          TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
         ),
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
@@ -77,11 +79,12 @@ class AppButtonTheme {
         overlayColor: MaterialStateProperty.all(
           AppColors.accent.withOpacity(0.1),
         ),
+        minimumSize: MaterialStateProperty.all(Size(double.infinity, 48.h)),
         padding: MaterialStateProperty.all(
-          const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+          EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
         ),
         shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
         ),
       ),
     );
@@ -91,9 +94,8 @@ class AppButtonTheme {
     return TextButtonThemeData(
       style: ButtonStyle(
         textStyle: MaterialStateProperty.all(
-          const TextStyle(fontWeight: FontWeight.bold),
+          TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
         ),
-
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
             return AppColors.gray600;
@@ -103,11 +105,12 @@ class AppButtonTheme {
         overlayColor: MaterialStateProperty.all(
           AppColors.accent.withOpacity(0.1),
         ),
+        minimumSize: MaterialStateProperty.all(Size(double.infinity, 48.h)),
         padding: MaterialStateProperty.all(
-          const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+          EdgeInsets.symmetric(vertical: 8.h, horizontal: 16.w),
         ),
         shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.r)),
         ),
       ),
     );
@@ -117,9 +120,8 @@ class AppButtonTheme {
     return OutlinedButtonThemeData(
       style: ButtonStyle(
         textStyle: MaterialStateProperty.all(
-          const TextStyle(fontWeight: FontWeight.bold),
+          TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
         ),
-
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
             return AppColors.gray400;
@@ -128,15 +130,16 @@ class AppButtonTheme {
         }),
         side: MaterialStateProperty.resolveWith<BorderSide>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return BorderSide(color: AppColors.gray300);
+            return BorderSide(color: AppColors.gray300, width: 1.w);
           }
-          return BorderSide(color: AppColors.accent);
+          return BorderSide(color: AppColors.accent, width: 1.w);
         }),
+        minimumSize: MaterialStateProperty.all(Size(double.infinity, 48.h)),
         padding: MaterialStateProperty.all(
-          const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+          EdgeInsets.symmetric(vertical: 12.h, horizontal: 24.w),
         ),
         shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.r)),
         ),
       ),
     );
@@ -146,9 +149,8 @@ class AppButtonTheme {
     return OutlinedButtonThemeData(
       style: ButtonStyle(
         textStyle: MaterialStateProperty.all(
-          const TextStyle(fontWeight: FontWeight.bold),
+          TextStyle(fontWeight: FontWeight.bold, fontSize: 14.sp),
         ),
-
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
             return AppColors.gray600;
@@ -157,15 +159,16 @@ class AppButtonTheme {
         }),
         side: MaterialStateProperty.resolveWith<BorderSide>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return BorderSide(color: AppColors.gray700);
+            return BorderSide(color: AppColors.gray700, width: 1.w);
           }
-          return BorderSide(color: AppColors.accent);
+          return BorderSide(color: AppColors.accent, width: 1.w);
         }),
+        minimumSize: MaterialStateProperty.all(Size(double.infinity, 48.h)),
         padding: MaterialStateProperty.all(
-          const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+          EdgeInsets.symmetric(vertical: 12.h, horizontal: 24.w),
         ),
         shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(14.r)),
         ),
       ),
     );

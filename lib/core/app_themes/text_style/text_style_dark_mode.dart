@@ -19,6 +19,10 @@ class AppTextStyleDarkMode{
       fontWeight: FontWeight.bold,
       color: AppColors.textDark,
     ),
+    headlineLarge: GoogleFonts.gabarito(
+      fontWeight: FontWeight.w600,
+      color: AppColors.textDark,
+    ),
     headlineMedium: GoogleFonts.gabarito(
       fontWeight: FontWeight.w600,
       color: AppColors.textDark,

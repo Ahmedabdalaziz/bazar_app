@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../colors/app_colors.dart';
 
 class AppInputTheme {
   static InputDecorationTheme light() {
     return InputDecorationTheme(
       filled: true,
-      fillColor: AppColors.gray400,
-      hintStyle: const TextStyle(color: AppColors.gray600, fontSize: 14),
+      fillColor: AppColors.gray100,
+      hintStyle: TextStyle(color: AppColors.gray200, fontSize: 14.sp),
       labelStyle: const TextStyle(color: AppColors.gray700),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
-        borderSide: const BorderSide(color: AppColors.gray300),
+        borderRadius: BorderRadius.circular(6.sp),
+        borderSide: BorderSide.none,
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
-        borderSide: const BorderSide(color: AppColors.accent, width: 1.5),
+        borderRadius: BorderRadius.circular(6.sp),
+        borderSide: BorderSide.none,
       ),
     );
   }
@@ -23,15 +25,15 @@ class AppInputTheme {
     return InputDecorationTheme(
       filled: true,
       fillColor: AppColors.gray800,
-      hintStyle: const TextStyle(color: AppColors.gray400, fontSize: 14),
+      hintStyle: TextStyle(color: AppColors.gray200, fontSize: 14.sp),
       labelStyle: const TextStyle(color: AppColors.gray200),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
-        borderSide: const BorderSide(color: AppColors.gray600),
+        borderRadius: BorderRadius.circular(6.sp),
+        borderSide: BorderSide.none,
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
-        borderSide: const BorderSide(color: AppColors.accent, width: 1.5),
+        borderRadius: BorderRadius.circular(6.sp),
+        borderSide: BorderSide.none,
       ),
     );
   }

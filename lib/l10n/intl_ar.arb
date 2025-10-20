@@ -10,6 +10,20 @@
   "skipButton": "تخطي",
   "nextButton": "التالي",
   "continueButton": "استمرار",
-  "signInButton": "تسجيل الدخول",
-  "signUpButton": "إنشاء حساب"
+  "login": "تسجيل الدخول",
+  "signUp": "إنشاء حساب",
+  "welcomeMessage": "مرحبًا بك في بازار",
+  "signToYourAccount": "سجل الدخول إلى حسابك",
+  "email": "البريد الإلكتروني",
+  "password": "كلمة المرور",
+  "yourEmail": "بريدك الإلكتروني",
+  "yourPassword": "كلمة المرور الخاصة بك",
+  "forgotPassword": "هل نسيت كلمة المرور؟",
+  "dontHaveAccount": "ليس لديك حساب؟ ",
+  "haveAccount": "هل لديك حساب بالفعل؟ ",
+  "resetPassword": "إعادة تعيين كلمة المرور",
+  "resetPasswordInstruction": "أدخل عنوان بريدك الإلكتروني أدناه لتلقي تعليمات إعادة تعيين كلمة المرور.",
+  "orWith": "أو باستخدام",
+  "signupWithGoogle": "التسجيل باستخدام جوجل",
+  "signupWithFacebook": "التسجيل باستخدام فيسبوك"
 }

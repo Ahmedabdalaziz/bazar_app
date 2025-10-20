@@ -5,7 +5,11 @@ class PrimaryActionButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String label;
 
-  const PrimaryActionButton({super.key, required this.onPressed, required this.label});
+  const PrimaryActionButton({
+    super.key,
+    required this.onPressed,
+    required this.label,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +19,15 @@ class PrimaryActionButton extends StatelessWidget {
       height: 50.h,
       child: ElevatedButton(
         onPressed: onPressed,
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(theme.colorScheme.primary),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: BorderSide(color: theme.colorScheme.onPrimary, width: 2),
+            ),
+          ),
+        ),
         child: Text(
           label,
           style: theme.textTheme.titleMedium?.copyWith(
@@ -31,7 +44,11 @@ class SignInActionButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String label;
 
-  const SignInActionButton({super.key, required this.onPressed, required this.label});
+  const SignInActionButton({
+    super.key,
+    required this.onPressed,
+    required this.label,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +58,15 @@ class SignInActionButton extends StatelessWidget {
       height: 50.h,
       child: TextButton(
         onPressed: onPressed,
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(theme.colorScheme.outline),
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+              side: BorderSide.none,
+            ),
+          ),
+        ),
         child: Text(
           label,
           style: theme.textTheme.titleMedium?.copyWith(
@@ -51,4 +77,3 @@ class SignInActionButton extends StatelessWidget {
     );
   }
 }
-

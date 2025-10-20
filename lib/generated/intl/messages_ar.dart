@@ -23,28 +23,60 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "continueButton": MessageLookupByLibrary.simpleMessage("استمرار"),
+    "dontHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟ "),
+    "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "firstOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "اكتشف عوالم جديدة، انضم إلى مجتمع قراءة نشط. ابدأ مغامرتك القرائية بسهولة معنا.",
     ),
     "firstOnboardingTitle": MessageLookupByLibrary.simpleMessage(
       "الآن سيصبح قراءة الكتب أسهل",
     ),
+    "forgotPassword": MessageLookupByLibrary.simpleMessage(
+      "هل نسيت كلمة المرور؟",
+    ),
     "getStartedButton": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
+    "haveAccount": MessageLookupByLibrary.simpleMessage(
+      "هل لديك حساب بالفعل؟ ",
+    ),
+    "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "nextButton": MessageLookupByLibrary.simpleMessage("التالي"),
+    "orWith": MessageLookupByLibrary.simpleMessage("أو باستخدام"),
+    "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "resetPassword": MessageLookupByLibrary.simpleMessage(
+      "إعادة تعيين كلمة المرور",
+    ),
+    "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
+      "أدخل عنوان بريدك الإلكتروني أدناه لتلقي تعليمات إعادة تعيين كلمة المرور.",
+    ),
     "secondOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "دعنا نكون دليلك إلى القراءة المناسبة لك. اكتشف كتبًا ملائمة لذوقك لتجربة ممتعة وملهمة.",
     ),
     "secondOnboardingTitle": MessageLookupByLibrary.simpleMessage(
       "رفيقك القرائي المثالي في انتظارك",
     ),
-    "signInButton": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
-    "signUpButton": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "signToYourAccount": MessageLookupByLibrary.simpleMessage(
+      "سجل الدخول إلى حسابك",
+    ),
+    "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "signupWithFacebook": MessageLookupByLibrary.simpleMessage(
+      "التسجيل باستخدام فيسبوك",
+    ),
+    "signupWithGoogle": MessageLookupByLibrary.simpleMessage(
+      "التسجيل باستخدام جوجل",
+    ),
     "skipButton": MessageLookupByLibrary.simpleMessage("تخطي"),
     "thirdOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "هل أنت مستعد لبدء رحلة مليئة بالإلهام والمعرفة؟ مغامرتك تبدأ الآن. هيا بنا!",
     ),
     "thirdOnboardingTitle": MessageLookupByLibrary.simpleMessage(
       "ابدأ مغامرتك",
+    ),
+    "welcomeMessage": MessageLookupByLibrary.simpleMessage(
+      "مرحبًا بك في بازار",
+    ),
+    "yourEmail": MessageLookupByLibrary.simpleMessage("بريدك الإلكتروني"),
+    "yourPassword": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور الخاصة بك",
     ),
   };
 }

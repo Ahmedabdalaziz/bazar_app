@@ -139,14 +139,134 @@ class S {
     return Intl.message('Continue', name: 'continueButton', desc: '', args: []);
   }
 
-  /// `Sign In`
-  String get signInButton {
-    return Intl.message('Sign In', name: 'signInButton', desc: '', args: []);
+  /// `Login`
+  String get login {
+    return Intl.message('Login', name: 'login', desc: '', args: []);
   }
 
   /// `Sign Up`
-  String get signUpButton {
-    return Intl.message('Sign Up', name: 'signUpButton', desc: '', args: []);
+  String get signUp {
+    return Intl.message('Sign Up', name: 'signUp', desc: '', args: []);
+  }
+
+  /// `Welcome to Bazar`
+  String get welcomeMessage {
+    return Intl.message(
+      'Welcome to Bazar',
+      name: 'welcomeMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign to your account`
+  String get signToYourAccount {
+    return Intl.message(
+      'Sign to your account',
+      name: 'signToYourAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email`
+  String get email {
+    return Intl.message('Email', name: 'email', desc: '', args: []);
+  }
+
+  /// `Password`
+  String get password {
+    return Intl.message('Password', name: 'password', desc: '', args: []);
+  }
+
+  /// `Your Email`
+  String get yourEmail {
+    return Intl.message('Your Email', name: 'yourEmail', desc: '', args: []);
+  }
+
+  /// `Your Password`
+  String get yourPassword {
+    return Intl.message(
+      'Your Password',
+      name: 'yourPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot Password?`
+  String get forgotPassword {
+    return Intl.message(
+      'Forgot Password?',
+      name: 'forgotPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Don't have an account? `
+  String get dontHaveAccount {
+    return Intl.message(
+      'Don\'t have an account? ',
+      name: 'dontHaveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account? `
+  String get haveAccount {
+    return Intl.message(
+      'Already have an account? ',
+      name: 'haveAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get resetPassword {
+    return Intl.message(
+      'Reset Password',
+      name: 'resetPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your email address below to receive password reset instructions.`
+  String get resetPasswordInstruction {
+    return Intl.message(
+      'Enter your email address below to receive password reset instructions.',
+      name: 'resetPasswordInstruction',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Or with`
+  String get orWith {
+    return Intl.message('Or with', name: 'orWith', desc: '', args: []);
+  }
+
+  /// `Sign up with Google`
+  String get signupWithGoogle {
+    return Intl.message(
+      'Sign up with Google',
+      name: 'signupWithGoogle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up with Facebook`
+  String get signupWithFacebook {
+    return Intl.message(
+      'Sign up with Facebook',
+      name: 'signupWithFacebook',
+      desc: '',
+      args: [],
+    );
   }
 }
 

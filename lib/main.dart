@@ -1,6 +1,8 @@
 import 'package:bazar_app/bazar_app.dart';
+import 'package:bazar_app/core/api/supabase_client.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'core/helpers/shared_preference/local_storage.dart';
 
@@ -14,6 +16,8 @@ Future<void> main() async {
       systemNavigationBarIconBrightness: Brightness.dark,
     ),
   );
+  await dotenv.load(fileName: ".env");
+  await SupabaseService.initialize();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   await LocalStorage.init();
   runApp(BazarApp());

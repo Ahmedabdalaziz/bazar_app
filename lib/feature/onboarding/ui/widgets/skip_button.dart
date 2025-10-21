@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SkipButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String label;
   final TextStyle? style;
 
-  const SkipButton({super.key, required this.onPressed, required this.label, this.style});
+  const SkipButton({
+    super.key,
+    required this.onPressed,
+    required this.label,
+    this.style,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +18,8 @@ class SkipButton extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: TextButton(
         onPressed: onPressed,
-        child: Text(
-          label,
-          style: style,
-        ),
+        child: Text(label, style: style),
       ),
     );
   }
 }
-

@@ -1,12 +1,15 @@
-// part of 'login_cubit.dart';
-//
-// sealed class LoginState extends Equatable {
-//   const LoginState();
-// }
-//
-// final class LoginInitialState extends LoginState {
-//   const LoginInitialState();
-//
-//   @override
-//   List<Object> get props => [];
-// }
+part of 'login_cubit.dart';
+
+@immutable
+abstract class LoginState {}
+
+class LoginInitial extends LoginState {}
+
+class LoginLoading extends LoginState {}
+
+class LoginSuccess extends LoginState {}
+
+class LoginError extends LoginState {
+  final Failure failure;
+  LoginError(this.failure);
+}

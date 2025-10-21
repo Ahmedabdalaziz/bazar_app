@@ -1,6 +1,8 @@
 import 'package:bazar_app/core/app_routes/routes_strings.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../feature/login/logic/login_cubit.dart';
 import '../../feature/login/ui/login_screen.dart';
 import '../../feature/onboarding/ui/onboarding_screen.dart';
 import '../../feature/signup/ui/signup_screen.dart';
@@ -20,7 +22,9 @@ class AppRouter {
         return createRoute(const SignupScreen());
 
       case Routing.loginScreen:
-        return createRoute(const LoginScreen());
+        return createRoute(
+          BlocProvider(create: (context) => LoginCubit(), child: LoginScreen()),
+        );
 
       case Routing.homeScreen:
         return createRoute(

@@ -1,8 +1,34 @@
-// import 'package:equatable/equatable.dart';
-// import 'package:flutter_bloc/flutter_bloc.dart';
-//
-// part 'login_state.dart';
-//
-// class LoginCubit extends Cubit<LoginState> {
-//   LoginCubit() : super(const LoginInitialState());
-// }
+import 'package:bloc/bloc.dart';
+import 'package:meta/meta.dart';
+
+import '../../../core/api/supabase_client.dart';
+import '../../../core/error/failure.dart';
+
+part 'login_state.dart';
+
+class LoginCubit extends Cubit<LoginState> {
+  LoginCubit() : super(LoginInitial());
+
+  Future<void> signInWithGoogle() async {
+    try {
+      emit(LoginLoading());
+      await SupabaseSignupWithGoogle.signUp();
+      emit(LoginSuccess());
+    } catch (e) {
+      emit(LoginError(ExceptionHandler.handle(e)));
+    }
+  }
+
+  Future<void> signInWithEmail({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      emit(LoginLoading());
+      await SupabaseEmailAuth.signIn(email: email, password: password);
+      emit(LoginSuccess());
+    } catch (e) {
+      emit(LoginError(ExceptionHandler.handle(e)));
+    }
+  }
+}

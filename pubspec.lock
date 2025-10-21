@@ -345,6 +345,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.2"
+  email_validator:
+    dependency: transitive
+    description:
+      name: email_validator
+      sha256: e9a90f27ab2b915a27d7f9c2a7ddda5dd752d6942616ee83529b686fc086221b
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.17"
   facebook_auth_desktop:
     dependency: transitive
     description:
@@ -482,10 +490,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_dotenv
-      sha256: d4130c4a43e0b13fefc593bc3961f2cb46e30cb79e253d4a526b1b5d24ae1ce4
+      sha256: b7c7be5cd9f6ef7a78429cabd2774d3c4af50e79cb2b7593e3d5d763ef95c61b
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "5.2.1"
   flutter_facebook_auth:
     dependency: "direct main"
     description:
@@ -1357,6 +1365,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.0"
+  sign_in_with_apple:
+    dependency: transitive
+    description:
+      name: sign_in_with_apple
+      sha256: e84a62e17b7e463abf0a64ce826c2cd1f0b72dff07b7b275e32d5302d76fb4c5
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.1.4"
+  sign_in_with_apple_platform_interface:
+    dependency: transitive
+    description:
+      name: sign_in_with_apple_platform_interface
+      sha256: c2ef2ce6273fce0c61acd7e9ff5be7181e33d7aa2b66508b39418b786cca2119
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
+  sign_in_with_apple_web:
+    dependency: transitive
+    description:
+      name: sign_in_with_apple_web
+      sha256: "2f7c38368f49e3f2043bca4b46a4a61aaae568c140a79aa0675dc59ad0ca49bc"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -1443,7 +1475,7 @@ packages:
     source: hosted
     version: "1.12.1"
   storage_client:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: storage_client
       sha256: "1c61b19ed9e78f37fdd1ca8b729ab8484e6c8fe82e15c87e070b861951183657"
@@ -1482,6 +1514,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.10.0"
+  supabase_auth_ui:
+    dependency: "direct main"
+    description:
+      name: supabase_auth_ui
+      sha256: c1d9c5018f37701af94887fb5d15fa7eed284c58e4e06015644218a49140ec47
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.5.5"
   supabase_flutter:
     dependency: "direct main"
     description:

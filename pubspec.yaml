@@ -34,10 +34,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   supabase: ^2.10.0
   supabase_flutter: ^2.10.3
-  flutter_dotenv: ^6.0.0
+  flutter_dotenv: ^5.1.0
   flutter_screenutil: ^5.9.3
   google_fonts: ^6.1.0
-  #state management and dependency injection with DI
   build_runner: ^2.4.12
   flutter_bloc: ^9.0.0
   get_it: ^8.0.3
@@ -79,6 +78,8 @@ dependencies:
   freezed_annotation: ^3.1.0
   freezed: ^3.1.0
   cached_network_image: ^3.4.1
+  storage_client: ^2.4.1
+  supabase_auth_ui: ^0.5.5
 
 dev_dependencies:
   flutter_test:
@@ -103,8 +104,8 @@ flutter:
   uses-material-design: true
 
   assets:
-     - assets/splash/
-     - .env
+    - assets/splash/
+    - .env
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

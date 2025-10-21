@@ -1,4 +1,4 @@
-import 'package:bazar_app/feature/login/presentation/login_screen/ui/widgets/login_body.dart';
+import 'package:bazar_app/feature/login/ui/widgets/login_body.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {

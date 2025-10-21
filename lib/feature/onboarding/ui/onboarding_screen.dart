@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../../core/utils/app_strings.dart';
 import '../../../../../generated/l10n.dart';
-import '../../../../splash/data/onboarding_model.dart';
+import '../../splash/data/onboarding_model.dart';
 import 'widgets/onboarding_body.dart';
 
 class OnboardingScreen extends StatefulWidget {

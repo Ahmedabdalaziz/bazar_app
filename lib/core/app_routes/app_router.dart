@@ -1,8 +1,9 @@
 import 'package:bazar_app/core/app_routes/routes_strings.dart';
-import 'package:bazar_app/feature/login/presentation/login_screen/ui/login_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../feature/onboarding/presentation/onboarding_screen/ui/onboarding_screen.dart';
+import '../../feature/login/ui/login_screen.dart';
+import '../../feature/onboarding/ui/onboarding_screen.dart';
+import '../../feature/signup/ui/signup_screen.dart';
 import '../../feature/splash/ui/screens/splash_screen.dart';
 
 class AppRouter {
@@ -13,10 +14,13 @@ class AppRouter {
         return createRoute(const SplashScreen());
 
       case Routing.onboardingScreen:
-        return createRoute(OnboardingScreen());
+        return createRoute(const OnboardingScreen());
+
+      case Routing.signupScreen:
+        return createRoute(const SignupScreen());
 
       case Routing.loginScreen:
-        return createRoute(LoginScreen());
+        return createRoute(const LoginScreen());
 
       case Routing.homeScreen:
         return createRoute(

@@ -1,7 +1,9 @@
+import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/core/widgets/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../../core/app_routes/routes_strings.dart';
 import '../../../../../../generated/l10n.dart';
 
 class LoginForm extends StatelessWidget {
@@ -42,9 +44,10 @@ class LoginForm extends StatelessWidget {
             width: double.infinity,
             height: 42.h,
             child: ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-              ),
+              onPressed: () {
+                context.pushNamed(Routing.signupScreen);
+              },
+              style: ElevatedButton.styleFrom(),
               child: Text(
                 s.login,
                 style: theme.textTheme.titleMedium?.copyWith(
@@ -67,7 +70,9 @@ class LoginForm extends StatelessWidget {
               ),
               SizedBox(width: 8.w),
               GestureDetector(
-                onTap: () {},
+                onTap: () {
+                  context.pushNamed(Routing.signupScreen);
+                },
                 child: Text(
                   s.signUp,
                   style: theme.textTheme.bodyLarge!.copyWith(

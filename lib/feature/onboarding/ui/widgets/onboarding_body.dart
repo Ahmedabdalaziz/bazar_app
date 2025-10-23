@@ -29,6 +29,7 @@ class OnboardingBody extends StatelessWidget {
     final onboardingData = list[currentIndex];
     final isLast = currentIndex == list.length - 1;
     final OnboardingStorage storage = OnboardingStorage();
+    final theme = Theme.of(context);
 
     return SafeArea(
       child: Padding(
@@ -41,9 +42,9 @@ class OnboardingBody extends StatelessWidget {
                 context.pushReplacementNamed(Routing.loginScreen);
               },
               label: s.skipButton,
-              style: Theme.of(context).textTheme.titleMedium?.copyWith(
+              style: theme.textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.w600,
-                color: Theme.of(context).colorScheme.primary,
+                color: theme.colorScheme.primary,
               ),
             ),
             Expanded(

@@ -1,63 +1,60 @@
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../colors/app_colors.dart';
 
 class AppTextStyleLightMode {
   static TextTheme lightTextTheme = TextTheme(
-    displayLarge: GoogleFonts.gabarito(
+    displayLarge: GoogleFonts.ibmPlexSansArabic(
       fontWeight: FontWeight.bold,
       color: AppColors.textLight,
     ),
-    displayMedium: GoogleFonts.gabarito(
+    displayMedium: GoogleFonts.ibmPlexSansArabic(
       fontWeight: FontWeight.bold,
       color: AppColors.textLight,
     ),
-    displaySmall: GoogleFonts.gabarito(
+    displaySmall: GoogleFonts.ibmPlexSansArabic(
       fontWeight: FontWeight.bold,
       color: AppColors.textLight,
     ),
-    headlineMedium: GoogleFonts.gabarito(
+    headlineMedium: GoogleFonts.ibmPlexSansArabic(
       fontWeight: FontWeight.w600,
       color: AppColors.textLight,
     ),
-    headlineSmall: GoogleFonts.gabarito(
+    headlineSmall: GoogleFonts.ibmPlexSansArabic(
       fontWeight: FontWeight.w600,
       color: AppColors.textLight,
     ),
-    titleLarge: GoogleFonts.gabarito(
+    titleLarge: GoogleFonts.ibmPlexSansArabic(
       fontWeight: FontWeight.w600,
       color: AppColors.textLight,
     ),
-    titleMedium: GoogleFonts.gabarito(
+    titleMedium: GoogleFonts.ibmPlexSansArabic(
       fontWeight: FontWeight.w500,
       color: AppColors.textLight,
     ),
-    titleSmall: GoogleFonts.gabarito(
+    titleSmall: GoogleFonts.ibmPlexSansArabic(
       fontWeight: FontWeight.w500,
       color: AppColors.textLight,
     ),
-    bodyLarge: GoogleFonts.gabarito(
+    bodyLarge: GoogleFonts.ibmPlexSansArabic(
       fontWeight: FontWeight.w500,
       color: AppColors.textLight,
     ),
-    bodyMedium: GoogleFonts.gabarito(
+    bodyMedium: GoogleFonts.ibmPlexSansArabic(
       color: AppColors.textLight,
     ),
-    bodySmall: GoogleFonts.gabarito(
+    bodySmall: GoogleFonts.ibmPlexSansArabic(
       color: AppColors.textLight,
     ),
-    labelLarge: GoogleFonts.gabarito(
+    labelLarge: GoogleFonts.ibmPlexSansArabic(
       fontWeight: FontWeight.w400,
       color: AppColors.hintLight,
     ),
-    labelMedium: GoogleFonts.gabarito(
+    labelMedium: GoogleFonts.ibmPlexSansArabic(
       color: AppColors.hintLight,
     ),
-    labelSmall: GoogleFonts.gabarito(
+    labelSmall: GoogleFonts.ibmPlexSansArabic(
       color: AppColors.hintLight,
     ),
   );
-
 }

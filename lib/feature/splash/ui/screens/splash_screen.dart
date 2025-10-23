@@ -3,6 +3,7 @@ import 'package:bazar_app/core/utils/app_strings.dart';
 import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../core/api/supabase_client.dart';
 import '../../../../core/helpers/shared_preference/local_storage.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -23,11 +24,17 @@ class _SplashScreenState extends State<SplashScreen> {
     await Future.delayed(const Duration(seconds: 2));
 
     final seen = OnboardingStorage().isSeen();
+    final isLoggedIn = SupabaseIsAuthenticated.isAuthenticated();
 
     if (seen == true) {
-      context.pushNamed(Routing.loginScreen);
+      if (isLoggedIn) {
+        await SupabaseRefreshSession.refreshSession();
+        context.pushReplacementNamed(Routing.homeScreen);
+      } else {
+        context.pushReplacementNamed(Routing.loginScreen);
+      }
     } else {
-      context.pushNamed(Routing.onboardingScreen);
+      context.pushReplacementNamed(Routing.onboardingScreen);
     }
   }
 

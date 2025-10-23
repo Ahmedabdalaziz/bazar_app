@@ -15,7 +15,7 @@ class SkipButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Align(
-      alignment: Alignment.centerRight,
+      alignment: AlignmentDirectional.topStart,
       child: TextButton(
         onPressed: onPressed,
         child: Text(label, style: style),

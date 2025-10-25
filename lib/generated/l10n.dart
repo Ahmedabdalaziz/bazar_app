@@ -54,6 +54,176 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Invalid email or password.`
+  String get auth_invalid_credentials {
+    return Intl.message(
+      'Invalid email or password.',
+      name: 'auth_invalid_credentials',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `User not found.`
+  String get auth_user_not_found {
+    return Intl.message(
+      'User not found.',
+      name: 'auth_user_not_found',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This email is already registered.`
+  String get auth_email_exists {
+    return Intl.message(
+      'This email is already registered.',
+      name: 'auth_email_exists',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password is too weak.`
+  String get auth_weak_password {
+    return Intl.message(
+      'Password is too weak.',
+      name: 'auth_weak_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Session expired. Please log in again.`
+  String get auth_token_expired {
+    return Intl.message(
+      'Session expired. Please log in again.',
+      name: 'auth_token_expired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid authentication token.`
+  String get auth_invalid_token {
+    return Intl.message(
+      'Invalid authentication token.',
+      name: 'auth_invalid_token',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Failed to sign in with Google.`
+  String get auth_google_sign_in_failed {
+    return Intl.message(
+      'Failed to sign in with Google.',
+      name: 'auth_google_sign_in_failed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please check your internet connection.`
+  String get network_connection_error {
+    return Intl.message(
+      'Please check your internet connection.',
+      name: 'network_connection_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Request timed out. Try again later.`
+  String get network_timeout {
+    return Intl.message(
+      'Request timed out. Try again later.',
+      name: 'network_timeout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Server is not responding. Try again later.`
+  String get network_server_error {
+    return Intl.message(
+      'Server is not responding. Try again later.',
+      name: 'network_server_error',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Duplicate entry detected.`
+  String get db_unique_violation {
+    return Intl.message(
+      'Duplicate entry detected.',
+      name: 'db_unique_violation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid reference in database.`
+  String get db_foreign_key_violation {
+    return Intl.message(
+      'Invalid reference in database.',
+      name: 'db_foreign_key_violation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Missing required field.`
+  String get db_not_null_violation {
+    return Intl.message(
+      'Missing required field.',
+      name: 'db_not_null_violation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email address.`
+  String get validation_invalid_email {
+    return Intl.message(
+      'Please enter a valid email address.',
+      name: 'validation_invalid_email',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `This field cannot be empty.`
+  String get validation_empty_field {
+    return Intl.message(
+      'This field cannot be empty.',
+      name: 'validation_empty_field',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 6 characters.`
+  String get validation_short_password {
+    return Intl.message(
+      'Password must be at least 6 characters.',
+      name: 'validation_short_password',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An unexpected error occurred. Please try again.`
+  String get unknown_error {
+    return Intl.message(
+      'An unexpected error occurred. Please try again.',
+      name: 'unknown_error',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Now reading being easier`
   String get firstOnboardingTitle {
     return Intl.message(
@@ -264,6 +434,56 @@ class S {
     return Intl.message(
       'Sign up with Facebook',
       name: 'signupWithFacebook',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must be at least 8 characters with letters and numbers`
+  String get errorValidationPassword {
+    return Intl.message(
+      'Password must be at least 8 characters with letters and numbers',
+      name: 'errorValidationPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your password`
+  String get emptyPasswordError {
+    return Intl.message(
+      'Please enter your password',
+      name: 'emptyPasswordError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email address`
+  String get errorValidationEmail {
+    return Intl.message(
+      'Please enter a valid email address',
+      name: 'errorValidationEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter your email`
+  String get emptyEmailError {
+    return Intl.message(
+      'Please enter your email',
+      name: 'emptyEmailError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login successful`
+  String get loginSuccess {
+    return Intl.message(
+      'Login successful',
+      name: 'loginSuccess',
       desc: '',
       args: [],
     );

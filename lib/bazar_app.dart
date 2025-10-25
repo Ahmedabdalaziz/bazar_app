@@ -18,25 +18,25 @@ class BazarApp extends StatelessWidget {
       designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, child) {
+      builder: (_, __) {
         return BlocProvider(
           create: (context) => SettingsCubit()..initSettings(),
           child: BlocBuilder<SettingsCubit, SettingsState>(
             builder: (context, state) {
-              final themeMode = state is SettingsThemeSuccess
-                  ? state.themeMode
-                  : ThemeMode.system;
+              ThemeMode themeMode = ThemeMode.system;
+              Locale locale = const Locale('en');
 
-              final locale = state is SettingsLanguageSuccess
-                  ? state.locale
-                  : null;
+              if (state is SettingsLoaded) {
+                themeMode = state.themeMode;
+                locale = state.locale;
+              }
 
               return MaterialApp(
                 theme: AppThemes.light(),
                 darkTheme: AppThemes.dark(),
                 themeMode: themeMode,
                 locale: locale,
-                localizationsDelegates: [
+                localizationsDelegates: const [
                   S.delegate,
                   GlobalMaterialLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,

@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
 import 'package:flutter/material.dart';
 import '../../../../core/helpers/shared_preference/local_storage.dart';
 
@@ -20,48 +19,69 @@ class SettingsCubit extends Cubit<SettingsState> {
     final savedTheme = ThemeStorage().getTheme();
     final savedLang = LanguageStorage().getLanguage();
 
-    // theme
-    if (savedTheme == 'dark') {
-      _themeMode = ThemeMode.dark;
-    } else if (savedTheme == 'light') {
-      _themeMode = ThemeMode.light;
-    } else {
-      _themeMode = ThemeMode.system;
+    // ضبط الثيم
+    switch (savedTheme) {
+      case 'dark':
+        _themeMode = ThemeMode.dark;
+        break;
+      case 'light':
+        _themeMode = ThemeMode.light;
+        break;
+      default:
+        _themeMode = ThemeMode.system;
     }
 
-    emit(SettingsThemeSuccess(_themeMode));
+    // ضبط اللغة
+    _locale = Locale(savedLang ?? 'en');
 
-    // language
-    if (savedLang != null) {
-      _locale = Locale(savedLang);
-      emit(SettingsLanguageSuccess(_locale));
-    }
+    emit(SettingsLoaded(themeMode: _themeMode, locale: _locale));
   }
 
   Future<void> toggleTheme() async {
-    emit(SettingsThemeLoading());
-    try {
-      if (_themeMode == ThemeMode.light) {
-        _themeMode = ThemeMode.dark;
-        await ThemeStorage().saveTheme('dark');
-      } else {
-        _themeMode = ThemeMode.light;
-        await ThemeStorage().saveTheme('light');
-      }
-      emit(SettingsThemeSuccess(_themeMode));
-    } catch (e) {
-      emit(SettingsThemeFailure(e.toString()));
+    if (state is! SettingsLoaded) return;
+
+    final current = state as SettingsLoaded;
+    ThemeMode newMode;
+
+    if (_themeMode == ThemeMode.light) {
+      newMode = ThemeMode.dark;
+      await ThemeStorage().saveTheme('dark');
+    } else {
+      newMode = ThemeMode.light;
+      await ThemeStorage().saveTheme('light');
     }
+
+    _themeMode = newMode;
+    emit(current.copyWith(themeMode: newMode));
   }
 
-  Future<void> changeLanguage(String langCode) async {
-    emit(SettingsLanguageLoading());
+  Future<void> toggleLanguage() async {
+    if (state is! SettingsLoaded) return;
+
+    final current = state as SettingsLoaded;
+    Locale newLocale;
+
+    if (_locale.languageCode == 'en') {
+      newLocale = const Locale('ar');
+      await LanguageStorage().saveLanguage('ar');
+    } else {
+      newLocale = const Locale('en');
+      await LanguageStorage().saveLanguage('en');
+    }
+
+    _locale = newLocale;
+    emit(current.copyWith(locale: newLocale));
+  }
+
+  Future<void> resetSettings() async {
     try {
-      _locale = Locale(langCode);
-      await LanguageStorage().saveLanguage(langCode);
-      emit(SettingsLanguageSuccess(_locale));
+      await ThemeStorage().clearTheme();
+      await LanguageStorage().clearLanguage();
+      _themeMode = ThemeMode.system;
+      _locale = const Locale('en');
+      emit(SettingsLoaded(themeMode: _themeMode, locale: _locale));
     } catch (e) {
-      emit(SettingsLanguageFailure(e.toString()));
+      emit(SettingsFailure('Failed to reset settings: $e'));
     }
   }
 }

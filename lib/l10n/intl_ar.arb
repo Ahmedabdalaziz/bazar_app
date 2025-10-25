@@ -1,5 +1,23 @@
 {
   "@@locale": "ar",
+  "auth_invalid_credentials": "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+  "auth_user_not_found": "المستخدم غير موجود.",
+  "auth_email_exists": "هذا البريد الإلكتروني مسجل بالفعل.",
+  "auth_weak_password": "كلمة المرور ضعيفة جدًا.",
+  "auth_token_expired": "انتهت الجلسة. يرجى تسجيل الدخول مرة أخرى.",
+  "auth_invalid_token": "رمز المصادقة غير صالح.",
+  "auth_google_sign_in_failed": "فشل تسجيل الدخول باستخدام Google.",
+  "network_connection_error": "يرجى التحقق من اتصالك بالإنترنت.",
+  "network_timeout": "انتهت مهلة الطلب. حاول مرة أخرى لاحقًا.",
+  "network_server_error": "الخادم لا يستجيب. حاول مرة أخرى لاحقًا.",
+  "db_unique_violation": "تم اكتشاف إدخال مكرر.",
+  "db_foreign_key_violation": "مرجع غير صالح في قاعدة البيانات.",
+  "db_not_null_violation": "حقل مطلوب مفقود.",
+  "validation_invalid_email": "يرجى إدخال بريد إلكتروني صالح.",
+  "validation_empty_field": "هذا الحقل لا يمكن أن يكون فارغًا.",
+  "validation_short_password": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
+  "unknown_error": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
+
   "firstOnboardingTitle": "الآن سيصبح قراءة الكتب أسهل",
   "firstOnboardingBody": "اكتشف عوالم جديدة، انضم إلى مجتمع قراءة نشط. ابدأ مغامرتك القرائية بسهولة معنا.",
   "secondOnboardingTitle": "رفيقك القرائي المثالي في انتظارك",
@@ -25,5 +43,10 @@
   "resetPasswordInstruction": "أدخل عنوان بريدك الإلكتروني أدناه لتلقي تعليمات إعادة تعيين كلمة المرور.",
   "orWith": "أو باستخدام",
   "signupWithGoogle": "التسجيل باستخدام جوجل",
-  "signupWithFacebook": "التسجيل باستخدام فيسبوك"
+  "signupWithFacebook": "التسجيل باستخدام فيسبوك",
+  "errorValidationPassword": "يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل مع حروف وأرقام",
+  "emptyPasswordError": "يرجى إدخال كلمة المرور الخاصة بك",
+  "errorValidationEmail": "يرجى إدخال عنوان بريد إلكتروني صالح",
+  "emptyEmailError": "يرجى إدخال بريدك الإلكتروني",
+  "loginSuccess": "تم تسجيل الدخول بنجاح"
 }

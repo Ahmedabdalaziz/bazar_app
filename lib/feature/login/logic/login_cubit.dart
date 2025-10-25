@@ -23,6 +23,7 @@ class LoginCubit extends Cubit<LoginState> {
     required String email,
     required String password,
   }) async {
+
     try {
       emit(LoginLoading());
       await SupabaseEmailAuth.signIn(email: email, password: password);

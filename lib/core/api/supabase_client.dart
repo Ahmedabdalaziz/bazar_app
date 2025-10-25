@@ -1,4 +1,3 @@
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -35,7 +34,7 @@ class SupabaseEmailAuth {
 
 class SupabaseSignupWithGoogle {
   static Future<void> signUp() async {
-    final webClientId = dotenv.env['GOOGLE_WEB_CLIENT_ID'];
+    final webClientId = ApiConstants.googleWebClientId;
 
     final googleSignIn = GoogleSignIn(clientId: webClientId);
 

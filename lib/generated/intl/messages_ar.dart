@@ -22,9 +22,51 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "auth_email_exists": MessageLookupByLibrary.simpleMessage(
+      "هذا البريد الإلكتروني مسجل بالفعل.",
+    ),
+    "auth_google_sign_in_failed": MessageLookupByLibrary.simpleMessage(
+      "فشل تسجيل الدخول باستخدام Google.",
+    ),
+    "auth_invalid_credentials": MessageLookupByLibrary.simpleMessage(
+      "البريد الإلكتروني أو كلمة المرور غير صحيحة.",
+    ),
+    "auth_invalid_token": MessageLookupByLibrary.simpleMessage(
+      "رمز المصادقة غير صالح.",
+    ),
+    "auth_token_expired": MessageLookupByLibrary.simpleMessage(
+      "انتهت الجلسة. يرجى تسجيل الدخول مرة أخرى.",
+    ),
+    "auth_user_not_found": MessageLookupByLibrary.simpleMessage(
+      "المستخدم غير موجود.",
+    ),
+    "auth_weak_password": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور ضعيفة جدًا.",
+    ),
     "continueButton": MessageLookupByLibrary.simpleMessage("استمرار"),
+    "db_foreign_key_violation": MessageLookupByLibrary.simpleMessage(
+      "مرجع غير صالح في قاعدة البيانات.",
+    ),
+    "db_not_null_violation": MessageLookupByLibrary.simpleMessage(
+      "حقل مطلوب مفقود.",
+    ),
+    "db_unique_violation": MessageLookupByLibrary.simpleMessage(
+      "تم اكتشاف إدخال مكرر.",
+    ),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟ "),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+    "emptyEmailError": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال بريدك الإلكتروني",
+    ),
+    "emptyPasswordError": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال كلمة المرور الخاصة بك",
+    ),
+    "errorValidationEmail": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال عنوان بريد إلكتروني صالح",
+    ),
+    "errorValidationPassword": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل مع حروف وأرقام",
+    ),
     "firstOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "اكتشف عوالم جديدة، انضم إلى مجتمع قراءة نشط. ابدأ مغامرتك القرائية بسهولة معنا.",
     ),
@@ -39,6 +81,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل لديك حساب بالفعل؟ ",
     ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
+    "loginSuccess": MessageLookupByLibrary.simpleMessage(
+      "تم تسجيل الدخول بنجاح",
+    ),
+    "network_connection_error": MessageLookupByLibrary.simpleMessage(
+      "يرجى التحقق من اتصالك بالإنترنت.",
+    ),
+    "network_server_error": MessageLookupByLibrary.simpleMessage(
+      "الخادم لا يستجيب. حاول مرة أخرى لاحقًا.",
+    ),
+    "network_timeout": MessageLookupByLibrary.simpleMessage(
+      "انتهت مهلة الطلب. حاول مرة أخرى لاحقًا.",
+    ),
     "nextButton": MessageLookupByLibrary.simpleMessage("التالي"),
     "orWith": MessageLookupByLibrary.simpleMessage("أو باستخدام"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
@@ -70,6 +124,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "thirdOnboardingTitle": MessageLookupByLibrary.simpleMessage(
       "ابدأ مغامرتك",
+    ),
+    "unknown_error": MessageLookupByLibrary.simpleMessage(
+      "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
+    ),
+    "validation_empty_field": MessageLookupByLibrary.simpleMessage(
+      "هذا الحقل لا يمكن أن يكون فارغًا.",
+    ),
+    "validation_invalid_email": MessageLookupByLibrary.simpleMessage(
+      "يرجى إدخال بريد إلكتروني صالح.",
+    ),
+    "validation_short_password": MessageLookupByLibrary.simpleMessage(
+      "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
     ),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage(
       "مرحبًا بك في بازار",

@@ -5,24 +5,27 @@ sealed class SettingsState {}
 
 final class SettingsInitial extends SettingsState {}
 
-// theme
-final class SettingsThemeLoading extends SettingsState {}
-final class SettingsThemeSuccess extends SettingsState {
+final class SettingsLoaded extends SettingsState {
   final ThemeMode themeMode;
-  SettingsThemeSuccess(this.themeMode);
-}
-final class SettingsThemeFailure extends SettingsState {
-  final String error;
-  SettingsThemeFailure(this.error);
+  final Locale locale;
+
+  SettingsLoaded({
+    required this.themeMode,
+    required this.locale,
+  });
+
+  SettingsLoaded copyWith({
+    ThemeMode? themeMode,
+    Locale? locale,
+  }) {
+    return SettingsLoaded(
+      themeMode: themeMode ?? this.themeMode,
+      locale: locale ?? this.locale,
+    );
+  }
 }
 
-// language
-final class SettingsLanguageLoading extends SettingsState {}
-final class SettingsLanguageSuccess extends SettingsState {
-  final Locale locale;
-  SettingsLanguageSuccess(this.locale);
-}
-final class SettingsLanguageFailure extends SettingsState {
+final class SettingsFailure extends SettingsState {
   final String error;
-  SettingsLanguageFailure(this.error);
+  SettingsFailure(this.error);
 }

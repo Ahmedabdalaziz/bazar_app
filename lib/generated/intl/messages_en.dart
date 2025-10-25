@@ -22,11 +22,53 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "auth_email_exists": MessageLookupByLibrary.simpleMessage(
+      "This email is already registered.",
+    ),
+    "auth_google_sign_in_failed": MessageLookupByLibrary.simpleMessage(
+      "Failed to sign in with Google.",
+    ),
+    "auth_invalid_credentials": MessageLookupByLibrary.simpleMessage(
+      "Invalid email or password.",
+    ),
+    "auth_invalid_token": MessageLookupByLibrary.simpleMessage(
+      "Invalid authentication token.",
+    ),
+    "auth_token_expired": MessageLookupByLibrary.simpleMessage(
+      "Session expired. Please log in again.",
+    ),
+    "auth_user_not_found": MessageLookupByLibrary.simpleMessage(
+      "User not found.",
+    ),
+    "auth_weak_password": MessageLookupByLibrary.simpleMessage(
+      "Password is too weak.",
+    ),
     "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
+    "db_foreign_key_violation": MessageLookupByLibrary.simpleMessage(
+      "Invalid reference in database.",
+    ),
+    "db_not_null_violation": MessageLookupByLibrary.simpleMessage(
+      "Missing required field.",
+    ),
+    "db_unique_violation": MessageLookupByLibrary.simpleMessage(
+      "Duplicate entry detected.",
+    ),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account? ",
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
+    "emptyEmailError": MessageLookupByLibrary.simpleMessage(
+      "Please enter your email",
+    ),
+    "emptyPasswordError": MessageLookupByLibrary.simpleMessage(
+      "Please enter your password",
+    ),
+    "errorValidationEmail": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid email address",
+    ),
+    "errorValidationPassword": MessageLookupByLibrary.simpleMessage(
+      "Password must be at least 8 characters with letters and numbers",
+    ),
     "firstOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "Discover new worlds, join a vibrant reading community. Start your reading adventure effortlessly with us.",
     ),
@@ -39,6 +81,16 @@ class MessageLookup extends MessageLookupByLibrary {
       "Already have an account? ",
     ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
+    "loginSuccess": MessageLookupByLibrary.simpleMessage("Login successful"),
+    "network_connection_error": MessageLookupByLibrary.simpleMessage(
+      "Please check your internet connection.",
+    ),
+    "network_server_error": MessageLookupByLibrary.simpleMessage(
+      "Server is not responding. Try again later.",
+    ),
+    "network_timeout": MessageLookupByLibrary.simpleMessage(
+      "Request timed out. Try again later.",
+    ),
     "nextButton": MessageLookupByLibrary.simpleMessage("Next"),
     "orWith": MessageLookupByLibrary.simpleMessage("Or with"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
@@ -68,6 +120,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "thirdOnboardingTitle": MessageLookupByLibrary.simpleMessage(
       "Start Your Adventure",
+    ),
+    "unknown_error": MessageLookupByLibrary.simpleMessage(
+      "An unexpected error occurred. Please try again.",
+    ),
+    "validation_empty_field": MessageLookupByLibrary.simpleMessage(
+      "This field cannot be empty.",
+    ),
+    "validation_invalid_email": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid email address.",
+    ),
+    "validation_short_password": MessageLookupByLibrary.simpleMessage(
+      "Password must be at least 6 characters.",
     ),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome to Bazar"),
     "yourEmail": MessageLookupByLibrary.simpleMessage("Your Email"),

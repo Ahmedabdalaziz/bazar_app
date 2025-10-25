@@ -31,6 +31,7 @@ class LoginBody extends StatelessWidget {
               ],
             ),
             verticalSpace(32),
+            //google ya m3alm
             BlocConsumer<LoginCubit, LoginState>(
               listener: (context, state) {
                 if (state is LoginError) {

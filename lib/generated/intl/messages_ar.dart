@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "Congratulation": MessageLookupByLibrary.simpleMessage("مبروك!"),
     "HaveAnAccount": MessageLookupByLibrary.simpleMessage("هل لديك حساب؟"),
     "auth_email_exists": MessageLookupByLibrary.simpleMessage(
       "هذا البريد الإلكتروني مسجل بالفعل.",
@@ -74,6 +75,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "errorValidationPassword": MessageLookupByLibrary.simpleMessage(
       "يجب أن تكون كلمة المرور مكونة من 8 أحرف على الأقل مع حروف وأرقام",
     ),
+    "fieldsCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
+      "الحقول لا يجب أن تكون فارغة",
+    ),
     "firstOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "اكتشف عوالم جديدة، انضم إلى مجتمع قراءة نشط. ابدأ مغامرتك القرائية بسهولة معنا.",
     ),
@@ -84,8 +88,20 @@ class MessageLookup extends MessageLookupByLibrary {
       "هل نسيت كلمة المرور؟",
     ),
     "getStartedButton": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
+    "getStartedPrompt": MessageLookupByLibrary.simpleMessage(
+      "حسابك مكتمل، استمتع بأفضل قائمة منا.",
+    ),
     "haveAccount": MessageLookupByLibrary.simpleMessage(
       "هل لديك حساب بالفعل؟ ",
+    ),
+    "invalidEmail": MessageLookupByLibrary.simpleMessage(
+      "من فضلك أدخل بريد إلكتروني صحيح",
+    ),
+    "invalidPassword": MessageLookupByLibrary.simpleMessage(
+      "كلمة المرور يجب أن تحتوي على حرف كبير وصغير ورقم ورمز ويكون طولها 8 أحرف على الأقل",
+    ),
+    "invalidUsername": MessageLookupByLibrary.simpleMessage(
+      "اسم المستخدم يجب أن يكون بين 3 و20 حرف بدون رموز",
     ),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginSuccess": MessageLookupByLibrary.simpleMessage(
@@ -122,6 +138,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "سجل الدخول إلى حسابك",
     ),
     "signUp": MessageLookupByLibrary.simpleMessage("إنشاء حساب"),
+    "signUpSuccess": MessageLookupByLibrary.simpleMessage("تم التسجيل بنجاح"),
+    "signupFailed": MessageLookupByLibrary.simpleMessage(
+      "فشل إنشاء الحساب، حاول مرة أخرى",
+    ),
+    "signupSuccess": MessageLookupByLibrary.simpleMessage(
+      "تم إنشاء الحساب بنجاح",
+    ),
     "signupWithFacebook": MessageLookupByLibrary.simpleMessage(
       "التسجيل باستخدام فيسبوك",
     ),

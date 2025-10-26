@@ -55,5 +55,14 @@
   "HaveAnAccount": "Have an account?",
   "signIn": "Sign In",
   "byClickingSignUp": "By clicking Register, you agree to our",
-  "termsOfService": "Terms of Service"
+  "termsOfService": "Terms of Service",
+  "signUpSuccess": "Sign up successful",
+  "fieldsCannotBeEmpty": "Fields cannot be empty",
+  "invalidUsername": "Username must be between 3 and 20 characters without symbols",
+  "invalidEmail": "Please enter a valid email address",
+  "invalidPassword": "Password must contain uppercase, lowercase, number, symbol and be at least 8 characters long",
+  "signupSuccess": "Account created successfully",
+  "signupFailed": "Signup failed, please try again",
+  "Congratulation": "Congratulation!",
+  "getStartedPrompt": "your account is complete, please enjoy the best menu from us."
 }

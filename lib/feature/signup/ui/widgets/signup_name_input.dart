@@ -4,11 +4,12 @@ import '../../../../core/widgets/spaces.dart';
 import '../../../../generated/l10n.dart';
 
 class SignUpNameInput extends StatelessWidget {
-  const SignUpNameInput({super.key});
+  final TextEditingController controller;
+
+  const SignUpNameInput({required this.controller, super.key});
 
   @override
   Widget build(BuildContext context) {
-    final controller = TextEditingController();
     final s = S.of(context);
     final theme = Theme.of(context);
     return Column(

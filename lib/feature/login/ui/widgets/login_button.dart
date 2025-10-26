@@ -63,4 +63,3 @@ class LoginButton extends StatelessWidget {
     );
   }
 }
-

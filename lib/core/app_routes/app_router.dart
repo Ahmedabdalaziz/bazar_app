@@ -1,4 +1,7 @@
 import 'package:bazar_app/core/app_routes/routes_strings.dart';
+import 'package:bazar_app/feature/home/presentation/home_screen/ui/home_screen.dart';
+import 'package:bazar_app/feature/home/presentation/home_screen/ui/welcome_screen.dart';
+import 'package:bazar_app/feature/signup/logic/signup_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -24,12 +27,18 @@ class AppRouter {
         );
 
       case Routing.signupScreen:
-        return createRoute(const SignupScreen());
+        return createRoute(
+          BlocProvider(
+            create: (context) => SignupCubit(),
+            child: SignupScreen(),
+          ),
+        );
+
+      case Routing.welcomeScreen:
+        return createRoute(const WelcomeScreen());
 
       case Routing.homeScreen:
-        return createRoute(
-          const Scaffold(body: Center(child: Text('home Screen'))),
-        );
+        return createRoute(const HomeScreen());
     }
     return createRoute(
       const Scaffold(body: Center(child: Text('No Route Found'))),

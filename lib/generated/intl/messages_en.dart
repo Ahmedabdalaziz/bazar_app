@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "Congratulation": MessageLookupByLibrary.simpleMessage("Congratulation!"),
     "HaveAnAccount": MessageLookupByLibrary.simpleMessage("Have an account?"),
     "auth_email_exists": MessageLookupByLibrary.simpleMessage(
       "This email is already registered.",
@@ -76,6 +77,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "errorValidationPassword": MessageLookupByLibrary.simpleMessage(
       "Password must be at least 8 characters with letters and numbers",
     ),
+    "fieldsCannotBeEmpty": MessageLookupByLibrary.simpleMessage(
+      "Fields cannot be empty",
+    ),
     "firstOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "Discover new worlds, join a vibrant reading community. Start your reading adventure effortlessly with us.",
     ),
@@ -84,8 +88,20 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "forgotPassword": MessageLookupByLibrary.simpleMessage("Forgot Password?"),
     "getStartedButton": MessageLookupByLibrary.simpleMessage("Get Started"),
+    "getStartedPrompt": MessageLookupByLibrary.simpleMessage(
+      "your account is complete, please enjoy the best menu from us.",
+    ),
     "haveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
+    ),
+    "invalidEmail": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid email address",
+    ),
+    "invalidPassword": MessageLookupByLibrary.simpleMessage(
+      "Password must contain uppercase, lowercase, number, symbol and be at least 8 characters long",
+    ),
+    "invalidUsername": MessageLookupByLibrary.simpleMessage(
+      "Username must be between 3 and 20 characters without symbols",
     ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSuccess": MessageLookupByLibrary.simpleMessage("Login successful"),
@@ -118,6 +134,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "Sign to your account",
     ),
     "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+    "signUpSuccess": MessageLookupByLibrary.simpleMessage("Sign up successful"),
+    "signupFailed": MessageLookupByLibrary.simpleMessage(
+      "Signup failed, please try again",
+    ),
+    "signupSuccess": MessageLookupByLibrary.simpleMessage(
+      "Account created successfully",
+    ),
     "signupWithFacebook": MessageLookupByLibrary.simpleMessage(
       "Sign up with Facebook",
     ),

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:supabase/supabase.dart';
 
 abstract class Failure {
@@ -8,30 +10,47 @@ abstract class Failure {
 }
 
 class AuthFailure extends Failure {
-  const AuthFailure({required String message, String? code})
-    : super(message: message, code: code);
+  const AuthFailure({required super.message, super.code});
 }
 
 class NetworkFailure extends Failure {
-  const NetworkFailure({required String message, String? code})
-    : super(message: message, code: code);
+  const NetworkFailure({required super.message, super.code});
 }
 
 class UnknownFailure extends Failure {
-  const UnknownFailure({required String message, String? code})
-    : super(message: message, code: code);
+  const UnknownFailure({required super.message, super.code});
 }
 
 class ExceptionHandler {
   static Failure handle(dynamic error) {
     if (error is AuthException) {
-      return AuthFailure(message: error.message, code: error.statusCode);
+      return AuthFailure(
+        message: error.message.isNotEmpty
+            ? error.message
+            : "حدث خطأ أثناء تسجيل الدخول أو التسجيل",
+        code: error.statusCode,
+      );
     }
 
     if (error is PostgrestException) {
-      return NetworkFailure(message: error.message, code: error.code);
+      return NetworkFailure(
+        message: error.message.isNotEmpty
+            ? error.message
+            : "فشل الاتصال بقاعدة البيانات",
+        code: error.code,
+      );
     }
 
-    return UnknownFailure(message: error.toString(), code: '500');
+    if (error is SocketException) {
+      return NetworkFailure(
+        message: "تحقق من اتصالك بالإنترنت",
+        code: "no_connection",
+      );
+    }
+
+    return UnknownFailure(
+      message: error.toString(),
+      code: "unknown",
+    );
   }
 }

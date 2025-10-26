@@ -14,7 +14,24 @@ class SupabaseService {
   static SupabaseClient get client => Supabase.instance.client;
 }
 
-class SupabaseEmailAuth {
+class SupaBaseEmailSignUp {
+  static Future<void> signUp({
+    required String email,
+    required String password,
+    required String username,
+  }) async {
+    final response = await SupabaseService.client.auth.signUp(
+      email: email,
+      password: password,
+      data: {'username': username},
+    );
+    if (response.session == null) {
+      throw Exception('Unknown authentication error');
+    }
+  }
+}
+
+class SupabaseEmailSignIn {
   static Future<void> signIn({
     required String email,
     required String password,

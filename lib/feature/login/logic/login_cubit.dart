@@ -26,7 +26,7 @@ class LoginCubit extends Cubit<LoginState> {
 
     try {
       emit(LoginLoading());
-      await SupabaseEmailAuth.signIn(email: email, password: password);
+      await SupabaseEmailSignIn.signIn(email: email, password: password);
       emit(LoginSuccess());
     } catch (e) {
       emit(LoginError(ExceptionHandler.handle(e)));

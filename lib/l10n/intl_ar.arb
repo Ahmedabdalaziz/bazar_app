@@ -55,5 +55,14 @@
   "HaveAnAccount": "هل لديك حساب؟",
   "signIn": "تسجيل الدخول",
   "byClickingSignUp": "بالنقر على تسجيل، فإنك توافق على",
-  "termsOfService": "شروط الخدمة"
+  "termsOfService": "شروط الخدمة",
+  "signUpSuccess": "تم التسجيل بنجاح",
+  "fieldsCannotBeEmpty": "الحقول لا يجب أن تكون فارغة",
+  "invalidUsername": "اسم المستخدم يجب أن يكون بين 3 و20 حرف بدون رموز",
+  "invalidEmail": "من فضلك أدخل بريد إلكتروني صحيح",
+  "invalidPassword": "كلمة المرور يجب أن تحتوي على حرف كبير وصغير ورقم ورمز ويكون طولها 8 أحرف على الأقل",
+  "signupSuccess": "تم إنشاء الحساب بنجاح",
+  "signupFailed": "فشل إنشاء الحساب، حاول مرة أخرى",
+  "Congratulation": "مبروك!",
+  "getStartedPrompt": "حسابك مكتمل، استمتع بأفضل قائمة منا."
 }

@@ -548,6 +548,96 @@ class S {
       args: [],
     );
   }
+
+  /// `Sign up successful`
+  String get signUpSuccess {
+    return Intl.message(
+      'Sign up successful',
+      name: 'signUpSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fields cannot be empty`
+  String get fieldsCannotBeEmpty {
+    return Intl.message(
+      'Fields cannot be empty',
+      name: 'fieldsCannotBeEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Username must be between 3 and 20 characters without symbols`
+  String get invalidUsername {
+    return Intl.message(
+      'Username must be between 3 and 20 characters without symbols',
+      name: 'invalidUsername',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid email address`
+  String get invalidEmail {
+    return Intl.message(
+      'Please enter a valid email address',
+      name: 'invalidEmail',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Password must contain uppercase, lowercase, number, symbol and be at least 8 characters long`
+  String get invalidPassword {
+    return Intl.message(
+      'Password must contain uppercase, lowercase, number, symbol and be at least 8 characters long',
+      name: 'invalidPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Account created successfully`
+  String get signupSuccess {
+    return Intl.message(
+      'Account created successfully',
+      name: 'signupSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Signup failed, please try again`
+  String get signupFailed {
+    return Intl.message(
+      'Signup failed, please try again',
+      name: 'signupFailed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Congratulation!`
+  String get Congratulation {
+    return Intl.message(
+      'Congratulation!',
+      name: 'Congratulation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `your account is complete, please enjoy the best menu from us.`
+  String get getStartedPrompt {
+    return Intl.message(
+      'your account is complete, please enjoy the best menu from us.',
+      name: 'getStartedPrompt',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

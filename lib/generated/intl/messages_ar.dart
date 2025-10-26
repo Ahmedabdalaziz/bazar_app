@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "HaveAnAccount": MessageLookupByLibrary.simpleMessage("هل لديك حساب؟"),
     "auth_email_exists": MessageLookupByLibrary.simpleMessage(
       "هذا البريد الإلكتروني مسجل بالفعل.",
     ),
@@ -43,7 +44,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "auth_weak_password": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور ضعيفة جدًا.",
     ),
+    "byClickingSignUp": MessageLookupByLibrary.simpleMessage(
+      "بالنقر على تسجيل، فإنك توافق على",
+    ),
     "continueButton": MessageLookupByLibrary.simpleMessage("استمرار"),
+    "createAccount": MessageLookupByLibrary.simpleMessage(
+      "إنشاء حساب واختيار القائمة المفضلة",
+    ),
     "db_foreign_key_violation": MessageLookupByLibrary.simpleMessage(
       "مرجع غير صالح في قاعدة البيانات.",
     ),
@@ -84,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "loginSuccess": MessageLookupByLibrary.simpleMessage(
       "تم تسجيل الدخول بنجاح",
     ),
+    "name": MessageLookupByLibrary.simpleMessage("الاسم"),
     "network_connection_error": MessageLookupByLibrary.simpleMessage(
       "يرجى التحقق من اتصالك بالإنترنت.",
     ),
@@ -96,6 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "nextButton": MessageLookupByLibrary.simpleMessage("التالي"),
     "orWith": MessageLookupByLibrary.simpleMessage("أو باستخدام"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
     "resetPassword": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
     ),
@@ -108,6 +117,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "secondOnboardingTitle": MessageLookupByLibrary.simpleMessage(
       "رفيقك القرائي المثالي في انتظارك",
     ),
+    "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signToYourAccount": MessageLookupByLibrary.simpleMessage(
       "سجل الدخول إلى حسابك",
     ),
@@ -119,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "التسجيل باستخدام جوجل",
     ),
     "skipButton": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "termsOfService": MessageLookupByLibrary.simpleMessage("شروط الخدمة"),
     "thirdOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "هل أنت مستعد لبدء رحلة مليئة بالإلهام والمعرفة؟ مغامرتك تبدأ الآن. هيا بنا!",
     ),
@@ -141,6 +152,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "مرحبًا بك في بازار",
     ),
     "yourEmail": MessageLookupByLibrary.simpleMessage("بريدك الإلكتروني"),
+    "yourName": MessageLookupByLibrary.simpleMessage("اسمك"),
     "yourPassword": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور الخاصة بك",
     ),

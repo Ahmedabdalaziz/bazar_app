@@ -18,13 +18,13 @@ class AppRouter {
       case Routing.onboardingScreen:
         return createRoute(const OnboardingScreen());
 
-      case Routing.signupScreen:
-        return createRoute(const SignupScreen());
-
       case Routing.loginScreen:
         return createRoute(
           BlocProvider(create: (context) => LoginCubit(), child: LoginScreen()),
         );
+
+      case Routing.signupScreen:
+        return createRoute(const SignupScreen());
 
       case Routing.homeScreen:
         return createRoute(

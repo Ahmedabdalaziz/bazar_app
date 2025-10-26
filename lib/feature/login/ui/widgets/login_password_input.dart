@@ -8,7 +8,11 @@ class PasswordInput extends StatelessWidget {
   final TextEditingController controller;
   final ValueNotifier<bool> obscureNotifier;
 
-  const PasswordInput({required this.controller, required this.obscureNotifier, super.key});
+  const PasswordInput({
+    required this.controller,
+    required this.obscureNotifier,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

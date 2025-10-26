@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (seen == true) {
       if (isLoggedIn) {
         await SupabaseRefreshSession.refreshSession();
-        context.pushReplacementNamed(Routing.homeScreen);
+        context.pushReplacementNamed(Routing.loginScreen);
       } else {
         context.pushReplacementNamed(Routing.loginScreen);
       }

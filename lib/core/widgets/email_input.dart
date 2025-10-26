@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/helpers/validations/validation.dart';
-import '../../../../../../core/widgets/spaces.dart';
-import '../../../../../../generated/l10n.dart';
+import '../../../../core/helpers/validations/validation.dart';
+import '../../../../core/widgets/spaces.dart';
+import '../../../../generated/l10n.dart';
 
 class EmailInput extends StatelessWidget {
   final TextEditingController controller;

@@ -488,6 +488,66 @@ class S {
       args: [],
     );
   }
+
+  /// `Create account and choose favorite menu`
+  String get createAccount {
+    return Intl.message(
+      'Create account and choose favorite menu',
+      name: 'createAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Name`
+  String get name {
+    return Intl.message('Name', name: 'name', desc: '', args: []);
+  }
+
+  /// `Your Name`
+  String get yourName {
+    return Intl.message('Your Name', name: 'yourName', desc: '', args: []);
+  }
+
+  /// `Register`
+  String get register {
+    return Intl.message('Register', name: 'register', desc: '', args: []);
+  }
+
+  /// `Have an account?`
+  String get HaveAnAccount {
+    return Intl.message(
+      'Have an account?',
+      name: 'HaveAnAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign In`
+  String get signIn {
+    return Intl.message('Sign In', name: 'signIn', desc: '', args: []);
+  }
+
+  /// `By clicking Register, you agree to our`
+  String get byClickingSignUp {
+    return Intl.message(
+      'By clicking Register, you agree to our',
+      name: 'byClickingSignUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Terms of Service`
+  String get termsOfService {
+    return Intl.message(
+      'Terms of Service',
+      name: 'termsOfService',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

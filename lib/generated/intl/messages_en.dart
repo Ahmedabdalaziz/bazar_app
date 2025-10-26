@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "HaveAnAccount": MessageLookupByLibrary.simpleMessage("Have an account?"),
     "auth_email_exists": MessageLookupByLibrary.simpleMessage(
       "This email is already registered.",
     ),
@@ -43,7 +44,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "auth_weak_password": MessageLookupByLibrary.simpleMessage(
       "Password is too weak.",
     ),
+    "byClickingSignUp": MessageLookupByLibrary.simpleMessage(
+      "By clicking Register, you agree to our",
+    ),
     "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
+    "createAccount": MessageLookupByLibrary.simpleMessage(
+      "Create account and choose favorite menu",
+    ),
     "db_foreign_key_violation": MessageLookupByLibrary.simpleMessage(
       "Invalid reference in database.",
     ),
@@ -82,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSuccess": MessageLookupByLibrary.simpleMessage("Login successful"),
+    "name": MessageLookupByLibrary.simpleMessage("Name"),
     "network_connection_error": MessageLookupByLibrary.simpleMessage(
       "Please check your internet connection.",
     ),
@@ -94,6 +102,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "nextButton": MessageLookupByLibrary.simpleMessage("Next"),
     "orWith": MessageLookupByLibrary.simpleMessage("Or with"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "register": MessageLookupByLibrary.simpleMessage("Register"),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
       "Enter your email address below to receive password reset instructions.",
@@ -104,6 +113,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "secondOnboardingTitle": MessageLookupByLibrary.simpleMessage(
       "Your Bookish Soulmate Awaits",
     ),
+    "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "signToYourAccount": MessageLookupByLibrary.simpleMessage(
       "Sign to your account",
     ),
@@ -115,6 +125,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Sign up with Google",
     ),
     "skipButton": MessageLookupByLibrary.simpleMessage("Skip"),
+    "termsOfService": MessageLookupByLibrary.simpleMessage("Terms of Service"),
     "thirdOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "Ready to embark on a quest for inspiration and knowledge? Your adventure begins now. Let\'s go!",
     ),
@@ -135,6 +146,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome to Bazar"),
     "yourEmail": MessageLookupByLibrary.simpleMessage("Your Email"),
+    "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),
     "yourPassword": MessageLookupByLibrary.simpleMessage("Your Password"),
   };
 }

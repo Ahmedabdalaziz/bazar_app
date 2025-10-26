@@ -47,5 +47,13 @@
   "emptyPasswordError": "Please enter your password",
   "errorValidationEmail": "Please enter a valid email address",
   "emptyEmailError": "Please enter your email",
-  "loginSuccess": "Login successful"
+  "loginSuccess": "Login successful",
+  "createAccount": "Create account and choose favorite menu",
+  "name": "Name",
+  "yourName": "Your Name",
+  "register": "Register",
+  "HaveAnAccount": "Have an account?",
+  "signIn": "Sign In",
+  "byClickingSignUp": "By clicking Register, you agree to our",
+  "termsOfService": "Terms of Service"
 }

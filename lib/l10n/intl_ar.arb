@@ -17,7 +17,6 @@
   "validation_empty_field": "هذا الحقل لا يمكن أن يكون فارغًا.",
   "validation_short_password": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
   "unknown_error": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
-
   "firstOnboardingTitle": "الآن سيصبح قراءة الكتب أسهل",
   "firstOnboardingBody": "اكتشف عوالم جديدة، انضم إلى مجتمع قراءة نشط. ابدأ مغامرتك القرائية بسهولة معنا.",
   "secondOnboardingTitle": "رفيقك القرائي المثالي في انتظارك",
@@ -48,5 +47,13 @@
   "emptyPasswordError": "يرجى إدخال كلمة المرور الخاصة بك",
   "errorValidationEmail": "يرجى إدخال عنوان بريد إلكتروني صالح",
   "emptyEmailError": "يرجى إدخال بريدك الإلكتروني",
-  "loginSuccess": "تم تسجيل الدخول بنجاح"
+  "loginSuccess": "تم تسجيل الدخول بنجاح",
+  "createAccount": "إنشاء حساب واختيار القائمة المفضلة",
+  "name": "الاسم",
+  "yourName": "اسمك",
+  "register": "تسجيل",
+  "HaveAnAccount": "هل لديك حساب؟",
+  "signIn": "تسجيل الدخول",
+  "byClickingSignUp": "بالنقر على تسجيل، فإنك توافق على",
+  "termsOfService": "شروط الخدمة"
 }

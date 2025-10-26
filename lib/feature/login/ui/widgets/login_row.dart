@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../../core/app_routes/routes_strings.dart';
 import '../../../../../../generated/l10n.dart';
 
-class SignupRow extends StatelessWidget {
-  const SignupRow({super.key});
+class LoginRow extends StatelessWidget {
+  const LoginRow({super.key});
 
   @override
   Widget build(BuildContext context) {

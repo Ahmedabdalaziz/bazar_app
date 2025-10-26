@@ -8,10 +8,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/app_routes/routes_strings.dart';
 import '../../../../../../generated/l10n.dart';
-import 'email_input.dart';
+import '../../../../core/widgets/email_input.dart';
 import 'login_button.dart';
-import 'password_input.dart';
-import 'signup_row.dart';
+import 'login_password_input.dart';
+import 'login_row.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key});
@@ -81,7 +81,7 @@ class _LoginFormState extends State<LoginForm> {
                 passwordController: _passwordController,
               ),
               verticalSpace(24),
-              const SignupRow(),
+              const LoginRow(),
             ],
           ),
         ),

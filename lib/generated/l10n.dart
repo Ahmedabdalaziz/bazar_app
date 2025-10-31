@@ -643,6 +643,36 @@ class S {
   String get home {
     return Intl.message('Home', name: 'home', desc: '', args: []);
   }
+
+  /// `Top of the Week`
+  String get topOfWeek {
+    return Intl.message(
+      'Top of the Week',
+      name: 'topOfWeek',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Best Vendors`
+  String get bestVendors {
+    return Intl.message(
+      'Best Vendors',
+      name: 'bestVendors',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Authors`
+  String get authors {
+    return Intl.message('Authors', name: 'authors', desc: '', args: []);
+  }
+
+  /// `See All`
+  String get seeAll {
+    return Intl.message('See All', name: 'seeAll', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

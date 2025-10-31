@@ -1,26 +1,32 @@
 import 'package:supabase_auth_ui/supabase_auth_ui.dart';
 
 class VendorService {
-  static final _supabase = Supabase.instance.client;
+  final SupabaseClient _supabase;
 
-  static Future<List<Map<String, dynamic>>> getAll() async {
+  VendorService(this._supabase);
+
+  Future<List<Map<String, dynamic>>> getAll() async {
     return await _supabase.from('vendors').select();
   }
 }
 
 class AuthorService {
-  static final _supabase = Supabase.instance.client;
+  final SupabaseClient _supabase;
 
-  static Future<List<Map<String, dynamic>>> getAll() async {
+  AuthorService(this._supabase);
+
+  Future<List<Map<String, dynamic>>> getAll() async {
     return await _supabase.from('authors').select();
   }
 }
 
 //TODO : عايز اظبط حتة البايمنت معاها
 class OrderService {
-  static final _supabase = Supabase.instance.client;
+  final SupabaseClient _supabase;
 
-  static Future<String> create({
+  OrderService(this._supabase);
+
+  Future<String> create({
     required String userId,
     required String addressId,
     required List<Map<String, dynamic>> items,
@@ -30,24 +36,23 @@ class OrderService {
     final order = await _supabase
         .from('orders')
         .insert({
-          'profile_id': userId,
-          'shipping_address_id': addressId,
-          'total_amount': total,
-          'status': 'pending',
-        })
+      'profile_id': userId,
+      'shipping_address_id': addressId,
+      'total_amount': total,
+      'status': 'pending',
+    })
         .select()
         .single();
 
-    final orderItems = items
-        .map((i) => {...i, 'order_id': order['id']})
-        .toList();
+    final orderItems =
+    items.map((i) => {...i, 'order_id': order['id']}).toList();
 
     await _supabase.from('order_items').insert(orderItems);
 
     return order['id'];
   }
 
-  static Future<List<Map<String, dynamic>>> getAll(String userId) async {
+  Future<List<Map<String, dynamic>>> getAll(String userId) async {
     return await _supabase
         .from('user_orders_summary')
         .select()
@@ -57,16 +62,18 @@ class OrderService {
 }
 
 class AddressService {
-  static final _supabase = Supabase.instance.client;
+  final SupabaseClient _supabase;
 
-  static Future<List<Map<String, dynamic>>> getAll(String userId) async {
+  AddressService(this._supabase);
+
+  Future<List<Map<String, dynamic>>> getAll(String userId) async {
     return await _supabase.from('addresses').select().eq('profile_id', userId);
   }
 
-  static Future<Map<String, dynamic>> create(
-    String userId,
-    Map<String, dynamic> address,
-  ) async {
+  Future<Map<String, dynamic>> create(
+      String userId,
+      Map<String, dynamic> address,
+      ) async {
     return await _supabase
         .from('addresses')
         .insert({...address, 'profile_id': userId})
@@ -74,26 +81,28 @@ class AddressService {
         .single();
   }
 
-  static Future<void> update(String id, Map<String, dynamic> updates) async {
+  Future<void> update(String id, Map<String, dynamic> updates) async {
     await _supabase.from('addresses').update(updates).eq('id', id);
   }
 
-  static Future<void> delete(String id) async {
+  Future<void> delete(String id) async {
     await _supabase.from('addresses').delete().eq('id', id);
   }
 }
 
 class WishlistService {
-  static final _supabase = Supabase.instance.client;
+  final SupabaseClient _supabase;
 
-  static Future<void> add(String userId, String bookId) async {
+  WishlistService(this._supabase);
+
+  Future<void> add(String userId, String bookId) async {
     await _supabase.from('wishlists').upsert({
       'profile_id': userId,
       'book_id': bookId,
     }, onConflict: 'profile_id,book_id');
   }
 
-  static Future<void> remove(String userId, String bookId) async {
+  Future<void> remove(String userId, String bookId) async {
     await _supabase
         .from('wishlists')
         .delete()
@@ -101,7 +110,7 @@ class WishlistService {
         .eq('book_id', bookId);
   }
 
-  static Future<List<Map<String, dynamic>>> getAll(String userId) async {
+  Future<List<Map<String, dynamic>>> getAll(String userId) async {
     return await _supabase
         .from('wishlists')
         .select('books(*)')
@@ -110,10 +119,12 @@ class WishlistService {
 }
 
 class BookService {
-  static final _supabase = Supabase.instance.client;
+  final SupabaseClient _supabase;
 
-  static Future<Map<String, dynamic>?> getById(String bookId) async {
-    final data = await _supabase
+  BookService(this._supabase);
+
+  Future<Map<String, dynamic>?> getById(String bookId) async {
+    return await _supabase
         .from('books')
         .select('''
           id,
@@ -135,15 +146,12 @@ class BookService {
         ''')
         .eq('id', bookId)
         .maybeSingle();
-
-    return data;
   }
 
-  static Future<List<Map<String, dynamic>>> getPaginated({
+  Future<List<Map<String, dynamic>>> getPaginated({
     int page = 0,
     int pageSize = 8,
-  }) async
-  {
+  }) async {
     final start = page * pageSize;
     final end = start + pageSize - 1;
 
@@ -162,6 +170,8 @@ class BookService {
           review_count,
           created_at,
           updated_at,
+          author_id,
+          author_name,
           book_authors!inner(
             author_id,
             authors(id, name)
@@ -171,7 +181,7 @@ class BookService {
         .order('created_at', ascending: false);
   }
 
-  static Future<List<Map<String, dynamic>>> getTop20() async {
+  Future<List<Map<String, dynamic>>> getTop20() async {
     return await _supabase
         .from('books')
         .select('''
@@ -197,7 +207,7 @@ class BookService {
         .order('review_count', ascending: false);
   }
 
-  static Future<List<Map<String, dynamic>>> getAll() async {
+  Future<List<Map<String, dynamic>>> getAll() async {
     return await _supabase
         .from('books')
         .select('''
@@ -221,7 +231,7 @@ class BookService {
         .order('created_at', ascending: false);
   }
 
-  static Future<List<Map<String, dynamic>>> search(String query) async {
+  Future<List<Map<String, dynamic>>> search(String query) async {
     if (query.trim().isEmpty) return [];
 
     return await _supabase

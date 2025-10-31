@@ -53,9 +53,7 @@ extension BuildContextSnackBarExtension on BuildContext {
     } else if (isSuccess) {
       effectiveBackgroundColor = Colors.green.shade700;
     } else {
-      effectiveBackgroundColor = Colors.green.shade700;
-      //TODO : عدل امعلم دي علشان المفروض نعمل الثيم
-      // effectiveBackgroundColor = backgroundColor ?? colorScheme.primary;
+      effectiveBackgroundColor = Color(0xFFD7BE00);
     }
 
     messenger.showSnackBar(

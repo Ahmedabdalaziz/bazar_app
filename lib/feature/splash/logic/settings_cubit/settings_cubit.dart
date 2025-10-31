@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+
 import '../../../../core/helpers/shared_preference/local_storage.dart';
 
 part 'settings_state.dart';
@@ -11,6 +12,7 @@ class SettingsCubit extends Cubit<SettingsState> {
   Locale _locale = const Locale('en');
 
   ThemeMode get themeMode => _themeMode;
+
   Locale get locale => _locale;
 
   Future<void> initSettings() async {
@@ -84,4 +86,8 @@ class SettingsCubit extends Cubit<SettingsState> {
       emit(SettingsFailure('Failed to reset settings: $e'));
     }
   }
+
+  bool get isArabic => _locale.languageCode == 'ar';
+
+  bool get isDarkMode => _themeMode == ThemeMode.dark;
 }

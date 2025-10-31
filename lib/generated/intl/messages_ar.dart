@@ -45,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "auth_weak_password": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور ضعيفة جدًا.",
     ),
+    "authors": MessageLookupByLibrary.simpleMessage("المؤلفون"),
+    "bestVendors": MessageLookupByLibrary.simpleMessage("أفضل البائعين"),
     "byClickingSignUp": MessageLookupByLibrary.simpleMessage(
       "بالنقر على تسجيل، فإنك توافق على",
     ),
@@ -134,6 +136,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "secondOnboardingTitle": MessageLookupByLibrary.simpleMessage(
       "رفيقك القرائي المثالي في انتظارك",
     ),
+    "seeAll": MessageLookupByLibrary.simpleMessage("عرض الكل"),
     "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "signToYourAccount": MessageLookupByLibrary.simpleMessage(
       "سجل الدخول إلى حسابك",
@@ -159,6 +162,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "thirdOnboardingTitle": MessageLookupByLibrary.simpleMessage(
       "ابدأ مغامرتك",
+    ),
+    "topOfWeek": MessageLookupByLibrary.simpleMessage(
+      "أفضل الكتب لهذا الأسبوع",
     ),
     "unknown_error": MessageLookupByLibrary.simpleMessage(
       "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",

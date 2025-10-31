@@ -1,4 +1,3 @@
-//Session and user
 import 'package:gotrue/src/types/user.dart';
 import 'package:supabase/supabase.dart';
 

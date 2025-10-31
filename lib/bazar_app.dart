@@ -25,12 +25,10 @@ class BazarApp extends StatelessWidget {
             builder: (context, state) {
               ThemeMode themeMode = ThemeMode.system;
               Locale locale = const Locale('en');
-
               if (state is SettingsLoaded) {
                 themeMode = state.themeMode;
                 locale = state.locale;
               }
-
               return MaterialApp(
                 theme: AppThemes.light(),
                 darkTheme: AppThemes.dark(),

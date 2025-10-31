@@ -45,6 +45,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "auth_weak_password": MessageLookupByLibrary.simpleMessage(
       "Password is too weak.",
     ),
+    "authors": MessageLookupByLibrary.simpleMessage("Authors"),
+    "bestVendors": MessageLookupByLibrary.simpleMessage("Best Vendors"),
     "byClickingSignUp": MessageLookupByLibrary.simpleMessage(
       "By clicking Register, you agree to our",
     ),
@@ -130,6 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "secondOnboardingTitle": MessageLookupByLibrary.simpleMessage(
       "Your Bookish Soulmate",
     ),
+    "seeAll": MessageLookupByLibrary.simpleMessage("See All"),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "signToYourAccount": MessageLookupByLibrary.simpleMessage(
       "Sign to your account",
@@ -156,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "thirdOnboardingTitle": MessageLookupByLibrary.simpleMessage(
       "Start Your Adventure",
     ),
+    "topOfWeek": MessageLookupByLibrary.simpleMessage("Top of the Week"),
     "unknown_error": MessageLookupByLibrary.simpleMessage(
       "An unexpected error occurred. Please try again.",
     ),

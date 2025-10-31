@@ -5,8 +5,8 @@ import 'package:bazar_app/feature/home/presentation/home_screen/ui/widgets/scrol
 import 'package:bazar_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class TopOfWeekWidget extends StatelessWidget {
-  const TopOfWeekWidget({super.key});
+class BestVendors extends StatelessWidget {
+  const BestVendors({super.key});
 
   @override
   Widget build(BuildContext context) {

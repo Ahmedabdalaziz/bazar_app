@@ -65,5 +65,9 @@
   "signupFailed": "Signup failed, please try again",
   "Congratulation": "Congratulation!",
   "getStartedPrompt": "your account is complete, please enjoy the best menu from us.",
-  "home": "Home"
+  "home": "Home",
+  "topOfWeek": "Top of the Week",
+  "bestVendors": "Best Vendors",
+  "authors": "Authors",
+  "seeAll": "See All"
 }

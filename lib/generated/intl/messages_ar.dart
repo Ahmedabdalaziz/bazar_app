@@ -94,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "haveAccount": MessageLookupByLibrary.simpleMessage(
       "هل لديك حساب بالفعل؟ ",
     ),
+    "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "invalidEmail": MessageLookupByLibrary.simpleMessage(
       "من فضلك أدخل بريد إلكتروني صحيح",
     ),

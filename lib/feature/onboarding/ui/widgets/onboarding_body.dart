@@ -33,7 +33,7 @@ class OnboardingBody extends StatelessWidget {
 
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+        padding: EdgeInsets.symmetric(horizontal: 20.w,),
         child: Column(
           children: [
             SkipButton(
@@ -58,7 +58,7 @@ class OnboardingBody extends StatelessWidget {
               ),
             ),
             Expanded(
-              flex: 3,
+              flex: 4,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -66,7 +66,7 @@ class OnboardingBody extends StatelessWidget {
                     title: onboardingData.title,
                     description: onboardingData.description,
                   ),
-                  verticalSpace(10),
+                  verticalSpace(24),
 
                   PrimaryActionButton(
                     label: isLast ? s.getStartedButton : s.nextButton,

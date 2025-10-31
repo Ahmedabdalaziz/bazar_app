@@ -244,20 +244,20 @@ class S {
     );
   }
 
-  /// `Your Bookish Soulmate Awaits`
+  /// `Your Bookish Soulmate`
   String get secondOnboardingTitle {
     return Intl.message(
-      'Your Bookish Soulmate Awaits',
+      'Your Bookish Soulmate',
       name: 'secondOnboardingTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Let us be your guide to the perfect read. Discover books tailored to your tastes for a truly rewarding experience.`
+  /// `Guide to your perfect read. Books tailored to your taste for rewarding experience.`
   String get secondOnboardingBody {
     return Intl.message(
-      'Let us be your guide to the perfect read. Discover books tailored to your tastes for a truly rewarding experience.',
+      'Guide to your perfect read. Books tailored to your taste for rewarding experience.',
       name: 'secondOnboardingBody',
       desc: '',
       args: [],
@@ -637,6 +637,11 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
   }
 }
 

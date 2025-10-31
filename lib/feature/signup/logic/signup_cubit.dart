@@ -1,4 +1,4 @@
-import 'package:bazar_app/core/api/supabase_client.dart';
+import 'package:bazar_app/core/api/Auth_supabase.dart';
 import 'package:bazar_app/core/error/failure.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';

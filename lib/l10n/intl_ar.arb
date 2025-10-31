@@ -64,5 +64,6 @@
   "signupSuccess": "تم إنشاء الحساب بنجاح",
   "signupFailed": "فشل إنشاء الحساب، حاول مرة أخرى",
   "Congratulation": "مبروك!",
-  "getStartedPrompt": "حسابك مكتمل، استمتع بأفضل قائمة منا."
+  "getStartedPrompt": "حسابك مكتمل، استمتع بأفضل قائمة منا.",
+  "home": "الرئيسية"
 }

@@ -94,6 +94,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "haveAccount": MessageLookupByLibrary.simpleMessage(
       "Already have an account? ",
     ),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "invalidEmail": MessageLookupByLibrary.simpleMessage(
       "Please enter a valid email address",
     ),
@@ -124,10 +125,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Enter your email address below to receive password reset instructions.",
     ),
     "secondOnboardingBody": MessageLookupByLibrary.simpleMessage(
-      "Let us be your guide to the perfect read. Discover books tailored to your tastes for a truly rewarding experience.",
+      "Guide to your perfect read. Books tailored to your taste for rewarding experience.",
     ),
     "secondOnboardingTitle": MessageLookupByLibrary.simpleMessage(
-      "Your Bookish Soulmate Awaits",
+      "Your Bookish Soulmate",
     ),
     "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
     "signToYourAccount": MessageLookupByLibrary.simpleMessage(

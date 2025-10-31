@@ -13,7 +13,6 @@ class AppDarkTheme {
       brightness: Brightness.dark,
       scaffoldBackgroundColor: AppColors.gray900,
       fontFamily: 'Poppins',
-
       colorScheme: AppColorSchemes.dark(),
       appBarTheme: AppBarThemes.dark(),
       textTheme: AppTextStyleDarkMode.darkTextTheme,

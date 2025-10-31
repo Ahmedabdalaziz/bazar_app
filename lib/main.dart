@@ -1,5 +1,5 @@
 import 'package:bazar_app/bazar_app.dart';
-import 'package:bazar_app/core/api/supabase_client.dart';
+import 'package:bazar_app/core/api/Auth_supabase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';

@@ -1,9 +1,9 @@
+import 'package:bazar_app/core/api/refresh_and_session_supabase.dart';
 import 'package:bazar_app/core/app_routes/routes_strings.dart';
 import 'package:bazar_app/core/utils/app_strings.dart';
 import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/api/supabase_client.dart';
 import '../../../../core/helpers/shared_preference/local_storage.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
     if (seen == true) {
       if (isLoggedIn) {
         await SupabaseRefreshSession.refreshSession();
-        context.pushReplacementNamed(Routing.loginScreen);
+        context.pushReplacementNamed(Routing.homeScreen);
       } else {
         context.pushReplacementNamed(Routing.loginScreen);
       }

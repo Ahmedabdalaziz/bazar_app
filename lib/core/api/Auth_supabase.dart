@@ -14,6 +14,7 @@ class SupabaseService {
   static SupabaseClient get client => Supabase.instance.client;
 }
 
+//Authentication
 class SupaBaseEmailSignUp {
   static Future<void> signUp({
     required String email,
@@ -32,19 +33,23 @@ class SupaBaseEmailSignUp {
 }
 
 class SupabaseEmailSignIn {
+  static final _supabase = Supabase.instance.client;
+
   static Future<void> signIn({
     required String email,
     required String password,
   }) async {
-    final supabase = SupabaseService.client;
-
-    final response = await supabase.auth.signInWithPassword(
+    final response = await _supabase.auth.signInWithPassword(
       email: email,
       password: password,
     );
 
-    if (response.user == null) {
-      throw Exception('Unknown authentication error');
+    if (response.user != null) {
+      _supabase.from('profiles').upsert({
+        'id': response.user!.id,
+        'email': email,
+        'updated_at': DateTime.now().toIso8601String(),
+      }, onConflict: 'id').ignore();
     }
   }
 }
@@ -80,31 +85,5 @@ class SupabaseSignupWithGoogle {
 class SupabaseSignOut {
   static Future<void> signOut() async {
     await SupabaseService.client.auth.signOut();
-  }
-}
-
-class SupabaseGetCurrentUser {
-  static User? getCurrentUser() {
-    return SupabaseService.client.auth.currentUser;
-  }
-}
-
-class SupabaseGetSession {
-  static Session? getSession() {
-    return SupabaseService.client.auth.currentSession;
-  }
-}
-
-class SupabaseRefreshSession {
-  static Future<Session?> refreshSession() async {
-    final response = await SupabaseService.client.auth.refreshSession();
-    return response.session;
-  }
-}
-
-class SupabaseIsAuthenticated {
-  static bool isAuthenticated() {
-    final user = SupabaseService.client.auth.currentUser;
-    return user != null;
   }
 }

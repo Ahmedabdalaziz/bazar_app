@@ -19,8 +19,8 @@
   "unknown_error": "An unexpected error occurred. Please try again.",
   "firstOnboardingTitle": "Now reading being easier",
   "firstOnboardingBody": "Discover new worlds, join a vibrant reading community. Start your reading adventure effortlessly with us.",
-  "secondOnboardingTitle": "Your Bookish Soulmate Awaits",
-  "secondOnboardingBody": "Let us be your guide to the perfect read. Discover books tailored to your tastes for a truly rewarding experience.",
+  "secondOnboardingTitle": "Your Bookish Soulmate",
+  "secondOnboardingBody": "Guide to your perfect read. Books tailored to your taste for rewarding experience.",
   "thirdOnboardingTitle": "Start Your Adventure",
   "thirdOnboardingBody": "Ready to embark on a quest for inspiration and knowledge? Your adventure begins now. Let's go!",
   "getStartedButton": "Get Started",
@@ -64,5 +64,6 @@
   "signupSuccess": "Account created successfully",
   "signupFailed": "Signup failed, please try again",
   "Congratulation": "Congratulation!",
-  "getStartedPrompt": "your account is complete, please enjoy the best menu from us."
+  "getStartedPrompt": "your account is complete, please enjoy the best menu from us.",
+  "home": "Home"
 }

@@ -7,7 +7,7 @@ part of 'books_model.dart';
 // **************************************************************************
 
 BookModel _$BookModelFromJson(Map<String, dynamic> json) => BookModel(
-  id: (json['id'] as num).toInt(),
+  id: json['id'] as String,
   title: json['title'] as String,
   coverUrl: json['cover_url'] as String?,
   price: (json['price'] as num?)?.toDouble(),
@@ -19,7 +19,7 @@ BookModel _$BookModelFromJson(Map<String, dynamic> json) => BookModel(
   reviewCount: (json['review_count'] as num?)?.toInt(),
   createdAt: json['created_at'] as String?,
   updatedAt: json['updated_at'] as String?,
-  authorId: (json['author_id'] as num?)?.toInt(),
+  authorId: json['author_id'] as String?,
   authorName: json['author_name'] as String?,
   bookAuthors: (json['book_authors'] as List<dynamic>?)
       ?.map((e) => BookAuthor.fromJson(e as Map<String, dynamic>))
@@ -45,7 +45,7 @@ Map<String, dynamic> _$BookModelToJson(BookModel instance) => <String, dynamic>{
 };
 
 BookAuthor _$BookAuthorFromJson(Map<String, dynamic> json) => BookAuthor(
-  authorId: (json['author_id'] as num).toInt(),
+  authorId: json['author_id'] as String,
   author: Author.fromJson(json['author'] as Map<String, dynamic>),
 );
 
@@ -56,7 +56,7 @@ Map<String, dynamic> _$BookAuthorToJson(BookAuthor instance) =>
     };
 
 Author _$AuthorFromJson(Map<String, dynamic> json) =>
-    Author(id: (json['id'] as num).toInt(), name: json['name'] as String);
+    Author(id: json['id'] as String, name: json['name'] as String);
 
 Map<String, dynamic> _$AuthorToJson(Author instance) => <String, dynamic>{
   'id': instance.id,

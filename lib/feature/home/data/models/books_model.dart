@@ -4,7 +4,7 @@ part 'books_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class BookModel {
-  final int id;
+  final String id;
   final String title;
   @JsonKey(name: 'cover_url')
   final String? coverUrl;
@@ -22,7 +22,7 @@ class BookModel {
   @JsonKey(name: 'updated_at')
   final String? updatedAt;
   @JsonKey(name: 'author_id')
-  final int? authorId;
+  final String? authorId;
   @JsonKey(name: 'author_name')
   final String? authorName;
   @JsonKey(name: 'book_authors')
@@ -55,7 +55,7 @@ class BookModel {
 @JsonSerializable()
 class BookAuthor {
   @JsonKey(name: 'author_id')
-  final int authorId;
+  final String authorId;
   final Author author;
 
   BookAuthor({
@@ -71,7 +71,7 @@ class BookAuthor {
 
 @JsonSerializable()
 class Author {
-  final int id;
+  final String id;
   final String name;
 
   Author({

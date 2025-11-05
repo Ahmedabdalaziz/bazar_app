@@ -1,9 +1,10 @@
+import 'package:bazar_app/core/helpers/local_storage/local_storage.dart'
+    show OnboardingStorage;
 import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../../core/app_routes/routes_strings.dart';
-import '../../../../../../core/helpers/shared_preference/local_storage.dart';
 import '../../../../../../core/widgets/spaces.dart';
 import '../../../../../../generated/l10n.dart';
 import '../onboarding_screen.dart';
@@ -33,7 +34,7 @@ class OnboardingBody extends StatelessWidget {
 
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20.w,),
+        padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
           children: [
             SkipButton(

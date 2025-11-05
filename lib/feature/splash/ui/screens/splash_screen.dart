@@ -1,10 +1,9 @@
 import 'package:bazar_app/core/api/refresh_and_session_supabase.dart';
 import 'package:bazar_app/core/app_routes/routes_strings.dart';
+import 'package:bazar_app/core/helpers/local_storage/local_storage.dart';
 import 'package:bazar_app/core/utils/app_strings.dart';
 import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/helpers/shared_preference/local_storage.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

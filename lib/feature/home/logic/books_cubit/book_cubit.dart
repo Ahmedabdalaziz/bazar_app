@@ -1,14 +1,15 @@
 import 'package:bazar_app/core/error/failure.dart';
-import 'package:bazar_app/feature/home/presentation/home_screen/data/models/books_model.dart';
+import 'package:bazar_app/core/helpers/local_storage/local_storage.dart';
+import 'package:bazar_app/feature/home/data/models/books_model.dart';
+import 'package:bazar_app/feature/home/data/repo/book_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-
-import '../../data/repo/book_repository.dart';
 
 part 'book_state.dart';
 
 class BookCubit extends Cubit<BookState> {
   final BookRepository _bookRepository;
+  final BookCacheStorage _cache = BookCacheStorage();
 
   BookCubit(this._bookRepository) : super(BookInitial());
 
@@ -19,8 +20,14 @@ class BookCubit extends Cubit<BookState> {
         page: page,
         pageSize: pageSize,
       );
+      await _cache.saveBooks(books);
+      print("----------------------------------$books --------------------------------");
       emit(BookLoaded(books));
     } catch (e) {
+      final cached = _cache.getBooks();
+      if (cached != null && cached.isNotEmpty) {
+        emit(BookLoaded(cached));
+      }
       emit(BookError(ExceptionHandler.handle(e)));
     }
   }
@@ -29,8 +36,13 @@ class BookCubit extends Cubit<BookState> {
     emit(BookLoading());
     try {
       final books = await _bookRepository.fetchTop20Books();
+      await _cache.saveBooks(books);
       emit(BookLoaded(books));
     } catch (e) {
+      final cached = _cache.getBooks();
+      if (cached != null && cached.isNotEmpty) {
+        emit(BookLoaded(cached));
+      }
       emit(BookError(ExceptionHandler.handle(e)));
     }
   }
@@ -42,6 +54,10 @@ class BookCubit extends Cubit<BookState> {
       final books = await _bookRepository.searchBooks(query);
       emit(BookLoaded(books));
     } catch (e) {
+      final cached = _cache.getBooks();
+      if (cached != null && cached.isNotEmpty) {
+        emit(BookLoaded(cached));
+      }
       emit(BookError(ExceptionHandler.handle(e)));
     }
   }
@@ -64,8 +80,13 @@ class BookCubit extends Cubit<BookState> {
     emit(BookLoading());
     try {
       final books = await _bookRepository.fetchAllBooks();
+      await _cache.saveBooks(books);
       emit(BookLoaded(books));
     } catch (e) {
+      final cached = _cache.getBooks();
+      if (cached != null && cached.isNotEmpty) {
+        emit(BookLoaded(cached));
+      }
       emit(BookError(ExceptionHandler.handle(e)));
     }
   }

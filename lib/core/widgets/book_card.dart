@@ -42,10 +42,8 @@ class BookCard extends StatelessWidget {
                   fit: BoxFit.cover,
                   maxHeightDiskCache: 198.h.round(),
                   maxWidthDiskCache: 127.w.round(),
-                  placeholder: (context, url) => Container(
-                    child: const Center(
-                      child: CircularProgressIndicator(strokeWidth: 2),
-                    ),
+                  placeholder: (context, url) => const Center(
+                    child: CircularProgressIndicator(strokeWidth: 2),
                   ),
                   errorWidget: (context, url, error) =>
                       const Icon(Icons.image_not_supported, color: Colors.grey),

@@ -1,8 +1,6 @@
 import 'package:bazar_app/core/widgets/spaces.dart';
-import 'package:bazar_app/feature/splash/logic/settings_cubit/settings_cubit.dart';
 import 'package:bazar_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ScrollableSection<T> extends StatelessWidget {
@@ -48,7 +46,7 @@ class ScrollableSection<T> extends StatelessWidget {
           height: 200.h,
           child: PageView.builder(
             controller: PageController(viewportFraction: 0.38),
-            itemCount: 5,
+            itemCount: items.length,
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             padEnds: false,

@@ -1,5 +1,5 @@
 import 'package:bazar_app/core/api/crud_operation_supabase.dart';
-import 'package:bazar_app/feature/home/presentation/home_screen/data/models/books_model.dart';
+import 'package:bazar_app/feature/home/data/models/books_model.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class BookRepository {

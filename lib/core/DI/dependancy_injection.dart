@@ -1,8 +1,9 @@
 import 'package:bazar_app/core/api/crud_operation_supabase.dart';
-import 'package:bazar_app/feature/home/presentation/home_screen/data/repo/book_repository.dart';
-import 'package:bazar_app/feature/home/presentation/home_screen/logic/books_cubit/book_cubit.dart';
+import 'package:bazar_app/feature/home/data/repo/book_repository.dart';
 import 'package:get_it/get_it.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../../feature/home/logic/books_cubit/book_cubit.dart';
 
 final getIt = GetIt.instance;
 

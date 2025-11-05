@@ -1,7 +1,6 @@
+import 'package:bazar_app/core/helpers/local_storage/local_storage.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../core/helpers/shared_preference/local_storage.dart';
 
 part 'settings_state.dart';
 

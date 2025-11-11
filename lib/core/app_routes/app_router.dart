@@ -1,9 +1,9 @@
 import 'package:bazar_app/core/DI/dependancy_injection.dart';
 import 'package:bazar_app/core/app_routes/routes_strings.dart';
-import 'package:bazar_app/feature/home/logic/books_cubit/book_cubit.dart';
+import 'package:bazar_app/feature/home/logic/bottom_navigation_cubit/bottom_navigation_cubit.dart';
 import 'package:bazar_app/feature/home/presentation/home_screen/ui/home_screen.dart';
-import 'package:bazar_app/feature/welcome/welcome_screen.dart';
 import 'package:bazar_app/feature/signup/logic/signup_cubit.dart';
+import 'package:bazar_app/feature/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,13 +25,16 @@ class AppRouter {
 
       case Routing.loginScreen:
         return createRoute(
-          BlocProvider(create: (context) => LoginCubit(), child: LoginScreen()),
+          BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: LoginScreen(),
+          ),
         );
 
       case Routing.signupScreen:
         return createRoute(
           BlocProvider(
-            create: (context) => SignupCubit(),
+            create: (context) => getIt<SignupCubit>(),
             child: SignupScreen(),
           ),
         );
@@ -41,9 +44,9 @@ class AppRouter {
 
       case Routing.homeScreen:
         return createRoute(
-          BlocProvider.value(
-            value: getIt<BookCubit>(),
-            child: const HomeScreen(),
+          BlocProvider(
+            create: (context) => getIt<BottomNavigationCubit>(),
+            child: HomeScreen(),
           ),
         );
     }

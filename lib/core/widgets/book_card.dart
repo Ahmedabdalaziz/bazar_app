@@ -27,14 +27,10 @@ class BookCard extends StatelessWidget {
         height: 198.h,
         width: 127.w,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(16.r),
-                topRight: Radius.circular(16.r),
-                bottomLeft: Radius.circular(16.r),
-                bottomRight: Radius.circular(16.r),
-              ),
+              borderRadius: BorderRadius.circular(16.r),
               child: AspectRatio(
                 aspectRatio: 0.80,
                 child: CachedNetworkImage(
@@ -42,42 +38,37 @@ class BookCard extends StatelessWidget {
                   fit: BoxFit.cover,
                   maxHeightDiskCache: 198.h.round(),
                   maxWidthDiskCache: 127.w.round(),
-                  placeholder: (context, url) => const Center(
-                    child: CircularProgressIndicator(strokeWidth: 2),
-                  ),
                   errorWidget: (context, url, error) =>
                       const Icon(Icons.image_not_supported, color: Colors.grey),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        title,
-                        style: theme.textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+            verticalSpace(8),
+            Row(
+              children: [
+                Flexible(
+                  child: Text(
+                    title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                  verticalSpace(4),
-                  Row(
-                    children: [
-                      Text(
-                        '\$${price.toStringAsFixed(2)}',
-                        style: theme.textTheme.titleMedium!.copyWith(
-                          color: theme.colorScheme.primary,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+                ),
+              ],
+            ),
+            verticalSpace(4),
+            Row(
+              children: [
+                Text(
+                  '\$${price.toStringAsFixed(2)}',
+                  style: theme.textTheme.titleMedium!.copyWith(
+                    color: theme.colorScheme.primary,
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ],
         ),

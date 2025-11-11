@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+
 import '../colors/app_colors.dart';
 
 class BottomNavTheme {
   static BottomNavigationBarThemeData light() {
     return const BottomNavigationBarThemeData(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.gray100,
       selectedItemColor: AppColors.accent,
       unselectedItemColor: AppColors.gray500,
       showUnselectedLabels: true,
       type: BottomNavigationBarType.fixed,
+      elevation: 0,
     );
   }
 
@@ -19,6 +21,7 @@ class BottomNavTheme {
       unselectedItemColor: AppColors.gray500,
       showUnselectedLabels: true,
       type: BottomNavigationBarType.fixed,
+      elevation: 0,
     );
   }
 }

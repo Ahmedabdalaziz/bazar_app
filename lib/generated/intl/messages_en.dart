@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Congratulation": MessageLookupByLibrary.simpleMessage("Congratulation!"),
     "HaveAnAccount": MessageLookupByLibrary.simpleMessage("Have an account?"),
+    "UnknownTitle": MessageLookupByLibrary.simpleMessage("Unknown Title"),
     "auth_email_exists": MessageLookupByLibrary.simpleMessage(
       "This email is already registered.",
     ),
@@ -50,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "byClickingSignUp": MessageLookupByLibrary.simpleMessage(
       "By clicking Register, you agree to our",
     ),
+    "cart": MessageLookupByLibrary.simpleMessage("Cart"),
+    "category": MessageLookupByLibrary.simpleMessage("Category"),
     "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
     "createAccount": MessageLookupByLibrary.simpleMessage(
       "Create account and choose favorite menu",
@@ -121,6 +124,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "nextButton": MessageLookupByLibrary.simpleMessage("Next"),
     "orWith": MessageLookupByLibrary.simpleMessage("Or with"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
+    "profile": MessageLookupByLibrary.simpleMessage("Profile"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(

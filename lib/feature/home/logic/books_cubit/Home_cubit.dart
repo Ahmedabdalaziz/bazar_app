@@ -1,18 +1,20 @@
 import 'package:bazar_app/core/error/failure.dart';
 import 'package:bazar_app/core/helpers/local_storage/local_storage.dart';
-import 'package:bazar_app/feature/home/data/models/books_model.dart';
-import 'package:bazar_app/feature/home/data/repo/book_repository.dart';
+import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
+import 'package:bazar_app/feature/home/data/models/vendors_model/vendor_model.dart';
+import 'package:bazar_app/feature/home/data/repo/home_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-part 'book_state.dart';
+part 'Home_state.dart';
 
-class BookCubit extends Cubit<BookState> {
-  final BookRepository _bookRepository;
+class HomeCubit extends Cubit<HomeState> {
+  final HomeRepository _bookRepository;
   final BookCacheStorage _cache = BookCacheStorage();
 
-  BookCubit(this._bookRepository) : super(BookInitial());
+  HomeCubit(this._bookRepository) : super(BookInitial());
 
+  ///////////////////////Books//////////////////////////
   Future<void> fetchPaginatedBooks({int page = 0, int pageSize = 5}) async {
     emit(BookLoading());
     try {
@@ -21,7 +23,10 @@ class BookCubit extends Cubit<BookState> {
         pageSize: pageSize,
       );
       await _cache.saveBooks(books);
-      print("----------------------------------$books --------------------------------");
+      //TODO : remove print
+      print(
+        "----------------------------------$books --------------------------------",
+      );
       emit(BookLoaded(books));
     } catch (e) {
       final cached = _cache.getBooks();
@@ -88,6 +93,69 @@ class BookCubit extends Cubit<BookState> {
         emit(BookLoaded(cached));
       }
       emit(BookError(ExceptionHandler.handle(e)));
+    }
+  }
+
+  Future<void> fetchBooksByAuthor(String authorId) async {
+    emit(BookLoading());
+    try {
+      final books = await _bookRepository.fetchBooksByAuthor(authorId);
+      emit(BookLoaded(books));
+    } catch (e) {
+      emit(BookError(ExceptionHandler.handle(e)));
+    }
+  }
+
+  Future<void> fetchBooksByVendor(String vendorId) async {
+    emit(BookLoading());
+    try {
+      final books = await _bookRepository.fetchBooksByVendor(vendorId);
+      emit(BookLoaded(books));
+    } catch (e) {
+      emit(BookError(ExceptionHandler.handle(e)));
+    }
+  }
+
+  ///////////////////////////vendors//////////////////////////
+
+  Future<void> fetchAllVendors() async {
+    emit(VendorLoading());
+    try {
+      final vendors = await _bookRepository.fetchAllVendors();
+      emit(VendorLoaded(vendors));
+    } catch (e) {
+      emit(VendorError(ExceptionHandler.handle(e)));
+    }
+  }
+
+  Future<void> fetchPaginatedVendors({
+    required int size,
+    required int page,
+  }) async {
+    emit(VendorLoading());
+    try {
+      final vendors = await _bookRepository.getPaginated(page, size);
+      emit(VendorLoaded(vendors));
+      //TODO : remove print
+      print(
+        "----------------------------------$vendors --------------------------------",
+      );
+    } catch (e) {
+      emit(VendorError(ExceptionHandler.handle(e)));
+    }
+  }
+
+  Future<void> getVendorById(String id) async {
+    emit(VendorLoading());
+    try {
+      final vendor = await _bookRepository.getById(id);
+      if (vendor != null) {
+        emit(VendorDetailLoaded(vendor));
+      } else {
+        emit(VendorError(ExceptionHandler.handle('Vendor not found')));
+      }
+    } catch (e) {
+      emit(VendorError(ExceptionHandler.handle(e)));
     }
   }
 }

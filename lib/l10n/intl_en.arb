@@ -66,8 +66,12 @@
   "Congratulation": "Congratulation!",
   "getStartedPrompt": "your account is complete, please enjoy the best menu from us.",
   "home": "Home",
+  "category": "Category",
+  "cart": "Cart",
+  "profile": "Profile",
   "topOfWeek": "Top of the Week",
   "bestVendors": "Best Vendors",
   "authors": "Authors",
-  "seeAll": "See All"
+  "seeAll": "See All",
+  "UnknownTitle": "Unknown Title"
 }

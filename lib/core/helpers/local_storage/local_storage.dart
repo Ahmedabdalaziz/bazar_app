@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:bazar_app/core/helpers/local_storage/preference_keys.dart'
     show PrefKeys;
-import 'package:bazar_app/feature/home/data/models/books_model.dart';
+import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
 import 'package:hive/hive.dart';
 
 class LocalStorage {

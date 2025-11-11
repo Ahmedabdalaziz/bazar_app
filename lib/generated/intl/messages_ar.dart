@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Congratulation": MessageLookupByLibrary.simpleMessage("مبروك!"),
     "HaveAnAccount": MessageLookupByLibrary.simpleMessage("هل لديك حساب؟"),
+    "UnknownTitle": MessageLookupByLibrary.simpleMessage("عنوان غير معروف"),
     "auth_email_exists": MessageLookupByLibrary.simpleMessage(
       "هذا البريد الإلكتروني مسجل بالفعل.",
     ),
@@ -50,6 +51,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "byClickingSignUp": MessageLookupByLibrary.simpleMessage(
       "بالنقر على تسجيل، فإنك توافق على",
     ),
+    "cart": MessageLookupByLibrary.simpleMessage("السلة"),
+    "category": MessageLookupByLibrary.simpleMessage("الفئات"),
     "continueButton": MessageLookupByLibrary.simpleMessage("استمرار"),
     "createAccount": MessageLookupByLibrary.simpleMessage(
       "إنشاء حساب واختيار القائمة المفضلة",
@@ -123,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "nextButton": MessageLookupByLibrary.simpleMessage("التالي"),
     "orWith": MessageLookupByLibrary.simpleMessage("أو باستخدام"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+    "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
     "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
     "resetPassword": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",

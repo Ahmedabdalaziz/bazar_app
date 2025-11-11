@@ -644,6 +644,21 @@ class S {
     return Intl.message('Home', name: 'home', desc: '', args: []);
   }
 
+  /// `Category`
+  String get category {
+    return Intl.message('Category', name: 'category', desc: '', args: []);
+  }
+
+  /// `Cart`
+  String get cart {
+    return Intl.message('Cart', name: 'cart', desc: '', args: []);
+  }
+
+  /// `Profile`
+  String get profile {
+    return Intl.message('Profile', name: 'profile', desc: '', args: []);
+  }
+
   /// `Top of the Week`
   String get topOfWeek {
     return Intl.message(
@@ -672,6 +687,16 @@ class S {
   /// `See All`
   String get seeAll {
     return Intl.message('See All', name: 'seeAll', desc: '', args: []);
+  }
+
+  /// `Unknown Title`
+  String get UnknownTitle {
+    return Intl.message(
+      'Unknown Title',
+      name: 'UnknownTitle',
+      desc: '',
+      args: [],
+    );
   }
 }
 

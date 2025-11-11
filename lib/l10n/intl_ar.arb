@@ -66,8 +66,12 @@
   "Congratulation": "مبروك!",
   "getStartedPrompt": "حسابك مكتمل، استمتع بأفضل قائمة منا.",
   "home": "الرئيسية",
+  "category": "الفئات",
+  "cart": "السلة",
+  "profile": "الملف الشخصي",
   "topOfWeek": "أفضل الكتب لهذا الأسبوع",
   "bestVendors": "أفضل البائعين",
   "authors": "المؤلفون",
-  "seeAll": "عرض الكل"
+  "seeAll": "عرض الكل",
+  "UnknownTitle": "عنوان غير معروف"
 }

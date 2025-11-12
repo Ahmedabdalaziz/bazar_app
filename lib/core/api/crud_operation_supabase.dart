@@ -183,7 +183,7 @@ class BookService {
   BookService(this._client);
 
   static const String _bookSelect =
-      '*, book_authors(author_id, author:authors(id, name))';
+      '*, book_authors(author_id, authors:authors(id, name))';
 
   Future<BookModel?> getById(String id) async {
     final res = await _client

@@ -46,13 +46,13 @@ Map<String, dynamic> _$BookModelToJson(BookModel instance) => <String, dynamic>{
 
 BookAuthor _$BookAuthorFromJson(Map<String, dynamic> json) => BookAuthor(
   authorId: json['author_id'] as String,
-  author: Author.fromJson(json['author'] as Map<String, dynamic>),
+  author: Author.fromJson(json['authors'] as Map<String, dynamic>),
 );
 
 Map<String, dynamic> _$BookAuthorToJson(BookAuthor instance) =>
     <String, dynamic>{
       'author_id': instance.authorId,
-      'author': instance.author,
+      'authors': instance.author,
     };
 
 Author _$AuthorFromJson(Map<String, dynamic> json) =>

@@ -56,7 +56,7 @@ class HomeRepository {
     try {
       return await _bookService.getByAuthor(authorId);
     } catch (e) {
-      throw Exception('Failed to fetch books by author');
+      throw Exception('Failed to fetch books by authors');
     }
   }
 

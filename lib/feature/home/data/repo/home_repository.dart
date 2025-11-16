@@ -1,12 +1,14 @@
 import 'package:bazar_app/core/api/crud_operation_supabase.dart';
 import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
 import 'package:bazar_app/feature/home/data/models/vendors_model/vendor_model.dart';
+import 'package:bazar_app/feature/home/data/models/authors_model/author_model.dart';
 
 class HomeRepository {
   final BookService _bookService;
   final VendorService _vendorService;
+  final AuthorService _authorService;
 
-  HomeRepository(this._bookService, this._vendorService);
+  HomeRepository(this._bookService, this._vendorService, this._authorService);
 
   //////////////////books////////////////////////
   Future<List<BookModel>> fetchPaginatedBooks({
@@ -77,19 +79,47 @@ class HomeRepository {
     }
   }
 
-  Future<List<VendorModel>> getPaginated(int page, int size) async {
+  Future<List<VendorModel>> getPaginatedVendors(int page, int size) async {
     try {
-      return await _vendorService.getPaginated(size: 5, page: 0);
+      return await _vendorService.getPaginated(size: size, page: page);
     } catch (e) {
       throw Exception('Failed to fetch paginated vendors');
     }
   }
 
-  Future<VendorModel?> getById(String id) async {
+  Future<VendorModel?> getVendorById(String id) async {
     try {
       return _vendorService.getById(id);
     } catch (e) {
       throw Exception('Failed to fetch vendor by ID');
+    }
+  }
+
+  //////////////////Authors//////////////////////
+  Future<List<AuthorModel>> fetchAllAuthors() async {
+    try {
+      final res = await _authorService.getAll();
+      return res.map((e) => AuthorModel.fromJson(e)).toList();
+    } catch (e) {
+      throw Exception('Failed to fetch all authors');
+    }
+  }
+
+  Future<List<AuthorModel>> getPaginatedAuthors(int page, int size) async {
+    try {
+      final res = await _authorService.getPaginated(page: page, size: size);
+      return res.map((e) => AuthorModel.fromJson(e)).toList();
+    } catch (e) {
+      throw Exception('Failed to fetch paginated authors');
+    }
+  }
+
+  Future<AuthorModel?> getAuthorById(String id) async {
+    try {
+      final res = await _authorService.getById(id);
+      return res != null ? AuthorModel.fromJson(res) : null;
+    } catch (e) {
+      throw Exception('Failed to fetch author by ID');
     }
   }
 }

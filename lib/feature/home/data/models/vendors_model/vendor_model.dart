@@ -8,6 +8,7 @@ class VendorModel {
   final String name;
   final String? slug;
   final String? description;
+  @JsonKey(name: 'logo_url')
   final String? logoUrl;
   final DateTime? createdAt;
   final DateTime? updatedAt;

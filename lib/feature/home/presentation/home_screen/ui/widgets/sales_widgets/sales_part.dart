@@ -6,9 +6,9 @@ import '../../../../../../../core/utils/app_strings.dart';
 import '../../../../../../../core/widgets/shimmer/sales_banner_shimmer.dart';
 
 class SalesPart extends StatelessWidget {
-  bool? isShimmering;
+  final bool isShimmering;
 
-  SalesPart({super.key, this.isShimmering});
+  const SalesPart({super.key, required this.isShimmering});
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +17,15 @@ class SalesPart extends StatelessWidget {
       child: SizedBox(
         height: 200,
         width: double.infinity,
-        child: isShimmering!
-            ? SalesBannerShimmer()
+        child: isShimmering
+            ? const SalesBannerShimmer()
             : AutoSlideBanner(
-                imageAssets: [
-                  AppStrings.firstSales,
-                  AppStrings.secondSales,
-                  AppStrings.thirdSales,
-                ],
-              ),
+          imageAssets: [
+            AppStrings.firstSales,
+            AppStrings.secondSales,
+            AppStrings.thirdSales,
+          ],
+        ),
       ),
     );
   }

@@ -9,7 +9,7 @@ class AppColorSchemes {
       primaryFixed: AppColors.accent,
       secondary: AppColors.gray400,
       surface: AppColors.white,
-      background: AppColors.gray300,
+      background: AppColors.gray400,
       error: AppColors.error,
       onPrimary: AppColors.white,
       onSecondary: AppColors.gray700,

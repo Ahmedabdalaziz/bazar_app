@@ -1,3 +1,4 @@
+import 'package:bazar_app/core/utils/app_strings.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -28,7 +29,7 @@ class VendorCard extends StatelessWidget {
                   maxHeightDiskCache: 80.h.round(),
                   maxWidthDiskCache: 80.w.round(),
                   errorWidget: (context, url, error) =>
-                      const Icon(Icons.image_not_supported, color: Colors.grey),
+                      Image.network(AppStrings.defaultCardUrl, fit: BoxFit.cover),
                 ),
               ),
             ),

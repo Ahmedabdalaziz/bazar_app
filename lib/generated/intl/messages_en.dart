@@ -53,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "category": MessageLookupByLibrary.simpleMessage("Category"),
+    "comingSoon": MessageLookupByLibrary.simpleMessage("Coming soon"),
     "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
     "createAccount": MessageLookupByLibrary.simpleMessage(
       "Create account and choose favorite menu",
@@ -114,6 +115,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "name": MessageLookupByLibrary.simpleMessage("Name"),
     "network_connection_error": MessageLookupByLibrary.simpleMessage(
       "Please check your internet connection.",
+    ),
+    "network_offline_showing_cached": MessageLookupByLibrary.simpleMessage(
+      "Connection issue — showing cached data",
     ),
     "network_server_error": MessageLookupByLibrary.simpleMessage(
       "Server is not responding. Try again later.",

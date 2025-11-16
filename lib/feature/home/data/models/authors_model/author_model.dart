@@ -6,6 +6,7 @@ part 'author_model.g.dart';
 class AuthorModel {
   final String? id;
   final String name;
+  @JsonKey(name: 'photo_url')
   final String? photoUrl;
   final String? about;
   final String? role;

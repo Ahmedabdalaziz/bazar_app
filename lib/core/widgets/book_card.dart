@@ -4,6 +4,8 @@ import 'package:cached_network_image/cached_network_image.dart'
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../utils/app_strings.dart';
+
 class BookCard extends StatelessWidget {
   final String imageUrl;
   final String title;
@@ -36,10 +38,16 @@ class BookCard extends StatelessWidget {
                 child: CachedNetworkImage(
                   imageUrl: imageUrl,
                   fit: BoxFit.cover,
-                  maxHeightDiskCache: 198.h.round(),
-                  maxWidthDiskCache: 127.w.round(),
-                  errorWidget: (context, url, error) =>
-                      const Icon(Icons.image_not_supported, color: Colors.grey),
+                  memCacheHeight: 200,
+                  memCacheWidth: 130,
+                  maxHeightDiskCache: 400,
+                  maxWidthDiskCache: 260,
+                  fadeInDuration: const Duration(milliseconds: 200),
+                  fadeOutDuration: const Duration(milliseconds: 100),
+                  errorWidget: (context, url, error) => Image.network(
+                    AppStrings.defaultCardUrl,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),

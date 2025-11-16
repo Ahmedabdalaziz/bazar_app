@@ -53,6 +53,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "cart": MessageLookupByLibrary.simpleMessage("السلة"),
     "category": MessageLookupByLibrary.simpleMessage("الفئات"),
+    "comingSoon": MessageLookupByLibrary.simpleMessage("لسه بنجهزها"),
     "continueButton": MessageLookupByLibrary.simpleMessage("استمرار"),
     "createAccount": MessageLookupByLibrary.simpleMessage(
       "إنشاء حساب واختيار القائمة المفضلة",
@@ -116,6 +117,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "name": MessageLookupByLibrary.simpleMessage("الاسم"),
     "network_connection_error": MessageLookupByLibrary.simpleMessage(
       "يرجى التحقق من اتصالك بالإنترنت.",
+    ),
+    "network_offline_showing_cached": MessageLookupByLibrary.simpleMessage(
+      "مشكلة في الاتصال - عرض البيانات المحفوظة",
     ),
     "network_server_error": MessageLookupByLibrary.simpleMessage(
       "الخادم لا يستجيب. حاول مرة أخرى لاحقًا.",

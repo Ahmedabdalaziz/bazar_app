@@ -9,7 +9,7 @@ part of 'author_model.dart';
 AuthorModel _$AuthorModelFromJson(Map<String, dynamic> json) => AuthorModel(
   id: json['id'] as String?,
   name: json['name'] as String,
-  photoUrl: json['photoUrl'] as String?,
+  photoUrl: json['photo_url'] as String?,
   about: json['about'] as String?,
   role: json['role'] as String?,
   avgRating: (json['avgRating'] as num?)?.toDouble() ?? 0.0,
@@ -26,7 +26,7 @@ Map<String, dynamic> _$AuthorModelToJson(AuthorModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'photoUrl': instance.photoUrl,
+      'photo_url': instance.photoUrl,
       'about': instance.about,
       'role': instance.role,
       'avgRating': instance.avgRating,

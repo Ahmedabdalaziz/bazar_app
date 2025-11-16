@@ -11,7 +11,7 @@ VendorModel _$VendorModelFromJson(Map<String, dynamic> json) => VendorModel(
   name: json['name'] as String,
   slug: json['slug'] as String?,
   description: json['description'] as String?,
-  logoUrl: json['logoUrl'] as String?,
+  logoUrl: json['logo_url'] as String?,
   createdAt: json['createdAt'] == null
       ? null
       : DateTime.parse(json['createdAt'] as String),
@@ -26,7 +26,7 @@ Map<String, dynamic> _$VendorModelToJson(VendorModel instance) =>
       'name': instance.name,
       'slug': instance.slug,
       'description': instance.description,
-      'logoUrl': instance.logoUrl,
+      'logo_url': instance.logoUrl,
       'createdAt': instance.createdAt?.toIso8601String(),
       'updatedAt': instance.updatedAt?.toIso8601String(),
     };

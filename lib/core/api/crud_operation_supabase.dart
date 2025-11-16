@@ -7,6 +7,21 @@ class AuthorService {
 
   AuthorService(this._supabase);
 
+  Future<List<Map<String, dynamic>>> getPaginated({
+    int page = 0,
+    int size = 8,
+    String orderBy = 'created_at',
+    bool ascending = false,
+  }) async {
+    final int from = page * size;
+    final int to = from + size - 1;
+    return await _supabase
+        .from('authors')
+        .select('*')
+        .order('created_at', ascending: ascending)
+        .range(from, to);
+  }
+
   Future<List<Map<String, dynamic>>> getAll() async {
     return await _supabase
         .from('authors')
@@ -34,8 +49,11 @@ class VendorService {
   }
 
   Future<VendorModel?> getById(String id) async {
-    final Map<String, dynamic>? res =
-    await _supabase.from('vendors').select().eq('id', id).maybeSingle();
+    final Map<String, dynamic>? res = await _supabase
+        .from('vendors')
+        .select()
+        .eq('id', id)
+        .maybeSingle();
 
     if (res == null) return null;
     return VendorModel.fromJson(res);

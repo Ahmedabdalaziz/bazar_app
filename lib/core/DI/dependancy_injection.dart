@@ -34,9 +34,14 @@ Future<GetIt> setupGetIt() async {
   //----------------------------------------------------------------------//
   // Books
   getIt.registerLazySingleton<HomeRepository>(
-    () => HomeRepository(getIt<BookService>(), getIt<VendorService>()),
+    () => HomeRepository(
+      getIt<BookService>(),
+      getIt<VendorService>(),
+      getIt<AuthorService>(),
+    ),
   );
   getIt.registerFactory(() => HomeCubit(getIt<HomeRepository>()));
+
   //----------------------------------------------------------------------//
   //navigation bar
   getIt.registerFactory(() => BottomNavigationCubit());

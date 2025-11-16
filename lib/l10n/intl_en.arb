@@ -73,5 +73,7 @@
   "bestVendors": "Best Vendors",
   "authors": "Authors",
   "seeAll": "See All",
-  "UnknownTitle": "Unknown Title"
+  "UnknownTitle": "Unknown Title",
+  "network_offline_showing_cached": "Connection issue — showing cached data",
+  "comingSoon": "Coming soon"
 }

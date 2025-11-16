@@ -698,6 +698,21 @@ class S {
       args: [],
     );
   }
+
+  /// `Connection issue — showing cached data`
+  String get network_offline_showing_cached {
+    return Intl.message(
+      'Connection issue — showing cached data',
+      name: 'network_offline_showing_cached',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Coming soon`
+  String get comingSoon {
+    return Intl.message('Coming soon', name: 'comingSoon', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

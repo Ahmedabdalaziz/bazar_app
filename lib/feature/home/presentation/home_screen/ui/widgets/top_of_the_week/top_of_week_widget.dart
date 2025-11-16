@@ -16,6 +16,7 @@ class TopOfWeekWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
+    final theme = Theme.of(context);
 
     return ScrollableSection<BookModel>(
       title: s.topOfWeek,
@@ -23,7 +24,7 @@ class TopOfWeekWidget extends StatelessWidget {
       onSeeAllTap: () {
         context.showSnackBar(
           backgroundColor: null,
-          "لسه بنجهزها",
+          s.comingSoon,
           isSuccess: false,
           isError: false,
         );
@@ -31,6 +32,7 @@ class TopOfWeekWidget extends StatelessWidget {
       itemBuilder: (context, book) => GestureDetector(
         onTap: () {
           showModalBottomSheet(
+            backgroundColor:theme.colorScheme.background,
             isScrollControlled: true,
             context: context,
             builder: (context) => CustomBottomSheet(

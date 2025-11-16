@@ -34,7 +34,13 @@ class ScrollableSection<T> extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(title, style: theme.textTheme.titleLarge),
+              Text(
+                title,
+                style: theme.textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  color: theme.colorScheme.onSurface,
+                ),
+              ),
               if (onSeeAllTap != null)
                 GestureDetector(
                   onTap: onSeeAllTap,
@@ -59,10 +65,10 @@ class ScrollableSection<T> extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             padEnds: false,
-            pageSnapping: false,
+            pageSnapping: true,
             itemBuilder: (context, index) {
               return Padding(
-                padding: EdgeInsets.only(left: 8.w),
+                padding: EdgeInsets.only(left: 8.w, right: (index == items.length - 1) ? 16.w : 8.w),
                 child: itemBuilder(context, items[index]),
               );
             },

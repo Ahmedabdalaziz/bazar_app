@@ -19,11 +19,12 @@ class AutoSlideBanner extends StatefulWidget {
 }
 
 class _AutoSlideBannerState extends State<AutoSlideBanner> {
-  int currentPage = 0;
+  final ValueNotifier<int> currentPage = ValueNotifier(0);
   final SwiperController swiperController = SwiperController();
 
   @override
   void dispose() {
+    currentPage.dispose();
     swiperController.dispose();
     super.dispose();
   }
@@ -47,9 +48,7 @@ class _AutoSlideBannerState extends State<AutoSlideBanner> {
                 autoplayDelay: widget.slideDuration.inMilliseconds,
                 duration: 400,
                 curve: Curves.easeInOut,
-                onIndexChanged: (index) {
-                  setState(() => currentPage = index);
-                },
+                onIndexChanged: (index) => currentPage.value = index,
                 itemBuilder: (context, index) {
                   return Image.asset(
                     widget.imageAssets[index],
@@ -65,22 +64,23 @@ class _AutoSlideBannerState extends State<AutoSlideBanner> {
             ),
           ),
           verticalSpace(8),
-          Center(
-            child: AnimatedSmoothIndicator(
-              activeIndex: currentPage,
-              count: widget.imageAssets.length,
-              effect: ExpandingDotsEffect(
-                activeDotColor: theme.colorScheme.primary,
-                dotColor: theme.colorScheme.secondary,
-                dotHeight: 8.h,
-                dotWidth: 8.w,
-                expansionFactor: 3,
-                spacing: 8.w,
-              ),
-              onDotClicked: (index) {
-                swiperController.move(index);
-              },
-            ),
+          ValueListenableBuilder<int>(
+            valueListenable: currentPage,
+            builder: (context, value, _) {
+              return AnimatedSmoothIndicator(
+                activeIndex: value,
+                count: widget.imageAssets.length,
+                effect: ExpandingDotsEffect(
+                  activeDotColor: theme.colorScheme.primary,
+                  dotColor: theme.colorScheme.secondary,
+                  dotHeight: 8.h,
+                  dotWidth: 8.w,
+                  expansionFactor: 3,
+                  spacing: 8.w,
+                ),
+                onDotClicked: (index) => swiperController.move(index),
+              );
+            },
           ),
         ],
       ),

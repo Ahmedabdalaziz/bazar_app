@@ -2,6 +2,9 @@ import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart'
 import 'package:bazar_app/feature/home/data/models/vendors_model/vendor_model.dart';
 import 'package:supabase_auth_ui/supabase_auth_ui.dart';
 
+import 'package:flutter/foundation.dart';
+import 'package:bazar_app/core/utils/json_parsers.dart';
+
 class AuthorService {
   final SupabaseClient _supabase;
 
@@ -40,12 +43,12 @@ class VendorService {
   VendorService(this._supabase);
 
   Future<List<VendorModel>> getAll() async {
-    final List<Map<String, dynamic>> res = await _supabase
+    final List<dynamic> res = await _supabase
         .from('vendors')
         .select()
         .order('name', ascending: true);
 
-    return res.map((e) => VendorModel.fromJson(e)).toList();
+    return compute(parseVendors, res);
   }
 
   Future<VendorModel?> getById(String id) async {
@@ -68,13 +71,13 @@ class VendorService {
     final int from = page * size;
     final int to = from + size - 1;
 
-    final List<Map<String, dynamic>> res = await _supabase
+    final List<dynamic> res = await _supabase
         .from('vendors')
         .select('*')
         .order(orderBy, ascending: ascending)
         .range(from, to);
 
-    return res.map((e) => VendorModel.fromJson(e)).toList();
+    return compute(parseVendors, res);
   }
 }
 
@@ -222,33 +225,33 @@ class BookService {
     final int from = page * size;
     final int to = from + size - 1;
 
-    final List<Map<String, dynamic>> res = await _client
+    final List<dynamic> res = await _client
         .from('books')
         .select(_bookSelect)
         .order(orderBy, ascending: ascending)
         .range(from, to);
 
-    return res.map((json) => BookModel.fromJson(json)).toList();
+    return compute(parseBooks, res);
   }
 
   Future<List<BookModel>> getTop20() async {
-    final List<Map<String, dynamic>> res = await _client
+    final List<dynamic> res = await _client
         .from('books')
         .select(_bookSelect)
         .order('avg_rating', ascending: false)
         .order('review_count', ascending: false)
         .limit(20);
 
-    return res.map((json) => BookModel.fromJson(json)).toList();
+    return compute(parseBooks, res);
   }
 
   Future<List<BookModel>> getAll() async {
-    final List<Map<String, dynamic>> res = await _client
+    final List<dynamic> res = await _client
         .from('books')
         .select(_bookSelect)
         .order('created_at', ascending: false);
 
-    return res.map((json) => BookModel.fromJson(json)).toList();
+    return compute(parseBooks, res);
   }
 
   Future<List<BookModel>> getByAuthor(String authorId) async {
@@ -257,6 +260,10 @@ class BookService {
         .select('book:books($_bookSelect)')
         .eq('author_id', authorId);
 
+    // For complex mapping like this, we might need a specific parser or just do it here if list is small.
+    // But to be consistent with "Isolates everywhere", let's do it.
+    // However, the structure is different here (nested book).
+    // Let's keep it simple for now as it might not be the main bottleneck, or use a custom parser.
     return res
         .map((json) => BookModel.fromJson(json['book'] as Map<String, dynamic>))
         .toList();
@@ -286,13 +293,13 @@ class BookService {
     final int from = page * size;
     final int to = from + size - 1;
 
-    final List<Map<String, dynamic>> res = await _client
+    final List<dynamic> res = await _client
         .from('books')
         .select(_bookSelect)
         .ilike('title', '%${query.trim()}%')
         .order('avg_rating', ascending: false)
         .range(from, to);
 
-    return res.map((json) => BookModel.fromJson(json)).toList();
+    return compute(parseBooks, res);
   }
 }

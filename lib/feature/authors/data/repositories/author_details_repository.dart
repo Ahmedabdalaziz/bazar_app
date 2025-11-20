@@ -3,6 +3,8 @@ import 'package:bazar_app/feature/authors/data/models/authors_model/author_model
 import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
 import 'package:bazar_app/core/DI/dependancy_injection.dart';
 import 'package:bazar_app/feature/home/data/repo/home_repository.dart';
+import 'package:flutter/foundation.dart';
+import 'package:bazar_app/core/utils/json_parsers.dart';
 
 class AuthorDetailsRepository {
   final AuthorService _authorService;
@@ -20,9 +22,10 @@ class AuthorDetailsRepository {
         final cached = await homeRepo.getAuthorById(authorId);
         return cached != null ? AuthorModel.fromJson(cached.toJson()) : null;
       } catch (inner) {
-        throw Exception('Failed to fetch author details: $e | fallback: $inner');
+        throw Exception(
+          'Failed to fetch author details: $e | fallback: $inner',
+        );
       }
-      
     }
   }
 
@@ -32,7 +35,7 @@ class AuthorDetailsRepository {
   }) async {
     try {
       final res = await _authorService.getPaginated(page: page, size: size);
-      return res.map((e) => AuthorModel.fromJson(e)).toList();
+      return compute(parseAuthors, res);
     } catch (e) {
       throw Exception('Failed to fetch paginated authors: $e');
     }
@@ -41,7 +44,7 @@ class AuthorDetailsRepository {
   Future<List<AuthorModel>> getAllAuthors() async {
     try {
       final res = await _authorService.getAll();
-      return res.map((e) => AuthorModel.fromJson(e)).toList();
+      return compute(parseAuthors, res);
     } catch (e) {
       try {
         final HomeRepository homeRepo = getIt<HomeRepository>();
@@ -65,8 +68,9 @@ class AuthorDetailsRepository {
     try {
       final allAuthors = await getAllAuthors();
       return allAuthors
-          .where((author) =>
-              author.name.toLowerCase().contains(query.toLowerCase()))
+          .where(
+            (author) => author.name.toLowerCase().contains(query.toLowerCase()),
+          )
           .toList();
     } catch (e) {
       throw Exception('Failed to search authors: $e');

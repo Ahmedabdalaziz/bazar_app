@@ -1,6 +1,9 @@
+import 'package:bazar_app/core/widgets/spaces.dart';
+import 'package:bazar_app/feature/authors/presentation/widgets/empty_author_list_state.dart';
+import 'package:bazar_app/feature/authors/presentation/widgets/message_author_list_page_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:bazar_app/core/app_routes/routes_strings.dart';
 import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/feature/authors/presentation/cubits/author_details_cubit.dart';
@@ -15,8 +18,8 @@ class AuthorsListPage extends StatefulWidget {
 }
 
 class _AuthorsListPageState extends State<AuthorsListPage> {
-  final ScrollController _scrollController = ScrollController();
-  final TextEditingController _searchController = TextEditingController();
+  final _scrollController = ScrollController();
+  final _searchController = TextEditingController();
 
   @override
   void initState() {
@@ -45,29 +48,28 @@ class _AuthorsListPageState extends State<AuthorsListPage> {
     final s = S.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text(s.authors), elevation: 0),
+      appBar: AppBar(
+        title: Text(s.authors, style: theme.appBarTheme.titleTextStyle),
+      ),
       body: Column(
         children: [
-          // Search Bar
           Padding(
-            padding: const EdgeInsets.all(16),
+            padding: EdgeInsets.fromLTRB(16.w, 8.h, 16.w, 16.h),
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
                 hintText: s.searchHint,
-                prefixIcon: const Icon(Icons.search),
+                prefixIcon: Icon(Icons.search, size: 22.sp),
                 suffixIcon: _searchController.text.isNotEmpty
                     ? IconButton(
-                        icon: const Icon(Icons.clear),
+                        icon: Icon(Icons.clear, size: 22.sp),
                         onPressed: () {
                           _searchController.clear();
                           context.read<AuthorDetailsCubit>().fetchAllAuthors();
+                          setState(() {});
                         },
                       )
                     : null,
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
               ),
               onChanged: (value) {
                 setState(() {});
@@ -83,108 +85,71 @@ class _AuthorsListPageState extends State<AuthorsListPage> {
             child: BlocConsumer<AuthorDetailsCubit, AuthorDetailsState>(
               listener: (context, state) {
                 if (state is AuthorDetailsError) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(state.message),
-                      backgroundColor: theme.colorScheme.error,
-                    ),
-                  );
+                  context.showSnackBar(state.message, isError: true);
                 } else if (state is AuthorDetailsOffline) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(s.noConnectionSnack),
-                      backgroundColor: theme.colorScheme.secondary,
-                    ),
+                  context.showSnackBar(
+                    s.noConnectionSnack,
+                    backgroundColor: theme.colorScheme.secondary,
                   );
                 }
               },
               builder: (context, state) {
                 if (state is AuthorDetailsLoading) {
                   return const Center(child: CircularProgressIndicator());
-                } else if (state is AuthorsListLoaded) {
+                }
+                if (state is AuthorsListLoaded) {
                   if (state.authors.isEmpty) {
-                    return Center(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Icon(
-                            Icons.person_outline,
-                            size: 80,
-                            color: theme.disabledColor,
-                          ),
-                          const SizedBox(height: 16),
-                          Text(
-                            s.noAuthorsFound,
-                            style: theme.textTheme.titleMedium,
-                          ),
-                        ],
-                      ),
+                    return EmptyAuthorListPageStateWidget(
+                      icon: Icons.search_off_rounded,
+                      message: s.noAuthorsFound,
                     );
                   }
+
                   return GridView.builder(
                     controller: _scrollController,
-                    padding: const EdgeInsets.all(16),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 3,
-                          childAspectRatio: 0.75,
-                          crossAxisSpacing: 12,
-                          mainAxisSpacing: 12,
-                        ),
+                    padding: EdgeInsets.symmetric(
+                      horizontal: 16.w,
+                      vertical: 8.h,
+                    ),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.85,
+                      crossAxisSpacing: 16.w,
+                      mainAxisSpacing: 16.h,
+                    ),
                     itemCount: state.authors.length,
                     itemBuilder: (context, index) {
                       final author = state.authors[index];
                       return AuthorCardWidget(
                         author: author,
-                        onTap: () {
-                          context.pushNamed(
-                            Routing.authorDetailsPage,
-                            arguments: author.id,
-                          );
-                        },
+                        onTap: () => context.pushNamed(
+                          Routing.authorDetailsPage,
+                          arguments: author.id,
+                        ),
                       );
                     },
                   );
-                } else if (state is AuthorDetailsOffline) {
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.wifi_off,
-                          size: 80,
-                          color: theme.disabledColor,
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          state.message,
-                          style: theme.textTheme.titleMedium,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
-                  );
-                } else if (state is AuthorDetailsError) {
-                  return Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(
-                          Icons.error_outline,
-                          size: 80,
-                          color: theme.colorScheme.error,
-                        ),
-                        const SizedBox(height: 16),
-                        Text(
-                          state.message,
-                          style: theme.textTheme.titleMedium,
-                          textAlign: TextAlign.center,
-                        ),
-                      ],
-                    ),
+                }
+
+                if (state is AuthorDetailsOffline) {
+                  return MessageAuthorListPageStateWidget(
+                    icon: Icons.wifi_off_rounded,
+                    message: state.message,
+                    onRetry: () =>
+                        context.read<AuthorDetailsCubit>().fetchAllAuthors(),
                   );
                 }
-                return Center(child: Text('Unknown state'));
+
+                if (state is AuthorDetailsError) {
+                  return MessageAuthorListPageStateWidget(
+                    icon: Icons.error_outline_rounded,
+                    message: state.message,
+                    onRetry: () =>
+                        context.read<AuthorDetailsCubit>().fetchAllAuthors(),
+                  );
+                }
+
+                return const SizedBox.shrink();
               },
             ),
           ),

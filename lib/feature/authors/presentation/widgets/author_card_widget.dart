@@ -1,5 +1,6 @@
 import 'package:bazar_app/feature/authors/data/models/authors_model/author_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:bazar_app/generated/l10n.dart';
 
 class AuthorCardWidget extends StatelessWidget {
@@ -19,68 +20,78 @@ class AuthorCardWidget extends StatelessWidget {
 
     return GestureDetector(
       onTap: onTap,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Container(
-            width: 96,
-            height: 96,
-            decoration: BoxDecoration(
-              color: theme.colorScheme.surfaceContainerHighest,
-              borderRadius: BorderRadius.circular(12),
-              image: author.photoUrl != null
-                  ? DecorationImage(
-                      image: NetworkImage(author.photoUrl!),
-                      fit: BoxFit.contain,
-                    )
+      child: Container(
+        decoration: BoxDecoration(
+          color: theme.cardColor,
+          borderRadius: BorderRadius.circular(12.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.05),
+              blurRadius: 8.r,
+              offset: Offset(0, 4.h),
+            ),
+          ],
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              width: 80.w,
+              height: 80.h,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: theme.colorScheme.surfaceContainerHighest,
+                image: author.photoUrl != null
+                    ? DecorationImage(
+                        image: NetworkImage(author.photoUrl!),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
+              ),
+              child: author.photoUrl == null
+                  ? Icon(Icons.person, size: 40.sp, color: theme.disabledColor)
                   : null,
             ),
-            child: author.photoUrl == null
-                ? Center(
-                    child: Icon(
-                      Icons.person,
-                      size: 36,
-                      color: theme.disabledColor,
-                    ),
-                  )
-                : null,
-          ),
-          const SizedBox(height: 8),
-          SizedBox(
-            width: 100,
-            child: Text(
-              author.name,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                fontWeight: FontWeight.bold,
+            SizedBox(height: 12.h),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 8.w),
+              child: Text(
+                author.name,
+                style: theme.textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 14.sp,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                textAlign: TextAlign.center,
               ),
-              maxLines: 1,
-              overflow: TextOverflow.ellipsis,
-              textAlign: TextAlign.center,
             ),
-          ),
-          const SizedBox(height: 6),
-          // Stars row
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: List.generate(5, (index) {
-              final rating = author.avgRating ?? 0.0;
-              final filled = index < rating.round();
-              return Icon(
-                Icons.star,
-                size: 14,
-                color: filled ? Colors.amber : theme.disabledColor,
-              );
-            }),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            s.reviews(author.reviewCount.toString()),
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.textTheme.bodySmall?.color?.withOpacity(0.6),
-              fontSize: 11,
+            SizedBox(height: 6.h),
+            if (author.avgRating != null)
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.star_rounded, size: 16.sp, color: Colors.amber),
+                  SizedBox(width: 4.w),
+                  Text(
+                    author.avgRating!.toStringAsFixed(1),
+                    style: theme.textTheme.bodySmall?.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12.sp,
+                    ),
+                  ),
+                ],
+              ),
+            SizedBox(height: 4.h),
+            Text(
+              s.reviews(author.reviewCount.toString()),
+              style: theme.textTheme.bodySmall?.copyWith(
+                color: theme.textTheme.bodySmall?.color?.withOpacity(0.6),
+                fontSize: 10.sp,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

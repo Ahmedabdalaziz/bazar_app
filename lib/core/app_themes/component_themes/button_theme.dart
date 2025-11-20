@@ -12,14 +12,14 @@ class AppButtonTheme {
         ),
         backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return AppColors.gray300;
+            return AppColors.buttonDisabledLight;
           }
           return AppColors.primary;
         }),
         minimumSize: MaterialStateProperty.all(Size(double.infinity, 48.h)),
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return AppColors.gray500;
+            return AppColors.textDisabled;
           }
           return AppColors.white;
         }),
@@ -42,14 +42,14 @@ class AppButtonTheme {
         ),
         backgroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return AppColors.gray700;
+            return AppColors.buttonDisabledDark;
           }
           return AppColors.primary;
         }),
         minimumSize: MaterialStateProperty.all(Size(double.infinity, 48.h)),
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return AppColors.gray500;
+            return AppColors.textDisabled;
           }
           return AppColors.white;
         }),
@@ -72,7 +72,7 @@ class AppButtonTheme {
         ),
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return AppColors.gray400;
+            return AppColors.hintDark;
           }
           return AppColors.accent;
         }),
@@ -98,7 +98,7 @@ class AppButtonTheme {
         ),
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return AppColors.gray600;
+            return AppColors.hintLight;
           }
           return AppColors.accent;
         }),
@@ -124,13 +124,13 @@ class AppButtonTheme {
         ),
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return AppColors.gray400;
+            return AppColors.hintDark;
           }
           return AppColors.accent;
         }),
         side: MaterialStateProperty.resolveWith<BorderSide>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return BorderSide(color: AppColors.gray300, width: 1.w);
+            return BorderSide(color: AppColors.buttonDisabledLight, width: 1.w);
           }
           return BorderSide(color: AppColors.accent, width: 1.w);
         }),
@@ -153,13 +153,13 @@ class AppButtonTheme {
         ),
         foregroundColor: MaterialStateProperty.resolveWith<Color>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return AppColors.gray600;
+            return AppColors.hintLight;
           }
           return AppColors.accent;
         }),
         side: MaterialStateProperty.resolveWith<BorderSide>((states) {
           if (states.contains(MaterialState.disabled)) {
-            return BorderSide(color: AppColors.gray700, width: 1.w);
+            return BorderSide(color: AppColors.buttonDisabledDark, width: 1.w);
           }
           return BorderSide(color: AppColors.accent, width: 1.w);
         }),

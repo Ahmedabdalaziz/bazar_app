@@ -43,4 +43,8 @@ class AppColors {
 
   static const Color textDark = gray50;
   static const Color hintDark = gray400;
+
+  static const Color buttonDisabledLight = gray300;
+  static const Color buttonDisabledDark = gray700;
+  static const Color textDisabled = gray500;
 }

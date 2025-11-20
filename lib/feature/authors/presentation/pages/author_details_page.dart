@@ -1,15 +1,19 @@
+import 'package:bazar_app/core/widgets/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/feature/authors/presentation/cubits/author_details_cubit.dart';
+import 'package:bazar_app/feature/authors/presentation/widgets/author_bio_widget.dart';
+import 'package:bazar_app/feature/authors/presentation/widgets/author_books_list_widget.dart';
 import 'package:bazar_app/feature/authors/presentation/widgets/author_header_widget.dart';
-import 'package:bazar_app/feature/authors/presentation/widgets/rating_widget.dart';
 import 'package:bazar_app/generated/l10n.dart';
+import 'package:icons_plus/icons_plus.dart';
 
 class AuthorDetailsPage extends StatefulWidget {
   final String authorId;
 
-  const AuthorDetailsPage({Key? key, required this.authorId}) : super(key: key);
+  const AuthorDetailsPage({super.key, required this.authorId});
 
   @override
   State<AuthorDetailsPage> createState() => _AuthorDetailsPageState();
@@ -28,22 +32,25 @@ class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
     final s = S.of(context);
 
     return Scaffold(
-      appBar: AppBar(title: Text(s.authorDetails), elevation: 0),
+      appBar: AppBar(
+        title: Text(
+          s.authorDetails,
+          style: theme.textTheme.titleLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+            fontSize: 20.sp,
+          ),
+        ),
+        elevation: 0,
+        centerTitle: true,
+      ),
       body: BlocConsumer<AuthorDetailsCubit, AuthorDetailsState>(
         listener: (context, state) {
           if (state is AuthorDetailsError) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(state.message),
-                backgroundColor: theme.colorScheme.error,
-              ),
-            );
+            context.showSnackBar(state.message, isError: true);
           } else if (state is AuthorDetailsOffline) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(s.noConnectionSnack),
-                backgroundColor: theme.colorScheme.secondary,
-              ),
+            context.showSnackBar(
+              s.noConnectionSnack,
+              backgroundColor: theme.colorScheme.secondary,
             );
           }
         },
@@ -55,121 +62,18 @@ class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
               child: Column(
                 children: [
                   AuthorHeaderWidget(author: state.author),
-                  const SizedBox(height: 16),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: RatingWidget(
-                      rating: state.author.avgRating ?? 0.0,
-                      reviewCount: state.author.reviewCount,
-                      isInteractive: false,
-                    ),
-                  ),
-                  const SizedBox(height: 16),
-                  // Bio Section
-                  if (state.author.about != null)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            s.about,
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Text(
-                            state.author.about!,
-                            style: theme.textTheme.bodyMedium,
-                          ),
-                        ],
-                      ),
-                    ),
-                  const SizedBox(height: 16),
-                  // Role Section
-                  if (state.author.role != null)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            s.role,
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          Chip(
-                            label: Text(state.author.role!),
-                            backgroundColor:
-                                theme.colorScheme.surfaceContainerHighest,
-                          ),
-                        ],
-                      ),
-                    ),
-                  const SizedBox(height: 16),
-                  // Books by Author Section
+                  verticalSpace(16),
+                  if (state.author.about != null) ...[
+                    AuthorBioWidget(bio: state.author.about!),
+                    verticalSpace(16),
+                  ],
                   if (state.authorBooks != null &&
                       state.authorBooks!.isNotEmpty)
-                    Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            s.booksBy(state.author.name),
-                            style: theme.textTheme.titleMedium?.copyWith(
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          const SizedBox(height: 8),
-                          ListView.builder(
-                            shrinkWrap: true,
-                            physics: const NeverScrollableScrollPhysics(),
-                            itemCount: state.authorBooks!.length,
-                            itemBuilder: (context, index) {
-                              final book = state.authorBooks![index];
-                              return ListTile(
-                                leading: Container(
-                                  width: 50,
-                                  height: 70,
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(4),
-                                    image: book.coverUrl != null
-                                        ? DecorationImage(
-                                            image: NetworkImage(book.coverUrl!),
-                                            fit: BoxFit.cover,
-                                          )
-                                        : null,
-                                  ),
-                                  child: book.coverUrl == null
-                                      ? Container(
-                                          color: theme.disabledColor,
-                                          child: const Icon(Icons.book),
-                                        )
-                                      : null,
-                                ),
-                                title: Text(
-                                  book.title,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                                subtitle: Text(
-                                  '\$${(book.price ?? 0).toStringAsFixed(2)}',
-                                  style: const TextStyle(
-                                    color: Colors.green,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
+                    AuthorBooksListWidget(
+                      books: state.authorBooks!,
+                      authorName: state.author.name,
                     ),
-                  const SizedBox(height: 32),
+                  verticalSpace(32),
                 ],
               ),
             );
@@ -178,19 +82,21 @@ class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.wifi_off, size: 80, color: theme.disabledColor),
-                  const SizedBox(height: 16),
+                  Icon(Icons.wifi_off, size: 80.sp, color: theme.disabledColor),
+                  verticalSpace(16),
                   Text(
                     state.message,
-                    style: theme.textTheme.titleMedium,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontSize: 16.sp,
+                    ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 24),
+                  verticalSpace(24),
                   ElevatedButton.icon(
                     onPressed: () {
                       context.read<AuthorDetailsCubit>().retry(widget.authorId);
                     },
-                    icon: const Icon(Icons.refresh),
+                    icon: Icon(Bootstrap.arrow_clockwise, size: 20.sp),
                     label: Text(s.retry),
                   ),
                 ],
@@ -203,28 +109,30 @@ class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
                 children: [
                   Icon(
                     Icons.error_outline,
-                    size: 80,
+                    size: 80.sp,
                     color: theme.colorScheme.error,
                   ),
-                  const SizedBox(height: 16),
+                  verticalSpace(16),
                   Text(
                     state.message,
-                    style: theme.textTheme.titleMedium,
+                    style: theme.textTheme.titleMedium?.copyWith(
+                      fontSize: 16.sp,
+                    ),
                     textAlign: TextAlign.center,
                   ),
-                  const SizedBox(height: 24),
+                  verticalSpace(24),
                   ElevatedButton.icon(
                     onPressed: () {
                       context.read<AuthorDetailsCubit>().retry(widget.authorId);
                     },
-                    icon: const Icon(Icons.refresh),
+                    icon: Icon(Bootstrap.arrow_clockwise, size: 20.sp),
                     label: Text(s.retry),
                   ),
                 ],
               ),
             );
           }
-          return const Center(child: Text('Unknown state'));
+          return const SizedBox.shrink();
         },
       ),
     );

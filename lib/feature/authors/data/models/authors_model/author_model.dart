@@ -10,7 +10,7 @@ class AuthorModel {
   final String? photoUrl;
   final String? about;
   final String? role;
-  final double avgRating;
+  final double? avgRating;
   final int reviewCount;
   final DateTime? createdAt;
   final DateTime? updatedAt;
@@ -21,7 +21,7 @@ class AuthorModel {
     this.photoUrl,
     this.about,
     this.role,
-    this.avgRating = 0.0,
+    this.avgRating,
     this.reviewCount = 0,
     this.createdAt,
     this.updatedAt,

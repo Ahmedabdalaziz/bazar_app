@@ -30,7 +30,6 @@ class HomeCubit extends Cubit<HomeState> {
     try {
       if (!forceRefresh) {
         emit(BookLoading());
-        // Use TTL-aware cache read. We allow returning expired cache as fallback.
         final cached = _cache.getBooks(
           ttl: _booksCacheTTL,
           returnExpiredOnError: true,
@@ -91,27 +90,6 @@ class HomeCubit extends Cubit<HomeState> {
     await _cache.clearBooks();
   }
 
-  Future<void> fetchTop20Books() async {
-    emit(BookLoading());
-    try {
-      final books = await _bookRepository.fetchTop20Books();
-      await _cache.saveBooks(books);
-      emit(BookLoaded(books, fromCache: false));
-    } catch (e) {
-      final cached = _cache.getBooks(
-        ttl: _booksCacheTTL,
-        returnExpiredOnError: true,
-      );
-      if (cached != null && cached.isNotEmpty) {
-        emit(
-          BookLoadedWithError(books: cached, error: ExceptionHandler.handle(e)),
-        );
-      } else {
-        emit(BookError(ExceptionHandler.handle(e)));
-      }
-    }
-  }
-
   Future<void> searchBooks(String query) async {
     if (query.trim().isEmpty) return;
     emit(BookLoading());
@@ -137,58 +115,7 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  Future<void> fetchAllBooks() async {
-    emit(BookLoading());
-    try {
-      final books = await _bookRepository.fetchAllBooks();
-      await _cache.saveBooks(books);
-      emit(BookLoaded(books, fromCache: false));
-    } catch (e) {
-      final cached = _cache.getBooks(
-        ttl: _booksCacheTTL,
-        returnExpiredOnError: true,
-      );
-      if (cached != null && cached.isNotEmpty) {
-        emit(
-          BookLoadedWithError(books: cached, error: ExceptionHandler.handle(e)),
-        );
-      } else {
-        emit(BookError(ExceptionHandler.handle(e)));
-      }
-    }
-  }
-
-  Future<void> fetchBooksByAuthor(String authorId) async {
-    emit(BookLoading());
-    try {
-      final books = await _bookRepository.fetchBooksByAuthor(authorId);
-      emit(BookLoaded(books, fromCache: false));
-    } catch (e) {
-      emit(BookError(ExceptionHandler.handle(e)));
-    }
-  }
-
-  Future<void> fetchBooksByVendor(String vendorId) async {
-    emit(BookLoading());
-    try {
-      final books = await _bookRepository.fetchBooksByVendor(vendorId);
-      emit(BookLoaded(books, fromCache: false));
-    } catch (e) {
-      emit(BookError(ExceptionHandler.handle(e)));
-    }
-  }
-
   ///////////////////////////vendors//////////////////////////
-
-  Future<void> fetchAllVendors() async {
-    emit(VendorLoading());
-    try {
-      final vendors = await _bookRepository.fetchAllVendors();
-      emit(VendorLoaded(vendors));
-    } catch (e) {
-      emit(VendorError(ExceptionHandler.handle(e)));
-    }
-  }
 
   Future<void> fetchPaginatedVendors({
     required int size,
@@ -249,6 +176,20 @@ class HomeCubit extends Cubit<HomeState> {
         emit(AuthorEmpty());
       } else {
         emit(AuthorLoaded(authors));
+      }
+    } catch (e) {
+      emit(AuthorError(ExceptionHandler.handle(e)));
+    }
+  }
+
+  Future<void> getAuthorById(String id) async {
+    emit(AuthorLoading());
+    try {
+      final author = await _bookRepository.getAuthorById(id);
+      if (author != null) {
+        emit(AuthorDetailLoaded(author));
+      } else {
+        emit(AuthorError(ExceptionHandler.handle('Author not found')));
       }
     } catch (e) {
       emit(AuthorError(ExceptionHandler.handle(e)));

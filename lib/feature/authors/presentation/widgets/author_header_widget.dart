@@ -1,7 +1,8 @@
+import 'package:bazar_app/core/widgets/spaces.dart';
 import 'package:bazar_app/feature/authors/data/models/authors_model/author_model.dart';
 import 'package:bazar_app/generated/l10n.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AuthorHeaderWidget extends StatelessWidget {
   final AuthorModel author;
@@ -14,15 +15,19 @@ class AuthorHeaderWidget extends StatelessWidget {
     final s = S.of(context);
 
     return Container(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.all(16.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            width: 150,
-            height: 150,
+            width: 120.w,
+            height: 120.h,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(12),
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: theme.colorScheme.surfaceContainerHighest,
+                width: 4.w,
+              ),
               image: author.photoUrl != null
                   ? DecorationImage(
                       image: NetworkImage(author.photoUrl!),
@@ -31,50 +36,62 @@ class AuthorHeaderWidget extends StatelessWidget {
                   : null,
             ),
             child: author.photoUrl == null
-                ? Container(
-                    color: Colors.grey[300],
-                    child: const Icon(Icons.person, size: 80),
+                ? CircleAvatar(
+                    backgroundColor: theme.colorScheme.surfaceContainerHighest,
+                    child: Icon(
+                      Icons.person,
+                      size: 60.sp,
+                      color: theme.disabledColor,
+                    ),
                   )
                 : null,
           ),
-          const SizedBox(height: 16),
-          // Author Name
+          verticalSpace(16),
           Text(
             author.name,
             style: theme.textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.bold,
+              fontSize: 24.sp,
             ),
             textAlign: TextAlign.center,
           ),
-          const SizedBox(height: 8),
-          // Author Role
+          verticalSpace(8),
           if (author.role != null)
-            Text(
-              author.role!,
-              style: theme.textTheme.bodyMedium?.copyWith(
-                color: Colors.grey[600],
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 4.h),
+              decoration: BoxDecoration(
+                color: theme.colorScheme.primaryContainer.withOpacity(0.5),
+                borderRadius: BorderRadius.circular(20.r),
               ),
-              textAlign: TextAlign.center,
+              child: Text(
+                author.role!,
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.colorScheme.primary,
+                  fontSize: 14.sp,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
-          const SizedBox(height: 12),
+          verticalSpace(16),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.star, color: Colors.amber, size: 20),
-              const SizedBox(width: 4),
+              Icon(Icons.star_rounded, color: Colors.amber, size: 24.sp),
+              horizontalSpace(4),
               Text(
                 (author.avgRating ?? 0.0).toStringAsFixed(1),
-                style: theme.textTheme.bodyMedium?.copyWith(
+                style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
+                  fontSize: 16.sp,
                 ),
               ),
-              const SizedBox(width: 8),
+              horizontalSpace(8),
               Text(
-                tr(
-                  'reviews',
-                  namedArgs: {'count': author.reviewCount.toString()},
+                s.reviews(author.reviewCount.toString()),
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: theme.textTheme.bodySmall?.color,
+                  fontSize: 14.sp,
                 ),
-                style: theme.textTheme.bodySmall,
               ),
             ],
           ),

@@ -20,11 +20,16 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(name) => "كتب ${name}";
+
+  static String m1(count) => "${count} مراجعة";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Congratulation": MessageLookupByLibrary.simpleMessage("مبروك!"),
     "HaveAnAccount": MessageLookupByLibrary.simpleMessage("هل لديك حساب؟"),
     "UnknownTitle": MessageLookupByLibrary.simpleMessage("عنوان غير معروف"),
+    "about": MessageLookupByLibrary.simpleMessage("حول"),
     "auth_email_exists": MessageLookupByLibrary.simpleMessage(
       "هذا البريد الإلكتروني مسجل بالفعل.",
     ),
@@ -46,8 +51,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "auth_weak_password": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور ضعيفة جدًا.",
     ),
+    "authorDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المؤلف"),
     "authors": MessageLookupByLibrary.simpleMessage("المؤلفون"),
     "bestVendors": MessageLookupByLibrary.simpleMessage("أفضل البائعين"),
+    "booksBy": m0,
     "byClickingSignUp": MessageLookupByLibrary.simpleMessage(
       "بالنقر على تسجيل، فإنك توافق على",
     ),
@@ -128,9 +135,19 @@ class MessageLookup extends MessageLookupByLibrary {
       "انتهت مهلة الطلب. حاول مرة أخرى لاحقًا.",
     ),
     "nextButton": MessageLookupByLibrary.simpleMessage("التالي"),
+    "noAuthorsFound": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على مؤلفين.",
+    ),
+    "noConnectionSnack": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد اتصال بالإنترنت.",
+    ),
+    "noInternet": MessageLookupByLibrary.simpleMessage(
+      "لا يوجد اتصال بالانترنت",
+    ),
     "orWith": MessageLookupByLibrary.simpleMessage("أو باستخدام"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
     "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
     "resetPassword": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
@@ -138,6 +155,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني أدناه لتلقي تعليمات إعادة تعيين كلمة المرور.",
     ),
+    "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
+    "reviews": m1,
+    "role": MessageLookupByLibrary.simpleMessage("الدور"),
+    "searchHint": MessageLookupByLibrary.simpleMessage("ابحث عن مؤلف..."),
     "secondOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "دعنا نكون دليلك إلى القراءة المناسبة لك. اكتشف كتبًا ملائمة لذوقك لتجربة ممتعة وملهمة.",
     ),
@@ -186,6 +207,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "validation_short_password": MessageLookupByLibrary.simpleMessage(
       "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
     ),
+    "vendor": MessageLookupByLibrary.simpleMessage("البائعون"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage(
       "مرحبًا بك في بازار",
     ),

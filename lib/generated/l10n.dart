@@ -679,11 +679,6 @@ class S {
     );
   }
 
-  /// `Authors`
-  String get authors {
-    return Intl.message('Authors', name: 'authors', desc: '', args: []);
-  }
-
   /// `See All`
   String get seeAll {
     return Intl.message('See All', name: 'seeAll', desc: '', args: []);
@@ -712,6 +707,106 @@ class S {
   /// `Coming soon`
   String get comingSoon {
     return Intl.message('Coming soon', name: 'comingSoon', desc: '', args: []);
+  }
+
+  /// `Authors`
+  String get authors {
+    return Intl.message('Authors', name: 'authors', desc: '', args: []);
+  }
+
+  /// `Author Details`
+  String get authorDetails {
+    return Intl.message(
+      'Author Details',
+      name: 'authorDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About`
+  String get about {
+    return Intl.message('About', name: 'about', desc: '', args: []);
+  }
+
+  /// `Role`
+  String get role {
+    return Intl.message('Role', name: 'role', desc: '', args: []);
+  }
+
+  /// `Books by {name}`
+  String booksBy(Object name) {
+    return Intl.message(
+      'Books by $name',
+      name: 'booksBy',
+      desc: '',
+      args: [name],
+    );
+  }
+
+  /// `No internet connection`
+  String get noInternet {
+    return Intl.message(
+      'No internet connection',
+      name: 'noInternet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Retry`
+  String get retry {
+    return Intl.message('Retry', name: 'retry', desc: '', args: []);
+  }
+
+  /// `No authors found.`
+  String get noAuthorsFound {
+    return Intl.message(
+      'No authors found.',
+      name: 'noAuthorsFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Search for an author...`
+  String get searchHint {
+    return Intl.message(
+      'Search for an author...',
+      name: 'searchHint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{count} reviews`
+  String reviews(Object count) {
+    return Intl.message(
+      '$count reviews',
+      name: 'reviews',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `Rating`
+  String get rating {
+    return Intl.message('Rating', name: 'rating', desc: '', args: []);
+  }
+
+  /// `No internet connection.`
+  String get noConnectionSnack {
+    return Intl.message(
+      'No internet connection.',
+      name: 'noConnectionSnack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Vendors`
+  String get vendor {
+    return Intl.message('Vendors', name: 'vendor', desc: '', args: []);
   }
 }
 

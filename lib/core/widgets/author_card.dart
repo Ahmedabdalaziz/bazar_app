@@ -1,5 +1,5 @@
 import 'package:bazar_app/core/widgets/spaces.dart';
-import 'package:bazar_app/feature/home/data/models/authors_model/author_model.dart';
+import 'package:bazar_app/feature/authors/data/models/authors_model/author_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,7 +19,7 @@ class AuthorCard extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 84.h,
+            height: 80.h,
             width: 88.w,
             child: ClipOval(
               child: CachedNetworkImage(

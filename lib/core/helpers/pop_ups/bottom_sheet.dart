@@ -20,11 +20,11 @@ class CustomBottomSheet extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              width: 40.w,
+              width: 60.w,
               height: 4.h,
               margin: EdgeInsets.only(top: 12.h),
               decoration: BoxDecoration(
-                color: theme.colorScheme.onSurface.withOpacity(0.3),
+                color: theme.colorScheme.onSurface.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(2.r),
               ),
             ),

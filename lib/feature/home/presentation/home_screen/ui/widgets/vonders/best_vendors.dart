@@ -38,12 +38,12 @@ class BestVendors extends StatelessWidget {
             context: context,
             builder: (context) => CustomBottomSheet(
               name: vendor.name,
-              img: vendor.logoUrl ?? AppStrings.defaultCardUrl,
+              img: vendor.logoUrl ?? AppStrings.defaultVendorUrl,
             ),
           );
         },
         child: VendorCard(
-          imageUrl: vendor.logoUrl ?? AppStrings.defaultCardUrl,
+          imageUrl: vendor.logoUrl ?? AppStrings.defaultVendorUrl,
         ),
       ),
     );

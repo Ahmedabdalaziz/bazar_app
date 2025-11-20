@@ -62,7 +62,7 @@ class VendorService {
   Future<List<VendorModel>> getPaginated({
     int page = 0,
     int size = 8,
-    String orderBy = 'created_at',
+    String orderBy = 'name',
     bool ascending = false,
   }) async {
     final int from = page * size;

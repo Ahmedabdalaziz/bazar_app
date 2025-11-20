@@ -50,6 +50,8 @@ dependencies:
   easy_localization: ^3.0.7+1
   #Internet connection
   internet_connection_checker_plus: ^2.7.0
+  connectivity_plus: ^6.0.0
+  equatable: ^2.0.5
   #Animations and Icons
   pro_kit_snackbar: ^0.0.4
   remixicon: ^1.4.1
@@ -68,8 +70,6 @@ dependencies:
   flutter_secure_storage: ^9.0.0
   flutter_svg: ^2.2.0
   shimmer: ^3.0.0
-  crystal_navigation_bar: ^1.0.4
-  liquid_pull_to_refresh: ^3.0.1
   animated_flip_counter: ^0.3.4
   #Maps
   google_maps_flutter: ^2.5.0
@@ -113,6 +113,7 @@ flutter:
     - assets/welcome/
     - assets/home/
     - .env
+    - lib/l10n/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
 

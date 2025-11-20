@@ -12,4 +12,6 @@ class AppStrings {
       'https://peoplesblog.co.in/sri-vedanta-swarajya-sangam/assets/img/books/default.jpeg';
   static const String defaultAuthorUrl =
       'https://i.pinimg.com/originals/08/35/0c/08350cafa4fabb8a6a1be2d9f18f2d88.jpg';
+  static const String defaultVendorUrl =
+      'https://i.pinimg.com/originals/08/35/0c/08350cafa4fabb8a6a1be2d9f18f2d88.jpg';
 }

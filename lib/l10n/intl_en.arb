@@ -71,9 +71,21 @@
   "profile": "Profile",
   "topOfWeek": "Top of the Week",
   "bestVendors": "Best Vendors",
-  "authors": "Authors",
   "seeAll": "See All",
   "UnknownTitle": "Unknown Title",
   "network_offline_showing_cached": "Connection issue — showing cached data",
-  "comingSoon": "Coming soon"
+  "comingSoon": "Coming soon",
+  "authors": "Authors",
+  "authorDetails": "Author Details",
+  "about": "About",
+  "role": "Role",
+  "booksBy": "Books by {name}",
+  "noInternet": "No internet connection",
+  "retry": "Retry",
+  "noAuthorsFound": "No authors found.",
+  "searchHint": "Search for an author...",
+  "reviews": "{count} reviews",
+  "rating": "Rating",
+  "noConnectionSnack": "No internet connection.",
+  "vendor": "Vendors"
 }

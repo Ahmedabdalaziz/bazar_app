@@ -6,13 +6,15 @@ import 'package:bazar_app/feature/home/data/repo/home_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
-import '../../data/models/authors_model/author_model.dart';
+import '../../../authors/data/models/authors_model/author_model.dart';
 
 part 'Home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   final HomeRepository _bookRepository;
   final BookCacheStorage _cache = BookCacheStorage();
+
+  static const Duration _booksCacheTTL = Duration(hours: 1);
 
   List<VendorModel>? _cachedVendors;
 
@@ -28,7 +30,11 @@ class HomeCubit extends Cubit<HomeState> {
     try {
       if (!forceRefresh) {
         emit(BookLoading());
-        final cached = _cache.getBooks();
+        // Use TTL-aware cache read. We allow returning expired cache as fallback.
+        final cached = _cache.getBooks(
+          ttl: _booksCacheTTL,
+          returnExpiredOnError: true,
+        );
         if (cached != null && cached.isNotEmpty) {
           emit(BookLoaded(cached, fromCache: true));
           _refreshBooksInBackground(page: page, pageSize: size);
@@ -46,7 +52,10 @@ class HomeCubit extends Cubit<HomeState> {
 
       emit(BookLoaded(books, fromCache: false));
     } catch (e) {
-      final cached = _cache.getBooks();
+      final cached = _cache.getBooks(
+        ttl: _booksCacheTTL,
+        returnExpiredOnError: true,
+      );
       if (cached != null && cached.isNotEmpty) {
         emit(
           BookLoadedWithError(books: cached, error: ExceptionHandler.handle(e)),
@@ -75,11 +84,7 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   Future<void> refreshBooks({int page = 0, int pageSize = 5}) async {
-    return fetchPaginatedBooks(
-      page: page,
-      size: pageSize,
-      forceRefresh: true,
-    );
+    return fetchPaginatedBooks(page: page, size: pageSize, forceRefresh: true);
   }
 
   Future<void> clearCache() async {
@@ -93,7 +98,10 @@ class HomeCubit extends Cubit<HomeState> {
       await _cache.saveBooks(books);
       emit(BookLoaded(books, fromCache: false));
     } catch (e) {
-      final cached = _cache.getBooks();
+      final cached = _cache.getBooks(
+        ttl: _booksCacheTTL,
+        returnExpiredOnError: true,
+      );
       if (cached != null && cached.isNotEmpty) {
         emit(
           BookLoadedWithError(books: cached, error: ExceptionHandler.handle(e)),
@@ -136,7 +144,10 @@ class HomeCubit extends Cubit<HomeState> {
       await _cache.saveBooks(books);
       emit(BookLoaded(books, fromCache: false));
     } catch (e) {
-      final cached = _cache.getBooks();
+      final cached = _cache.getBooks(
+        ttl: _booksCacheTTL,
+        returnExpiredOnError: true,
+      );
       if (cached != null && cached.isNotEmpty) {
         emit(
           BookLoadedWithError(books: cached, error: ExceptionHandler.handle(e)),
@@ -197,10 +208,12 @@ class HomeCubit extends Cubit<HomeState> {
       }
     } catch (e) {
       if (_cachedVendors != null && _cachedVendors!.isNotEmpty) {
-        emit(VendorLoadedWithError(
-          vendors: _cachedVendors!,
-          error: ExceptionHandler.handle(e),
-        ));
+        emit(
+          VendorLoadedWithError(
+            vendors: _cachedVendors!,
+            error: ExceptionHandler.handle(e),
+          ),
+        );
       } else {
         emit(VendorError(ExceptionHandler.handle(e)));
       }
@@ -223,16 +236,6 @@ class HomeCubit extends Cubit<HomeState> {
 
   /////////////////////////Authors//////////////////////////
 
-  Future<void> fetchAllAuthors() async {
-    emit(AuthorLoading());
-    try {
-      final authors = await _bookRepository.fetchAllAuthors();
-      emit(AuthorLoaded(authors));
-    } catch (e) {
-      emit(AuthorError(ExceptionHandler.handle(e)));
-    }
-  }
-
   Future<void> fetchPaginatedAuthors({
     required int size,
     required int page,
@@ -251,19 +254,4 @@ class HomeCubit extends Cubit<HomeState> {
       emit(AuthorError(ExceptionHandler.handle(e)));
     }
   }
-
-  Future<void> getAuthorById(String id) async {
-    emit(AuthorLoading());
-    try {
-      final author = await _bookRepository.getAuthorById(id);
-      if (author != null) {
-        emit(AuthorDetailLoaded(author));
-      } else {
-        emit(AuthorError(ExceptionHandler.handle('Author not found')));
-      }
-    } catch (e) {
-      emit(AuthorError(ExceptionHandler.handle(e)));
-    }
-  }
-
 }

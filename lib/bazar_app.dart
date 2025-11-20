@@ -43,7 +43,7 @@ class BazarApp extends StatelessWidget {
                 supportedLocales: S.delegate.supportedLocales,
                 debugShowCheckedModeBanner: false,
                 onGenerateRoute: AppRouter.generateRoute,
-                initialRoute: Routing.homeScreen,
+                initialRoute: Routing.splashScreen,
               );
             },
           ),

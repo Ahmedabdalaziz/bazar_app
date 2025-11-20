@@ -71,9 +71,21 @@
   "profile": "الملف الشخصي",
   "topOfWeek": "أفضل الكتب لهذا الأسبوع",
   "bestVendors": "أفضل البائعين",
-  "authors": "المؤلفون",
   "seeAll": "عرض الكل",
   "UnknownTitle": "عنوان غير معروف",
   "network_offline_showing_cached": "مشكلة في الاتصال - عرض البيانات المحفوظة",
-  "comingSoon": "لسه بنجهزها"
+  "comingSoon": "لسه بنجهزها",
+  "authors": "المؤلفون",
+  "authorDetails": "تفاصيل المؤلف",
+  "about": "حول",
+  "role": "الدور",
+  "booksBy": "كتب {name}",
+  "noInternet": "لا يوجد اتصال بالانترنت",
+  "retry": "إعادة المحاولة",
+  "noAuthorsFound": "لم يتم العثور على مؤلفين.",
+  "searchHint": "ابحث عن مؤلف...",
+  "reviews": "{count} مراجعة",
+  "rating": "التقييم",
+  "noConnectionSnack": "لا يوجد اتصال بالإنترنت.",
+  "vendor": "البائعون"
 }

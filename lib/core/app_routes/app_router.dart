@@ -7,6 +7,9 @@ import 'package:bazar_app/feature/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../feature/authors/presentation/cubits/author_details_cubit.dart';
+import '../../feature/authors/presentation/pages/author_details_page.dart';
+import '../../feature/authors/presentation/pages/authors_list_page.dart';
 import '../../feature/login/logic/login_cubit.dart';
 import '../../feature/login/ui/login_screen.dart';
 import '../../feature/onboarding/ui/onboarding_screen.dart';
@@ -47,6 +50,23 @@ class AppRouter {
           BlocProvider(
             create: (context) => getIt<BottomNavigationCubit>(),
             child: HomeScreen(),
+          ),
+        );
+
+      case Routing.authorsListPage:
+        return createRoute(
+          BlocProvider(
+            create: (context) => getIt<AuthorDetailsCubit>(),
+            child: const AuthorsListPage(),
+          ),
+        );
+
+      case Routing.authorDetailsPage:
+        final authorId = argument as String?;
+        return createRoute(
+          BlocProvider(
+            create: (context) => getIt<AuthorDetailsCubit>(),
+            child: AuthorDetailsPage(authorId: authorId ?? ''),
           ),
         );
     }

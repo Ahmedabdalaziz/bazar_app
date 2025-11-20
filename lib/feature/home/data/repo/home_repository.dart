@@ -1,7 +1,7 @@
 import 'package:bazar_app/core/api/crud_operation_supabase.dart';
 import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
 import 'package:bazar_app/feature/home/data/models/vendors_model/vendor_model.dart';
-import 'package:bazar_app/feature/home/data/models/authors_model/author_model.dart';
+import 'package:bazar_app/feature/authors/data/models/authors_model/author_model.dart';
 
 class HomeRepository {
   final BookService _bookService;

@@ -1,8 +1,7 @@
-import 'package:bazar_app/core/helpers/pop_ups/bottom_sheet.dart';
-import 'package:bazar_app/core/utils/app_strings.dart' show AppStrings;
+import 'package:bazar_app/core/app_routes/routes_strings.dart';
 import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/core/widgets/author_card.dart';
-import 'package:bazar_app/feature/home/data/models/authors_model/author_model.dart';
+import 'package:bazar_app/feature/authors/data/models/authors_model/author_model.dart';
 import 'package:bazar_app/feature/home/presentation/home_screen/ui/widgets/scroll_section_with_title.dart'
     show ScrollableSection;
 import 'package:bazar_app/generated/l10n.dart';
@@ -24,23 +23,11 @@ class BestAuthors extends StatelessWidget {
       pageControllerViewportFraction: 0.30,
       items: authors,
       onSeeAllTap: () {
-        context.showSnackBar(
-          backgroundColor: null,
-          s.comingSoon,
-          isSuccess: false,
-          isError: false,
-        );
+        context.pushNamed(Routing.authorsListPage);
       },
       itemBuilder: (context, author) => GestureDetector(
         onTap: () {
-          showModalBottomSheet(
-            isScrollControlled: true,
-            context: context,
-            builder: (context) => CustomBottomSheet(
-              name: author.name,
-              img: author.photoUrl ?? AppStrings.defaultAuthorUrl,
-            ),
-          );
+          context.pushNamed(Routing.authorDetailsPage, arguments: author.id);
         },
         child: AuthorCard(author: author),
       ),

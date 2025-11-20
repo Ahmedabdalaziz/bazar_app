@@ -20,11 +20,16 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(name) => "Books by ${name}";
+
+  static String m1(count) => "${count} reviews";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "Congratulation": MessageLookupByLibrary.simpleMessage("Congratulation!"),
     "HaveAnAccount": MessageLookupByLibrary.simpleMessage("Have an account?"),
     "UnknownTitle": MessageLookupByLibrary.simpleMessage("Unknown Title"),
+    "about": MessageLookupByLibrary.simpleMessage("About"),
     "auth_email_exists": MessageLookupByLibrary.simpleMessage(
       "This email is already registered.",
     ),
@@ -46,8 +51,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "auth_weak_password": MessageLookupByLibrary.simpleMessage(
       "Password is too weak.",
     ),
+    "authorDetails": MessageLookupByLibrary.simpleMessage("Author Details"),
     "authors": MessageLookupByLibrary.simpleMessage("Authors"),
     "bestVendors": MessageLookupByLibrary.simpleMessage("Best Vendors"),
+    "booksBy": m0,
     "byClickingSignUp": MessageLookupByLibrary.simpleMessage(
       "By clicking Register, you agree to our",
     ),
@@ -126,13 +133,27 @@ class MessageLookup extends MessageLookupByLibrary {
       "Request timed out. Try again later.",
     ),
     "nextButton": MessageLookupByLibrary.simpleMessage("Next"),
+    "noAuthorsFound": MessageLookupByLibrary.simpleMessage("No authors found."),
+    "noConnectionSnack": MessageLookupByLibrary.simpleMessage(
+      "No internet connection.",
+    ),
+    "noInternet": MessageLookupByLibrary.simpleMessage(
+      "No internet connection",
+    ),
     "orWith": MessageLookupByLibrary.simpleMessage("Or with"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "rating": MessageLookupByLibrary.simpleMessage("Rating"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "resetPasswordInstruction": MessageLookupByLibrary.simpleMessage(
       "Enter your email address below to receive password reset instructions.",
+    ),
+    "retry": MessageLookupByLibrary.simpleMessage("Retry"),
+    "reviews": m1,
+    "role": MessageLookupByLibrary.simpleMessage("Role"),
+    "searchHint": MessageLookupByLibrary.simpleMessage(
+      "Search for an author...",
     ),
     "secondOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "Guide to your perfect read. Books tailored to your taste for rewarding experience.",
@@ -180,6 +201,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "validation_short_password": MessageLookupByLibrary.simpleMessage(
       "Password must be at least 6 characters.",
     ),
+    "vendor": MessageLookupByLibrary.simpleMessage("Vendors"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome to Bazar"),
     "yourEmail": MessageLookupByLibrary.simpleMessage("Your Email"),
     "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),

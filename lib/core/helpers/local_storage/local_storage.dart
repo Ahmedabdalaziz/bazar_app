@@ -72,15 +72,73 @@ class BookCacheStorage {
   static const String _key = 'cached_books';
 
   Future<void> saveBooks(List<BookModel> books) async {
-    final jsonString = jsonEncode(books.map((book) => book.toJson()).toList());
+    final wrapper = {
+      'timestamp': DateTime.now().millisecondsSinceEpoch,
+      'data': books.map((b) => b.toJson()).toList(),
+    };
+
+    final jsonString = jsonEncode(wrapper);
     await LocalStorage().setData(_key, jsonString);
   }
 
-  List<BookModel>? getBooks() {
+  List<BookModel>? getBooks({Duration? ttl, bool returnExpiredOnError = true}) {
     final jsonString = LocalStorage().getData(_key);
     if (jsonString == null) return null;
-    final List<dynamic> decoded = jsonDecode(jsonString);
-    return decoded.map((e) => BookModel.fromJson(e)).toList();
+
+    try {
+      final decoded = jsonDecode(jsonString);
+
+      if (decoded is List) {
+        return decoded.map((e) => BookModel.fromJson(e)).toList();
+      }
+
+      if (decoded is Map &&
+          decoded.containsKey('timestamp') &&
+          decoded.containsKey('data')) {
+        final dynamic ts = decoded['timestamp'];
+        final dynamic data = decoded['data'];
+
+        if (data is List) {
+          final books = data.map((e) => BookModel.fromJson(e)).toList();
+
+          if (ttl == null) return books;
+
+          final now = DateTime.now().millisecondsSinceEpoch;
+          final int timestampMillis = ts is int
+              ? ts
+              : int.tryParse(ts.toString()) ?? 0;
+          final age = now - timestampMillis;
+
+          if (age <= ttl.inMilliseconds) {
+            return books;
+          } else {
+            return returnExpiredOnError ? books : null;
+          }
+        }
+      }
+
+      return null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  int? getBooksTimestampMillis() {
+    final jsonString = LocalStorage().getData(_key);
+    if (jsonString == null) return null;
+
+    try {
+      final decoded = jsonDecode(jsonString);
+      if (decoded is Map && decoded.containsKey('timestamp')) {
+        final dynamic ts = decoded['timestamp'];
+        if (ts is int) return ts;
+        final parsed = int.tryParse(ts.toString());
+        return parsed;
+      }
+      return null;
+    } catch (e) {
+      return null;
+    }
   }
 
   Future<void> clearBooks() async {

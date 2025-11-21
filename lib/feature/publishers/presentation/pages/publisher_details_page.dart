@@ -1,6 +1,6 @@
 import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/core/widgets/spaces.dart';
-import 'package:bazar_app/feature/publishers/presentation/cubits/publishers_cubit.dart';
+import 'package:bazar_app/feature/publishers/logic/cubits/publishers_cubit.dart';
 import 'package:bazar_app/feature/publishers/presentation/widgets/publisher_about_widget.dart';
 import 'package:bazar_app/feature/publishers/presentation/widgets/publisher_books_list_widget.dart';
 import 'package:bazar_app/feature/publishers/presentation/widgets/publisher_header_widget.dart';
@@ -34,7 +34,7 @@ class _PublisherDetailsPageState extends State<PublisherDetailsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          s.publisherDetails ?? '',
+          s.publisherDetails,
           style: theme.textTheme.titleLarge?.copyWith(
             fontWeight: FontWeight.bold,
             fontSize: 20.sp,

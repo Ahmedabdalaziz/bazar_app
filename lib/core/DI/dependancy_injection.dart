@@ -3,13 +3,15 @@ import 'package:bazar_app/feature/home/data/repo/home_repository.dart';
 import 'package:bazar_app/feature/authors/data/repositories/author_details_repository.dart';
 import 'package:bazar_app/feature/authors/presentation/cubits/author_details_cubit.dart';
 import 'package:bazar_app/feature/publishers/data/repositories/publishers_repository.dart';
-import 'package:bazar_app/feature/publishers/presentation/cubits/publishers_cubit.dart';
+import 'package:bazar_app/feature/publishers/logic/cubits/publishers_cubit.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get_it/get_it.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../feature/home/logic/books_cubit/Home_cubit.dart';
 import '../../feature/home/logic/bottom_navigation_cubit/bottom_navigation_cubit.dart';
+import '../../feature/login/logic/login_cubit.dart';
+import '../../feature/signup/logic/signup_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -66,8 +68,13 @@ Future<GetIt> setupGetIt() async {
   );
 
   //----------------------------------------------------------------------//
+  //----------------------------------------------------------------------//
   //navigation bar
   getIt.registerFactory(() => BottomNavigationCubit());
+  //----------------------------------------------------------------------//
+  // Auth
+  getIt.registerFactory(() => LoginCubit());
+  getIt.registerFactory(() => SignupCubit());
   //----------------------------------------------------------------------//
   return getIt;
 }

@@ -1,6 +1,6 @@
 import 'package:bazar_app/feature/authors/data/models/authors_model/author_model.dart';
 import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
-import 'package:bazar_app/feature/home/data/models/vendors_model/vendor_model.dart';
+import 'package:bazar_app/feature/publishers/data/vendors_model/vendor_model.dart';
 
 
 List<BookModel> parseBooks(List<dynamic> items) {

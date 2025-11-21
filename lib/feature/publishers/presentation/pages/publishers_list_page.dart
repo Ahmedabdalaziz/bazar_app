@@ -1,7 +1,7 @@
 import 'package:bazar_app/core/app_routes/routes_strings.dart';
 import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/core/widgets/spaces.dart';
-import 'package:bazar_app/feature/publishers/presentation/cubits/publishers_cubit.dart';
+import 'package:bazar_app/feature/publishers/logic/cubits/publishers_cubit.dart';
 import 'package:bazar_app/feature/publishers/presentation/widgets/empty_publisher_list_state.dart';
 import 'package:bazar_app/feature/publishers/presentation/widgets/message_publisher_list_page_state.dart';
 import 'package:bazar_app/feature/publishers/presentation/widgets/publisher_card_widget.dart';

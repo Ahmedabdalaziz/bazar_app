@@ -1,5 +1,5 @@
 import 'package:bazar_app/core/widgets/spaces.dart';
-import 'package:bazar_app/feature/home/data/models/vendors_model/vendor_model.dart';
+import 'package:bazar_app/feature/publishers/data/vendors_model/vendor_model.dart';
 import 'package:bazar_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 

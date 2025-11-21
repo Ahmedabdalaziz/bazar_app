@@ -1,8 +1,9 @@
+import 'package:bazar_app/core/app_routes/routes_strings.dart';
 import 'package:bazar_app/core/helpers/pop_ups/bottom_sheet.dart';
 import 'package:bazar_app/core/utils/app_strings.dart' show AppStrings;
 import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/core/widgets/vendor_card.dart';
-import 'package:bazar_app/feature/home/data/models/vendors_model/vendor_model.dart';
+import 'package:bazar_app/feature/publishers/data/vendors_model/vendor_model.dart';
 import 'package:bazar_app/feature/home/presentation/home_screen/ui/widgets/scroll_section_with_title.dart'
     show ScrollableSection;
 import 'package:bazar_app/generated/l10n.dart';
@@ -24,23 +25,11 @@ class BestVendors extends StatelessWidget {
       pageControllerViewportFraction: 0.25,
       items: vendor,
       onSeeAllTap: () {
-        context.showSnackBar(
-          backgroundColor: null,
-          s.comingSoon,
-          isSuccess: false,
-          isError: false,
-        );
+        context.pushNamed(Routing.publishersListPage);
       },
       itemBuilder: (context, vendor) => GestureDetector(
         onTap: () {
-          showModalBottomSheet(
-            isScrollControlled: true,
-            context: context,
-            builder: (context) => CustomBottomSheet(
-              name: vendor.name,
-              img: vendor.logoUrl ?? AppStrings.defaultVendorUrl,
-            ),
-          );
+          context.pushNamed(Routing.publisherDetailsPage, arguments: vendor.id);
         },
         child: VendorCard(
           imageUrl: vendor.logoUrl ?? AppStrings.defaultVendorUrl,

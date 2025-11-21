@@ -1,6 +1,6 @@
 import 'package:bazar_app/core/api/crud_operation_supabase.dart';
 import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
-import 'package:bazar_app/feature/home/data/models/vendors_model/vendor_model.dart';
+import 'package:bazar_app/feature/publishers/data/vendors_model/vendor_model.dart';
 
 class PublishersRepository {
   final VendorService _vendorService;

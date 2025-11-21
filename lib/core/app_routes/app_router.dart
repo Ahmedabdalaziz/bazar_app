@@ -11,7 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../feature/authors/presentation/cubits/author_details_cubit.dart';
 import '../../feature/authors/presentation/pages/author_details_page.dart';
 import '../../feature/authors/presentation/pages/authors_list_page.dart';
-import '../../feature/publishers/presentation/cubits/publishers_cubit.dart';
+import '../../feature/publishers/logic/cubits/publishers_cubit.dart';
 import '../../feature/publishers/presentation/pages/publishers_list_page.dart';
 import '../../feature/login/logic/login_cubit.dart';
 import '../../feature/login/ui/login_screen.dart';

@@ -1,7 +1,7 @@
 import 'package:bazar_app/core/error/failure.dart';
 import 'package:bazar_app/core/helpers/local_storage/local_storage.dart';
 import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
-import 'package:bazar_app/feature/home/data/models/vendors_model/vendor_model.dart';
+import 'package:bazar_app/feature/publishers/data/vendors_model/vendor_model.dart';
 import 'package:bazar_app/feature/home/data/repo/home_repository.dart';
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';

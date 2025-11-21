@@ -1,5 +1,5 @@
 import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
-import 'package:bazar_app/feature/home/data/models/vendors_model/vendor_model.dart';
+import 'package:bazar_app/feature/publishers/data/vendors_model/vendor_model.dart';
 import 'package:supabase_auth_ui/supabase_auth_ui.dart';
 
 import 'package:flutter/foundation.dart';

@@ -7,6 +7,7 @@ import 'package:bazar_app/feature/authors/presentation/cubits/author_details_cub
 import 'package:bazar_app/feature/authors/presentation/widgets/author_bio_widget.dart';
 import 'package:bazar_app/feature/authors/presentation/widgets/author_books_list_widget.dart';
 import 'package:bazar_app/feature/authors/presentation/widgets/author_header_widget.dart';
+import 'package:bazar_app/core/widgets/shimmer/author_details_shimmer.dart';
 import 'package:bazar_app/generated/l10n.dart';
 import 'package:icons_plus/icons_plus.dart';
 
@@ -56,7 +57,7 @@ class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
         },
         builder: (context, state) {
           if (state is AuthorDetailsLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const AuthorDetailsShimmer();
           } else if (state is AuthorDetailsLoaded) {
             return SingleChildScrollView(
               child: Column(

@@ -9,6 +9,7 @@ import 'package:bazar_app/feature/publishers/presentation/widgets/publishers_sea
 import 'package:bazar_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bazar_app/core/widgets/shimmer/publisher_card_shimmer.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class PublishersListPage extends StatefulWidget {
@@ -92,7 +93,18 @@ class _PublishersListPageState extends State<PublishersListPage> {
               },
               builder: (context, state) {
                 if (state is PublishersLoading) {
-                  return const Center(child: CircularProgressIndicator());
+                  return GridView.builder(
+                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      childAspectRatio: 0.85,
+                      crossAxisSpacing: 16.w,
+                      mainAxisSpacing: 16.h,
+                    ),
+                    itemCount: 6,
+                    itemBuilder: (context, index) =>
+                        const PublisherCardShimmer(),
+                  );
                 }
                 if (state is PublishersListLoaded) {
                   if (state.publishers.isEmpty) {

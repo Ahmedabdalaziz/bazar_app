@@ -8,6 +8,7 @@ import 'package:bazar_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:bazar_app/core/widgets/shimmer/publisher_details_shimmer.dart';
 import 'package:icons_plus/icons_plus.dart';
 
 class PublisherDetailsPage extends StatefulWidget {
@@ -56,7 +57,7 @@ class _PublisherDetailsPageState extends State<PublisherDetailsPage> {
         },
         builder: (context, state) {
           if (state is PublishersLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return const PublisherDetailsShimmer();
           } else if (state is PublisherDetailsLoaded) {
             final publisher = state.publisher;
             final books = state.publisherBooks;

@@ -9,4 +9,6 @@ sealed class Routing {
   static const String authorDetailsPage = '/authorDetailsPage';
   static const String publishersListPage = '/publishersListPage';
   static const String publisherDetailsPage = '/publisherDetailsPage';
+  static const String booksListPage = '/booksListPage';
+  static const String bookDetailsPage = '/bookDetailsPage';
 }

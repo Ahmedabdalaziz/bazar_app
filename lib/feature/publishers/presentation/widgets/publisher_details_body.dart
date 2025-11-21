@@ -1,3 +1,4 @@
+import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/core/widgets/shimmer/publisher_details_shimmer.dart';
 import 'package:bazar_app/core/widgets/spaces.dart';
 import 'package:bazar_app/feature/publishers/logic/cubits/publishers_cubit.dart';

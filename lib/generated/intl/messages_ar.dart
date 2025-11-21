@@ -54,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "authorDetails": MessageLookupByLibrary.simpleMessage("تفاصيل المؤلف"),
     "authors": MessageLookupByLibrary.simpleMessage("المؤلفون"),
     "bestVendors": MessageLookupByLibrary.simpleMessage("أفضل البائعين"),
+    "bookDetails": MessageLookupByLibrary.simpleMessage("تفاصيل الكتاب"),
+    "books": MessageLookupByLibrary.simpleMessage("الكتب"),
     "booksBy": m0,
     "byClickingSignUp": MessageLookupByLibrary.simpleMessage(
       "بالنقر على تسجيل، فإنك توافق على",
@@ -74,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "db_unique_violation": MessageLookupByLibrary.simpleMessage(
       "تم اكتشاف إدخال مكرر.",
     ),
+    "details": MessageLookupByLibrary.simpleMessage("التفاصيل"),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage("ليس لديك حساب؟ "),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "emptyEmailError": MessageLookupByLibrary.simpleMessage(
@@ -117,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidUsername": MessageLookupByLibrary.simpleMessage(
       "اسم المستخدم يجب أن يكون بين 3 و20 حرف بدون رموز",
     ),
+    "language": MessageLookupByLibrary.simpleMessage("اللغة"),
     "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
     "loginSuccess": MessageLookupByLibrary.simpleMessage(
       "تم تسجيل الدخول بنجاح",
@@ -138,9 +142,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "noAuthorsFound": MessageLookupByLibrary.simpleMessage(
       "لم يتم العثور على مؤلفين.",
     ),
+    "noBooksFound": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على كتب.",
+    ),
     "noConnectionSnack": MessageLookupByLibrary.simpleMessage(
       "لا يوجد اتصال بالإنترنت.",
     ),
+    "noDescription": MessageLookupByLibrary.simpleMessage("لا يوجد وصف متاح."),
     "noInternet": MessageLookupByLibrary.simpleMessage(
       "لا يوجد اتصال بالانترنت",
     ),
@@ -148,8 +156,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "لم يتم العثور على دور نشر.",
     ),
     "orWith": MessageLookupByLibrary.simpleMessage("أو باستخدام"),
+    "overview": MessageLookupByLibrary.simpleMessage("نظرة عامة"),
+    "pages": MessageLookupByLibrary.simpleMessage("الصفحات"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "published": MessageLookupByLibrary.simpleMessage("تاريخ النشر"),
+    "publisher": MessageLookupByLibrary.simpleMessage("دار النشر"),
     "publisherDetails": MessageLookupByLibrary.simpleMessage(
       "تفاصيل دار النشر",
     ),

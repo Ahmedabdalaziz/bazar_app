@@ -91,5 +91,15 @@
   "publishers": "Publishers",
   "searchPublishers": "Search for a publisher...",
   "noPublishersFound": "No publishers found.",
-  "publisherDetails": "Publisher Details"
+  "publisherDetails": "Publisher Details",
+  "books": "Books",
+  "noBooksFound": "No books found.",
+  "bookDetails": "Book Details",
+  "overview": "Overview",
+  "noDescription": "No description available.",
+  "details": "Details",
+  "publisher": "Publisher",
+  "language": "Language",
+  "pages": "Pages",
+  "published": "Published"
 }

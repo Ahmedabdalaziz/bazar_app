@@ -54,6 +54,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "authorDetails": MessageLookupByLibrary.simpleMessage("Author Details"),
     "authors": MessageLookupByLibrary.simpleMessage("Authors"),
     "bestVendors": MessageLookupByLibrary.simpleMessage("Best Vendors"),
+    "bookDetails": MessageLookupByLibrary.simpleMessage("Book Details"),
+    "books": MessageLookupByLibrary.simpleMessage("Books"),
     "booksBy": m0,
     "byClickingSignUp": MessageLookupByLibrary.simpleMessage(
       "By clicking Register, you agree to our",
@@ -74,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "db_unique_violation": MessageLookupByLibrary.simpleMessage(
       "Duplicate entry detected.",
     ),
+    "details": MessageLookupByLibrary.simpleMessage("Details"),
     "dontHaveAccount": MessageLookupByLibrary.simpleMessage(
       "Don\'t have an account? ",
     ),
@@ -117,6 +120,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "invalidUsername": MessageLookupByLibrary.simpleMessage(
       "Username must be between 3 and 20 characters without symbols",
     ),
+    "language": MessageLookupByLibrary.simpleMessage("Language"),
     "login": MessageLookupByLibrary.simpleMessage("Login"),
     "loginSuccess": MessageLookupByLibrary.simpleMessage("Login successful"),
     "name": MessageLookupByLibrary.simpleMessage("Name"),
@@ -134,8 +138,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "nextButton": MessageLookupByLibrary.simpleMessage("Next"),
     "noAuthorsFound": MessageLookupByLibrary.simpleMessage("No authors found."),
+    "noBooksFound": MessageLookupByLibrary.simpleMessage("No books found."),
     "noConnectionSnack": MessageLookupByLibrary.simpleMessage(
       "No internet connection.",
+    ),
+    "noDescription": MessageLookupByLibrary.simpleMessage(
+      "No description available.",
     ),
     "noInternet": MessageLookupByLibrary.simpleMessage(
       "No internet connection",
@@ -144,8 +152,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "No publishers found.",
     ),
     "orWith": MessageLookupByLibrary.simpleMessage("Or with"),
+    "overview": MessageLookupByLibrary.simpleMessage("Overview"),
+    "pages": MessageLookupByLibrary.simpleMessage("Pages"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "published": MessageLookupByLibrary.simpleMessage("Published"),
+    "publisher": MessageLookupByLibrary.simpleMessage("Publisher"),
     "publisherDetails": MessageLookupByLibrary.simpleMessage(
       "Publisher Details",
     ),

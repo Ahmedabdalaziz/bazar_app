@@ -6,6 +6,8 @@ import 'package:bazar_app/feature/publishers/data/repositories/publishers_reposi
 import 'package:bazar_app/feature/publishers/logic/cubits/publishers_cubit.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get_it/get_it.dart';
+import 'package:bazar_app/feature/books/data/repos/books_repo.dart';
+import 'package:bazar_app/feature/books/logic/cubit/books_cubit.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../feature/home/logic/books_cubit/Home_cubit.dart';
@@ -66,6 +68,11 @@ Future<GetIt> setupGetIt() async {
   getIt.registerFactory(
     () => PublishersCubit(getIt<PublishersRepository>(), Connectivity()),
   );
+
+  //----------------------------------------------------------------------//
+  // Books Feature
+  getIt.registerLazySingleton<BooksRepo>(() => BooksRepo(getIt<BookService>()));
+  getIt.registerFactory(() => BooksCubit(getIt<BooksRepo>()));
 
   //----------------------------------------------------------------------//
   //----------------------------------------------------------------------//

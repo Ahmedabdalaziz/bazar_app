@@ -101,5 +101,15 @@
   "publishers": "دور النشر",
   "searchPublishers": "ابحث عن دار نشر...",
   "noPublishersFound": "لم يتم العثور على دور نشر.",
-  "publisherDetails": "تفاصيل دار النشر"
+  "publisherDetails": "تفاصيل دار النشر",
+  "books": "الكتب",
+  "noBooksFound": "لم يتم العثور على كتب.",
+  "bookDetails": "تفاصيل الكتاب",
+  "overview": "نظرة عامة",
+  "noDescription": "لا يوجد وصف متاح.",
+  "details": "التفاصيل",
+  "publisher": "دار النشر",
+  "language": "اللغة",
+  "pages": "الصفحات",
+  "published": "تاريخ النشر"
 }

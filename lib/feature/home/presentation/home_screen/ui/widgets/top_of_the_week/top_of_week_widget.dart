@@ -36,14 +36,14 @@ class TopOfWeekWidget extends StatelessWidget {
             isScrollControlled: true,
             context: context,
             builder: (context) => CustomBottomSheet(
-              name: book.title ?? s.UnknownTitle,
+              name: book.title,
               img: book.coverUrl ?? AppStrings.defaultCardUrl,
             ),
           );
         },
         child: BookCard(
           imageUrl: book.coverUrl ?? AppStrings.defaultCardUrl,
-          title: book.title ?? s.UnknownTitle,
+          title: book.title,
           price: book.price ?? 0.0,
         ),
       ),

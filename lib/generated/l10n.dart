@@ -843,6 +843,71 @@ class S {
       args: [],
     );
   }
+
+  /// `Books`
+  String get books {
+    return Intl.message('Books', name: 'books', desc: '', args: []);
+  }
+
+  /// `No books found.`
+  String get noBooksFound {
+    return Intl.message(
+      'No books found.',
+      name: 'noBooksFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Book Details`
+  String get bookDetails {
+    return Intl.message(
+      'Book Details',
+      name: 'bookDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Overview`
+  String get overview {
+    return Intl.message('Overview', name: 'overview', desc: '', args: []);
+  }
+
+  /// `No description available.`
+  String get noDescription {
+    return Intl.message(
+      'No description available.',
+      name: 'noDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Details`
+  String get details {
+    return Intl.message('Details', name: 'details', desc: '', args: []);
+  }
+
+  /// `Publisher`
+  String get publisher {
+    return Intl.message('Publisher', name: 'publisher', desc: '', args: []);
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message('Language', name: 'language', desc: '', args: []);
+  }
+
+  /// `Pages`
+  String get pages {
+    return Intl.message('Pages', name: 'pages', desc: '', args: []);
+  }
+
+  /// `Published`
+  String get published {
+    return Intl.message('Published', name: 'published', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

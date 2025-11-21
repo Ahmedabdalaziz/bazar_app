@@ -11,6 +11,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../feature/authors/presentation/cubits/author_details_cubit.dart';
 import '../../feature/authors/presentation/pages/author_details_page.dart';
 import '../../feature/authors/presentation/pages/authors_list_page.dart';
+import '../../feature/books/logic/cubit/books_cubit.dart';
+import '../../feature/books/presentation/pages/book_details_page.dart';
+import '../../feature/books/presentation/pages/books_list_page.dart';
 import '../../feature/publishers/logic/cubits/publishers_cubit.dart';
 import '../../feature/publishers/presentation/pages/publishers_list_page.dart';
 import '../../feature/login/logic/login_cubit.dart';
@@ -87,6 +90,23 @@ class AppRouter {
           BlocProvider(
             create: (context) => getIt<PublishersCubit>(),
             child: PublisherDetailsPage(publisherId: publisherId ?? ''),
+          ),
+        );
+
+      case Routing.booksListPage:
+        return createRoute(
+          BlocProvider(
+            create: (context) => getIt<BooksCubit>(),
+            child: const BooksListPage(),
+          ),
+        );
+
+      case Routing.bookDetailsPage:
+        final bookId = argument as String?;
+        return createRoute(
+          BlocProvider(
+            create: (context) => getIt<BooksCubit>(),
+            child: BookDetailsPage(bookId: bookId ?? ''),
           ),
         );
     }

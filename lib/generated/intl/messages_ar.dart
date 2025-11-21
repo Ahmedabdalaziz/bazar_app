@@ -144,9 +144,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "noInternet": MessageLookupByLibrary.simpleMessage(
       "لا يوجد اتصال بالانترنت",
     ),
+    "noPublishersFound": MessageLookupByLibrary.simpleMessage(
+      "لم يتم العثور على دور نشر.",
+    ),
     "orWith": MessageLookupByLibrary.simpleMessage("أو باستخدام"),
     "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
     "profile": MessageLookupByLibrary.simpleMessage("الملف الشخصي"),
+    "publisherDetails": MessageLookupByLibrary.simpleMessage(
+      "تفاصيل دار النشر",
+    ),
+    "publishers": MessageLookupByLibrary.simpleMessage("دور النشر"),
     "rating": MessageLookupByLibrary.simpleMessage("التقييم"),
     "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
     "resetPassword": MessageLookupByLibrary.simpleMessage(
@@ -159,6 +166,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "reviews": m1,
     "role": MessageLookupByLibrary.simpleMessage("الدور"),
     "searchHint": MessageLookupByLibrary.simpleMessage("ابحث عن مؤلف..."),
+    "searchPublishers": MessageLookupByLibrary.simpleMessage(
+      "ابحث عن دار نشر...",
+    ),
     "secondOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "دعنا نكون دليلك إلى القراءة المناسبة لك. اكتشف كتبًا ملائمة لذوقك لتجربة ممتعة وملهمة.",
     ),

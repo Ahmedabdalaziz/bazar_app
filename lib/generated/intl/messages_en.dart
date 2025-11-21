@@ -140,9 +140,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "noInternet": MessageLookupByLibrary.simpleMessage(
       "No internet connection",
     ),
+    "noPublishersFound": MessageLookupByLibrary.simpleMessage(
+      "No publishers found.",
+    ),
     "orWith": MessageLookupByLibrary.simpleMessage("Or with"),
     "password": MessageLookupByLibrary.simpleMessage("Password"),
     "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "publisherDetails": MessageLookupByLibrary.simpleMessage(
+      "Publisher Details",
+    ),
+    "publishers": MessageLookupByLibrary.simpleMessage("Publishers"),
     "rating": MessageLookupByLibrary.simpleMessage("Rating"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
@@ -154,6 +161,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "role": MessageLookupByLibrary.simpleMessage("Role"),
     "searchHint": MessageLookupByLibrary.simpleMessage(
       "Search for an author...",
+    ),
+    "searchPublishers": MessageLookupByLibrary.simpleMessage(
+      "Search for a publisher...",
     ),
     "secondOnboardingBody": MessageLookupByLibrary.simpleMessage(
       "Guide to your perfect read. Books tailored to your taste for rewarding experience.",

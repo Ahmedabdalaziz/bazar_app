@@ -85,7 +85,7 @@ class _AuthorsListPageState extends State<AuthorsListPage> {
             child: BlocConsumer<AuthorDetailsCubit, AuthorDetailsState>(
               listener: (context, state) {
                 if (state is AuthorDetailsError) {
-                  context.showSnackBar(state.message, isError: true);
+                  context.showSnackBar(state.failure.message, isError: true);
                 } else if (state is AuthorDetailsOffline) {
                   context.showSnackBar(
                     s.noConnectionSnack,
@@ -134,7 +134,7 @@ class _AuthorsListPageState extends State<AuthorsListPage> {
                 if (state is AuthorDetailsOffline) {
                   return MessageAuthorListPageStateWidget(
                     icon: Icons.wifi_off_rounded,
-                    message: state.message,
+                    message: state.failure.message,
                     onRetry: () =>
                         context.read<AuthorDetailsCubit>().fetchAllAuthors(),
                   );
@@ -143,7 +143,7 @@ class _AuthorsListPageState extends State<AuthorsListPage> {
                 if (state is AuthorDetailsError) {
                   return MessageAuthorListPageStateWidget(
                     icon: Icons.error_outline_rounded,
-                    message: state.message,
+                    message: state.failure.message,
                     onRetry: () =>
                         context.read<AuthorDetailsCubit>().fetchAllAuthors(),
                   );

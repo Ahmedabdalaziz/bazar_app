@@ -34,16 +34,13 @@ class AuthorsListLoaded extends AuthorDetailsState {
 
 class AuthorDetailsOffline extends AuthorDetailsState {
   final AuthorModel? cachedAuthor;
-  final String message;
+  final Failure failure;
 
-  const AuthorDetailsOffline({
-    this.cachedAuthor,
-    this.message = 'No internet connection',
-  });
+  const AuthorDetailsOffline({this.cachedAuthor, required this.failure});
 }
 
 class AuthorDetailsError extends AuthorDetailsState {
-  final String message;
+  final Failure failure;
 
-  const AuthorDetailsError(this.message);
+  const AuthorDetailsError(this.failure);
 }

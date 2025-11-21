@@ -80,12 +80,26 @@
   "about": "حول",
   "role": "الدور",
   "booksBy": "كتب {name}",
+  "@booksBy": {
+    "placeholders": {
+      "name": {}
+    }
+  },
   "noInternet": "لا يوجد اتصال بالانترنت",
   "retry": "إعادة المحاولة",
   "noAuthorsFound": "لم يتم العثور على مؤلفين.",
   "searchHint": "ابحث عن مؤلف...",
   "reviews": "{count} مراجعة",
+  "@reviews": {
+    "placeholders": {
+      "count": {}
+    }
+  },
   "rating": "التقييم",
   "noConnectionSnack": "لا يوجد اتصال بالإنترنت.",
-  "vendor": "البائعون"
+  "vendor": "البائعون",
+  "publishers": "دور النشر",
+  "searchPublishers": "ابحث عن دار نشر...",
+  "noPublishersFound": "لم يتم العثور على دور نشر.",
+  "publisherDetails": "تفاصيل دار النشر"
 }

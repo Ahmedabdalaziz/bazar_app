@@ -808,6 +808,41 @@ class S {
   String get vendor {
     return Intl.message('Vendors', name: 'vendor', desc: '', args: []);
   }
+
+  /// `Publishers`
+  String get publishers {
+    return Intl.message('Publishers', name: 'publishers', desc: '', args: []);
+  }
+
+  /// `Search for a publisher...`
+  String get searchPublishers {
+    return Intl.message(
+      'Search for a publisher...',
+      name: 'searchPublishers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No publishers found.`
+  String get noPublishersFound {
+    return Intl.message(
+      'No publishers found.',
+      name: 'noPublishersFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Publisher Details`
+  String get publisherDetails {
+    return Intl.message(
+      'Publisher Details',
+      name: 'publisherDetails',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -2,6 +2,8 @@ import 'package:bazar_app/core/api/crud_operation_supabase.dart';
 import 'package:bazar_app/feature/home/data/repo/home_repository.dart';
 import 'package:bazar_app/feature/authors/data/repositories/author_details_repository.dart';
 import 'package:bazar_app/feature/authors/presentation/cubits/author_details_cubit.dart';
+import 'package:bazar_app/feature/publishers/data/repositories/publishers_repository.dart';
+import 'package:bazar_app/feature/publishers/presentation/cubits/publishers_cubit.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get_it/get_it.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -48,15 +50,20 @@ Future<GetIt> setupGetIt() async {
   //----------------------------------------------------------------------//
   // Authors Details
   getIt.registerLazySingleton<AuthorDetailsRepository>(
-    () => AuthorDetailsRepository(
-      getIt<AuthorService>(),
-      getIt<BookService>(),
-    ),
+    () => AuthorDetailsRepository(getIt<AuthorService>(), getIt<BookService>()),
   );
-  getIt.registerFactory(() => AuthorDetailsCubit(
-    getIt<AuthorDetailsRepository>(),
-    Connectivity(),
-  ));
+  getIt.registerFactory(
+    () => AuthorDetailsCubit(getIt<AuthorDetailsRepository>(), Connectivity()),
+  );
+
+  //----------------------------------------------------------------------//
+  // Publishers
+  getIt.registerLazySingleton<PublishersRepository>(
+    () => PublishersRepository(getIt<VendorService>(), getIt<BookService>()),
+  );
+  getIt.registerFactory(
+    () => PublishersCubit(getIt<PublishersRepository>(), Connectivity()),
+  );
 
   //----------------------------------------------------------------------//
   //navigation bar

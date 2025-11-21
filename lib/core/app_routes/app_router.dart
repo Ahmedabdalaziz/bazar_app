@@ -2,6 +2,7 @@ import 'package:bazar_app/core/DI/dependancy_injection.dart';
 import 'package:bazar_app/core/app_routes/routes_strings.dart';
 import 'package:bazar_app/feature/home/logic/bottom_navigation_cubit/bottom_navigation_cubit.dart';
 import 'package:bazar_app/feature/home/presentation/home_screen/ui/home_screen.dart';
+import 'package:bazar_app/feature/publishers/presentation/pages/publisher_details_page.dart';
 import 'package:bazar_app/feature/signup/logic/signup_cubit.dart';
 import 'package:bazar_app/feature/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../feature/authors/presentation/cubits/author_details_cubit.dart';
 import '../../feature/authors/presentation/pages/author_details_page.dart';
 import '../../feature/authors/presentation/pages/authors_list_page.dart';
+import '../../feature/publishers/presentation/cubits/publishers_cubit.dart';
+import '../../feature/publishers/presentation/pages/publishers_list_page.dart';
 import '../../feature/login/logic/login_cubit.dart';
 import '../../feature/login/ui/login_screen.dart';
 import '../../feature/onboarding/ui/onboarding_screen.dart';
@@ -67,6 +70,23 @@ class AppRouter {
           BlocProvider(
             create: (context) => getIt<AuthorDetailsCubit>(),
             child: AuthorDetailsPage(authorId: authorId ?? ''),
+          ),
+        );
+
+      case Routing.publishersListPage:
+        return createRoute(
+          BlocProvider(
+            create: (context) => getIt<PublishersCubit>(),
+            child: const PublishersListPage(),
+          ),
+        );
+
+      case Routing.publisherDetailsPage:
+        final publisherId = argument as String?;
+        return createRoute(
+          BlocProvider(
+            create: (context) => getIt<PublishersCubit>(),
+            child: PublisherDetailsPage(publisherId: publisherId ?? ''),
           ),
         );
     }

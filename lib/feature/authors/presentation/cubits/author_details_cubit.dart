@@ -1,3 +1,4 @@
+import 'package:bazar_app/core/error/failure.dart';
 import 'package:bazar_app/feature/authors/data/models/authors_model/author_model.dart';
 import 'package:bazar_app/feature/authors/data/repositories/author_details_repository.dart';
 import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
@@ -22,7 +23,9 @@ class AuthorDetailsCubit extends Cubit<AuthorDetailsState> {
       if (connectivityResult.contains(ConnectivityResult.none)) {
         emit(
           const AuthorDetailsOffline(
-            message: 'No internet connection. Please try again.',
+            failure: NetworkFailure(
+              message: 'No internet connection. Please try again.',
+            ),
           ),
         );
         return;
@@ -34,12 +37,12 @@ class AuthorDetailsCubit extends Cubit<AuthorDetailsState> {
         final books = await _repository.getBooksByAuthor(authorId);
         emit(AuthorDetailsLoaded(author, authorBooks: books));
       } else {
-        emit(const AuthorDetailsError('Author not found'));
+        emit(
+          const AuthorDetailsError(UnknownFailure(message: 'Author not found')),
+        );
       }
     } catch (e) {
-      emit(
-        AuthorDetailsError('Failed to load author details: ${e.toString()}'),
-      );
+      emit(AuthorDetailsError(ExceptionHandler.handle(e)));
     }
   }
 
@@ -63,10 +66,18 @@ class AuthorDetailsCubit extends Cubit<AuthorDetailsState> {
               hasMoreData: hasMoreData,
             ),
           );
-          emit(const AuthorDetailsOffline(message: 'No internet connection'));
+          emit(
+            const AuthorDetailsOffline(
+              failure: NetworkFailure(message: 'No internet connection'),
+            ),
+          );
           return;
         } catch (e) {
-          emit(const AuthorDetailsOffline(message: 'No internet connection'));
+          emit(
+            const AuthorDetailsOffline(
+              failure: NetworkFailure(message: 'No internet connection'),
+            ),
+          );
           return;
         }
       }
@@ -82,7 +93,7 @@ class AuthorDetailsCubit extends Cubit<AuthorDetailsState> {
         AuthorsListLoaded(authors, currentPage: page, hasMoreData: hasMoreData),
       );
     } catch (e) {
-      emit(AuthorDetailsError('Failed to load authors: ${e.toString()}'));
+      emit(AuthorDetailsError(ExceptionHandler.handle(e)));
     }
   }
 
@@ -96,7 +107,11 @@ class AuthorDetailsCubit extends Cubit<AuthorDetailsState> {
       final connectivityResult = await _connectivity.checkConnectivity();
 
       if (connectivityResult.contains(ConnectivityResult.none)) {
-        emit(const AuthorDetailsOffline(message: 'No internet connection'));
+        emit(
+          const AuthorDetailsOffline(
+            failure: NetworkFailure(message: 'No internet connection'),
+          ),
+        );
         return;
       }
 
@@ -116,7 +131,7 @@ class AuthorDetailsCubit extends Cubit<AuthorDetailsState> {
         ),
       );
     } catch (e) {
-      emit(AuthorDetailsError('Failed to load more authors: ${e.toString()}'));
+      emit(AuthorDetailsError(ExceptionHandler.handle(e)));
     }
   }
 
@@ -130,10 +145,18 @@ class AuthorDetailsCubit extends Cubit<AuthorDetailsState> {
         try {
           final cached = await _repository.getAllAuthors();
           emit(AuthorsListLoaded(cached, currentPage: 0, hasMoreData: false));
-          emit(const AuthorDetailsOffline(message: 'No internet connection'));
+          emit(
+            const AuthorDetailsOffline(
+              failure: NetworkFailure(message: 'No internet connection'),
+            ),
+          );
           return;
         } catch (e) {
-          emit(const AuthorDetailsOffline(message: 'No internet connection'));
+          emit(
+            const AuthorDetailsOffline(
+              failure: NetworkFailure(message: 'No internet connection'),
+            ),
+          );
           return;
         }
       }
@@ -141,7 +164,7 @@ class AuthorDetailsCubit extends Cubit<AuthorDetailsState> {
       final authors = await _repository.getAllAuthors();
       emit(AuthorsListLoaded(authors, currentPage: 0, hasMoreData: false));
     } catch (e) {
-      emit(AuthorDetailsError('Failed to load authors: ${e.toString()}'));
+      emit(AuthorDetailsError(ExceptionHandler.handle(e)));
     }
   }
 
@@ -167,10 +190,18 @@ class AuthorDetailsCubit extends Cubit<AuthorDetailsState> {
               )
               .toList();
           emit(AuthorsListLoaded(results, currentPage: 0, hasMoreData: false));
-          emit(const AuthorDetailsOffline(message: 'No internet connection'));
+          emit(
+            const AuthorDetailsOffline(
+              failure: NetworkFailure(message: 'No internet connection'),
+            ),
+          );
           return;
         } catch (e) {
-          emit(const AuthorDetailsOffline(message: 'No internet connection'));
+          emit(
+            const AuthorDetailsOffline(
+              failure: NetworkFailure(message: 'No internet connection'),
+            ),
+          );
           return;
         }
       }
@@ -178,7 +209,7 @@ class AuthorDetailsCubit extends Cubit<AuthorDetailsState> {
       final results = await _repository.searchAuthors(query);
       emit(AuthorsListLoaded(results, currentPage: 0, hasMoreData: false));
     } catch (e) {
-      emit(AuthorDetailsError('Search failed: ${e.toString()}'));
+      emit(AuthorDetailsError(ExceptionHandler.handle(e)));
     }
   }
 

@@ -87,5 +87,9 @@
   "reviews": "{count} reviews",
   "rating": "Rating",
   "noConnectionSnack": "No internet connection.",
-  "vendor": "Vendors"
+  "vendor": "Vendors",
+  "publishers": "Publishers",
+  "searchPublishers": "Search for a publisher...",
+  "noPublishersFound": "No publishers found.",
+  "publisherDetails": "Publisher Details"
 }

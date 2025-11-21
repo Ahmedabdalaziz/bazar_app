@@ -1,29 +1,29 @@
+import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/core/widgets/spaces.dart';
+import 'package:bazar_app/feature/publishers/presentation/cubits/publishers_cubit.dart';
+import 'package:bazar_app/feature/publishers/presentation/widgets/publisher_about_widget.dart';
+import 'package:bazar_app/feature/publishers/presentation/widgets/publisher_books_list_widget.dart';
+import 'package:bazar_app/feature/publishers/presentation/widgets/publisher_header_widget.dart';
+import 'package:bazar_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:bazar_app/core/utils/extentions.dart';
-import 'package:bazar_app/feature/authors/presentation/cubits/author_details_cubit.dart';
-import 'package:bazar_app/feature/authors/presentation/widgets/author_bio_widget.dart';
-import 'package:bazar_app/feature/authors/presentation/widgets/author_books_list_widget.dart';
-import 'package:bazar_app/feature/authors/presentation/widgets/author_header_widget.dart';
-import 'package:bazar_app/generated/l10n.dart';
 import 'package:icons_plus/icons_plus.dart';
 
-class AuthorDetailsPage extends StatefulWidget {
-  final String authorId;
+class PublisherDetailsPage extends StatefulWidget {
+  final String publisherId;
 
-  const AuthorDetailsPage({super.key, required this.authorId});
+  const PublisherDetailsPage({super.key, required this.publisherId});
 
   @override
-  State<AuthorDetailsPage> createState() => _AuthorDetailsPageState();
+  State<PublisherDetailsPage> createState() => _PublisherDetailsPageState();
 }
 
-class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
+class _PublisherDetailsPageState extends State<PublisherDetailsPage> {
   @override
   void initState() {
     super.initState();
-    context.read<AuthorDetailsCubit>().fetchAuthorDetails(widget.authorId);
+    context.read<PublishersCubit>().fetchPublisherDetails(widget.publisherId);
   }
 
   @override
@@ -34,7 +34,7 @@ class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          s.authorDetails,
+          s.publisherDetails ?? '',
           style: theme.textTheme.titleLarge?.copyWith(
             fontWeight: FontWeight.bold,
             fontSize: 20.sp,
@@ -43,11 +43,11 @@ class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
         elevation: 0,
         centerTitle: true,
       ),
-      body: BlocConsumer<AuthorDetailsCubit, AuthorDetailsState>(
+      body: BlocConsumer<PublishersCubit, PublishersState>(
         listener: (context, state) {
-          if (state is AuthorDetailsError) {
+          if (state is PublishersError) {
             context.showSnackBar(state.failure.message, isError: true);
-          } else if (state is AuthorDetailsOffline) {
+          } else if (state is PublishersOffline) {
             context.showSnackBar(
               s.noConnectionSnack,
               backgroundColor: theme.colorScheme.secondary,
@@ -55,29 +55,28 @@ class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
           }
         },
         builder: (context, state) {
-          if (state is AuthorDetailsLoading) {
+          if (state is PublishersLoading) {
             return const Center(child: CircularProgressIndicator());
-          } else if (state is AuthorDetailsLoaded) {
+          } else if (state is PublisherDetailsLoaded) {
+            final publisher = state.publisher;
+            final books = state.publisherBooks;
+
             return SingleChildScrollView(
+              padding: EdgeInsets.all(16.w),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  AuthorHeaderWidget(author: state.author),
-                  verticalSpace(16),
-                  if (state.author.about != null) ...[
-                    AuthorBioWidget(bio: state.author.about!),
-                    verticalSpace(16),
-                  ],
-                  if (state.authorBooks != null &&
-                      state.authorBooks!.isNotEmpty)
-                    AuthorBooksListWidget(
-                      books: state.authorBooks!,
-                      authorName: state.author.name,
-                    ),
-                  verticalSpace(32),
+                  PublisherHeaderWidget(publisher: publisher),
+                  verticalSpace(24),
+                  PublisherAboutWidget(publisher: publisher),
+                  PublisherBooksListWidget(
+                    books: books,
+                    publisherName: publisher.name,
+                  ),
                 ],
               ),
             );
-          } else if (state is AuthorDetailsOffline) {
+          } else if (state is PublishersOffline) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +93,7 @@ class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
                   verticalSpace(24),
                   ElevatedButton.icon(
                     onPressed: () {
-                      context.read<AuthorDetailsCubit>().retry(widget.authorId);
+                      context.read<PublishersCubit>().retry(widget.publisherId);
                     },
                     icon: Icon(Bootstrap.arrow_clockwise, size: 20.sp),
                     label: Text(s.retry),
@@ -102,7 +101,7 @@ class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
                 ],
               ),
             );
-          } else if (state is AuthorDetailsError) {
+          } else if (state is PublishersError) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -123,7 +122,7 @@ class _AuthorDetailsPageState extends State<AuthorDetailsPage> {
                   verticalSpace(24),
                   ElevatedButton.icon(
                     onPressed: () {
-                      context.read<AuthorDetailsCubit>().retry(widget.authorId);
+                      context.read<PublishersCubit>().retry(widget.publisherId);
                     },
                     icon: Icon(Bootstrap.arrow_clockwise, size: 20.sp),
                     label: Text(s.retry),

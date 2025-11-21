@@ -21,10 +21,8 @@ class AuthorDetailsRepository {
         final HomeRepository homeRepo = getIt<HomeRepository>();
         final cached = await homeRepo.getAuthorById(authorId);
         return cached != null ? AuthorModel.fromJson(cached.toJson()) : null;
-      } catch (inner) {
-        throw Exception(
-          'Failed to fetch author details: $e | fallback: $inner',
-        );
+      } catch (_) {
+        throw e;
       }
     }
   }
@@ -33,12 +31,8 @@ class AuthorDetailsRepository {
     int page = 0,
     int size = 10,
   }) async {
-    try {
-      final res = await _authorService.getPaginated(page: page, size: size);
-      return compute(parseAuthors, res);
-    } catch (e) {
-      throw Exception('Failed to fetch paginated authors: $e');
-    }
+    final res = await _authorService.getPaginated(page: page, size: size);
+    return compute(parseAuthors, res);
   }
 
   Future<List<AuthorModel>> getAllAuthors() async {
@@ -50,30 +44,22 @@ class AuthorDetailsRepository {
         final HomeRepository homeRepo = getIt<HomeRepository>();
         final cached = await homeRepo.fetchAllAuthors();
         return cached.map((a) => AuthorModel.fromJson(a.toJson())).toList();
-      } catch (inner) {
-        throw Exception('Failed to fetch all authors: $e | fallback: $inner');
+      } catch (_) {
+        throw e;
       }
     }
   }
 
   Future<List<BookModel>> getBooksByAuthor(String authorId) async {
-    try {
-      return await _bookService.getByAuthor(authorId);
-    } catch (e) {
-      throw Exception('Failed to fetch books by author: $e');
-    }
+    return await _bookService.getByAuthor(authorId);
   }
 
   Future<List<AuthorModel>> searchAuthors(String query) async {
-    try {
-      final allAuthors = await getAllAuthors();
-      return allAuthors
-          .where(
-            (author) => author.name.toLowerCase().contains(query.toLowerCase()),
-          )
-          .toList();
-    } catch (e) {
-      throw Exception('Failed to search authors: $e');
-    }
+    final allAuthors = await getAllAuthors();
+    return allAuthors
+        .where(
+          (author) => author.name.toLowerCase().contains(query.toLowerCase()),
+        )
+        .toList();
   }
 }

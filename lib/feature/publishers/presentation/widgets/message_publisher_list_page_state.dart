@@ -3,12 +3,12 @@ import 'package:bazar_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class MessageAuthorListPageStateWidget extends StatelessWidget {
+class MessagePublisherListPageStateWidget extends StatelessWidget {
   final IconData icon;
   final String message;
   final VoidCallback onRetry;
 
-  const MessageAuthorListPageStateWidget({
+  const MessagePublisherListPageStateWidget({
     super.key,
     required this.icon,
     required this.message,

@@ -10,6 +10,8 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../feature/home/logic/books_cubit/Home_cubit.dart';
 import '../../feature/home/logic/bottom_navigation_cubit/bottom_navigation_cubit.dart';
+import '../../feature/login/logic/login_cubit.dart';
+import '../../feature/signup/logic/signup_cubit.dart';
 
 final getIt = GetIt.instance;
 
@@ -66,8 +68,13 @@ Future<GetIt> setupGetIt() async {
   );
 
   //----------------------------------------------------------------------//
+  //----------------------------------------------------------------------//
   //navigation bar
   getIt.registerFactory(() => BottomNavigationCubit());
+  //----------------------------------------------------------------------//
+  // Auth
+  getIt.registerFactory(() => LoginCubit());
+  getIt.registerFactory(() => SignupCubit());
   //----------------------------------------------------------------------//
   return getIt;
 }

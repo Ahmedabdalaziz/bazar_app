@@ -10,6 +10,7 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await dotenv.load(fileName: ".env");
+  
   await SupabaseService.initialize();
   await Hive.initFlutter();
   await Hive.openBox('appBox');

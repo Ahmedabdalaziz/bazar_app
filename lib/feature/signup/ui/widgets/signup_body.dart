@@ -1,18 +1,16 @@
-import 'package:bazar_app/core/app_routes/routes_strings.dart';
-import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/core/widgets/email_input.dart';
 import 'package:bazar_app/core/widgets/spaces.dart';
 import 'package:bazar_app/feature/signup/logic/signup_cubit.dart';
+import 'package:bazar_app/feature/signup/ui/widgets/signup_button.dart';
+import 'package:bazar_app/feature/signup/ui/widgets/signup_footer.dart';
 import 'package:bazar_app/feature/signup/ui/widgets/signup_header.dart';
 import 'package:bazar_app/feature/signup/ui/widgets/signup_name_input.dart';
 import 'package:bazar_app/feature/signup/ui/widgets/signup_password_input.dart';
 import 'package:bazar_app/feature/signup/ui/widgets/signup_row.dart'
     show SignUp;
-import 'package:bazar_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:icons_plus/icons_plus.dart';
 
 class SignupBody extends StatefulWidget {
   const SignupBody({super.key});
@@ -52,9 +50,6 @@ class _SignupBodyState extends State<SignupBody> {
 
   @override
   Widget build(BuildContext context) {
-    final s = S.of(context);
-    final theme = Theme.of(context);
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -75,76 +70,12 @@ class _SignupBodyState extends State<SignupBody> {
                   verticalSpace(24),
                   SizedBox(
                     height: 44.h,
-                    child: BlocConsumer<SignupCubit, SignupState>(
-                      listener: (context, state) {
-                        if (state is SignupSuccess) {
-                          context.showSnackBar(
-                            s.signUpSuccess,
-                            isSuccess: true,
-                          );
-                          context.pushNamedAndRemoveUntil(
-                            Routing.welcomeScreen,
-                          );
-                        } else if (state is SignupFailure) {
-                          context.showSnackBar(
-                            state.errorMessage.message,
-                            isError: true,
-                          );
-                        } else if (state is SignupValidationError) {
-                          context.showSnackBar(state.message, isError: true);
-                        }
-                      },
-                      builder: (context, state) {
-                        final isLoading = state is SignupLoading;
-                        return ElevatedButton(
-                          onPressed: isLoading ? null : _handleSignUp,
-                          child: isLoading
-                              ? const SizedBox(
-                                  width: 18,
-                                  height: 18,
-                                  child: CircularProgressIndicator(
-                                    strokeWidth: 2,
-                                  ),
-                                )
-                              : Text(s.register),
-                        );
-                      },
-                    ),
+                    child: SignupButton(onSignup: _handleSignUp),
                   ),
                   verticalSpace(24),
-                  SignUp(),
+                  const SignUp(),
                   const Spacer(flex: 5),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Column(
-                      children: [
-                        Text(
-                          s.byClickingSignUp,
-                          style: theme.textTheme.bodyLarge!.copyWith(
-                            color: theme.colorScheme.secondary,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        horizontalSpace(8),
-                        GestureDetector(
-                          onTap: () {
-                            context.showSnackBar(
-                              "ياعم متدقش ما كلنا عارفين اللي فيها",
-                              isError: false,
-                              icon: Bootstrap.emoji_kiss_fill,
-                            );
-                          },
-                          child: Text(
-                            s.termsOfService,
-                            style: theme.textTheme.bodyLarge!.copyWith(
-                              color: theme.colorScheme.primary,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
+                  const SignupFooter(),
                   const Spacer(flex: 1),
                 ],
               ),

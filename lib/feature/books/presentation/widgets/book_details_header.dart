@@ -1,8 +1,9 @@
 import 'package:bazar_app/core/widgets/spaces.dart';
-import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../data/books_model/books_model.dart';
 
 class BookDetailsHeader extends StatelessWidget {
   final BookModel book;
@@ -35,11 +36,28 @@ class BookDetailsHeader extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                book.title,
-                style: theme.textTheme.titleLarge?.copyWith(
-                  fontWeight: FontWeight.bold,
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Text(
+                      book.title,
+                      style: theme.textTheme.titleLarge?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      // TODO: ابقا شوف عايز تعمل ايه هنا واعمله
+                    },
+                    icon: Icon(
+                      Icons.favorite_border_rounded,
+                      color: theme.colorScheme.primary,
+                      size: 28.sp,
+                    ),
+                  ),
+                ],
               ),
               verticalSpace(8),
               Text(

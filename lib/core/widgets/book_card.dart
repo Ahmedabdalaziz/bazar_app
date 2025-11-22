@@ -51,22 +51,24 @@ class BookCard extends StatelessWidget {
                 ),
               ),
             ),
-            verticalSpace(8),
-            Row(
-              children: [
-                Flexible(
-                  child: Text(
-                    title,
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: theme.textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
+            verticalSpace(6),
+            Flexible(
+              child: Row(
+                children: [
+                  Flexible(
+                    child: Text(
+                      title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: theme.textTheme.titleMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-            verticalSpace(4),
+            verticalSpace(2),
             Row(
               children: [
                 Text(

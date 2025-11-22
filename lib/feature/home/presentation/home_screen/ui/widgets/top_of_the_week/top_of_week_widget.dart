@@ -1,12 +1,13 @@
-import 'package:bazar_app/core/helpers/pop_ups/bottom_sheet.dart';
+import 'package:bazar_app/core/app_routes/routes_strings.dart';
 import 'package:bazar_app/core/utils/app_strings.dart';
 import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/core/widgets/book_card.dart';
-import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
 import 'package:bazar_app/feature/home/presentation/home_screen/ui/widgets/scroll_section_with_title.dart'
     show ScrollableSection;
 import 'package:bazar_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../../../books/data/books_model/books_model.dart';
 
 class TopOfWeekWidget extends StatelessWidget {
   final List<BookModel> books;
@@ -16,30 +17,16 @@ class TopOfWeekWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
-    final theme = Theme.of(context);
 
     return ScrollableSection<BookModel>(
       title: s.topOfWeek,
       items: books,
       onSeeAllTap: () {
-        context.showSnackBar(
-          backgroundColor: null,
-          s.comingSoon,
-          isSuccess: false,
-          isError: false,
-        );
+        context.pushNamed(Routing.booksListPage);
       },
       itemBuilder: (context, book) => GestureDetector(
         onTap: () {
-          showModalBottomSheet(
-            backgroundColor:theme.colorScheme.background,
-            isScrollControlled: true,
-            context: context,
-            builder: (context) => CustomBottomSheet(
-              name: book.title,
-              img: book.coverUrl ?? AppStrings.defaultCardUrl,
-            ),
-          );
+          context.pushNamed(Routing.bookDetailsPage, arguments: book.id);
         },
         child: BookCard(
           imageUrl: book.coverUrl ?? AppStrings.defaultCardUrl,

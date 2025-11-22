@@ -1,10 +1,11 @@
 import 'package:bazar_app/core/api/crud_operation_supabase.dart';
 import 'package:bazar_app/feature/authors/data/models/authors_model/author_model.dart';
-import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
 import 'package:bazar_app/core/DI/dependancy_injection.dart';
 import 'package:bazar_app/feature/home/data/repo/home_repository.dart';
 import 'package:flutter/foundation.dart';
 import 'package:bazar_app/core/utils/json_parsers.dart';
+
+import '../../../books/data/books_model/books_model.dart';
 
 class AuthorDetailsRepository {
   final AuthorService _authorService;

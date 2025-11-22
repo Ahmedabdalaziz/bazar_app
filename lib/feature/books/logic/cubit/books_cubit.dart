@@ -1,8 +1,9 @@
 import 'package:bazar_app/core/error/failure.dart';
 import 'package:bazar_app/feature/books/data/repos/books_repo.dart';
-import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../data/books_model/books_model.dart';
 
 part 'books_state.dart';
 

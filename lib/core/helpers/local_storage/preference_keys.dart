@@ -1,5 +1,6 @@
 sealed class PrefKeys {
   static const String currentTheme = 'current-theme';
+  static const String appBox = 'appBox';
   static const String currentLanguage = 'current-language';
   static const String onboardingCompleted = 'onboarding-completed';
   static const String firstTime = 'firstTime';

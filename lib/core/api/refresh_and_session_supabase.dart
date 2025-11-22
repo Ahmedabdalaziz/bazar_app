@@ -1,4 +1,3 @@
-import 'package:gotrue/src/types/user.dart';
 import 'package:supabase/supabase.dart';
 
 import 'Auth_supabase.dart';

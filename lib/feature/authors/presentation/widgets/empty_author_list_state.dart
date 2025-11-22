@@ -1,13 +1,15 @@
 import 'package:bazar_app/core/widgets/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:bazar_app/generated/l10n.dart';
-class EmptyAuthorListPageStateWidget extends StatelessWidget 
-{
+
+class EmptyAuthorListPageStateWidget extends StatelessWidget {
   final IconData icon;
   final String message;
 
-  const EmptyAuthorListPageStateWidget({required this.icon, required this.message});
+  const EmptyAuthorListPageStateWidget({
+    required this.icon,
+    required this.message,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -31,4 +33,3 @@ class EmptyAuthorListPageStateWidget extends StatelessWidget
     );
   }
 }
-

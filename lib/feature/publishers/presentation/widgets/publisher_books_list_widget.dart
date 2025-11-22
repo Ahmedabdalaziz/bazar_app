@@ -1,8 +1,9 @@
 import 'package:bazar_app/core/widgets/spaces.dart';
-import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
 import 'package:bazar_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../books/data/books_model/books_model.dart';
 
 class PublisherBooksListWidget extends StatelessWidget {
   final List<BookModel> books;

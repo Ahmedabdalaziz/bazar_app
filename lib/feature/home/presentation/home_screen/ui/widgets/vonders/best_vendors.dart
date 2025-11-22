@@ -1,5 +1,4 @@
 import 'package:bazar_app/core/app_routes/routes_strings.dart';
-import 'package:bazar_app/core/helpers/pop_ups/bottom_sheet.dart';
 import 'package:bazar_app/core/utils/app_strings.dart' show AppStrings;
 import 'package:bazar_app/core/utils/extentions.dart';
 import 'package:bazar_app/core/widgets/vendor_card.dart';

@@ -1,7 +1,8 @@
 import 'package:bazar_app/core/widgets/spaces.dart';
-import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
 import 'package:bazar_app/generated/l10n.dart';
 import 'package:flutter/material.dart';
+
+import '../../data/books_model/books_model.dart';
 
 class BookDetailsOverview extends StatelessWidget {
   final BookModel book;

@@ -2,8 +2,9 @@ import 'dart:convert';
 
 import 'package:bazar_app/core/helpers/local_storage/preference_keys.dart'
     show PrefKeys;
-import 'package:bazar_app/feature/home/data/models/books_model/books_model.dart';
 import 'package:hive/hive.dart';
+
+import '../../../feature/books/data/books_model/books_model.dart';
 
 class LocalStorage {
   static late Box _box;
@@ -14,7 +15,7 @@ class LocalStorage {
   LocalStorage._internal();
 
   static Future<void> init() async {
-    _box = await Hive.openBox('appBox');
+    _box = await Hive.openBox(PrefKeys.appBox);
   }
 
   dynamic getData(String key) => _box.get(key);
@@ -126,7 +127,6 @@ class BookCacheStorage {
   int? getBooksTimestampMillis() {
     final jsonString = LocalStorage().getData(_key);
     if (jsonString == null) return null;
-
     try {
       final decoded = jsonDecode(jsonString);
       if (decoded is Map && decoded.containsKey('timestamp')) {

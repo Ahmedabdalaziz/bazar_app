@@ -21,6 +21,7 @@ import '../../feature/login/ui/login_screen.dart';
 import '../../feature/onboarding/ui/onboarding_screen.dart';
 import '../../feature/signup/ui/signup_screen.dart';
 import '../../feature/splash/ui/screens/splash_screen.dart';
+import '../../feature/cart/cart_screen/cart_screen.dart';
 
 class AppRouter {
   static Route<dynamic>? generateRoute(RouteSettings settings) {
@@ -109,6 +110,9 @@ class AppRouter {
             child: BookDetailsPage(bookId: bookId ?? ''),
           ),
         );
+
+      case Routing.cartScreen:
+        return createRoute(const CartScreen());
     }
     return createRoute(
       const Scaffold(body: Center(child: Text('No Route Found'))),

@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 
 import '../../../core/api/Auth_supabase.dart';
-import '../../../core/error/failure.dart';
+import '../../../core/error_handler/failure.dart';
 
 part 'login_state.dart';
 

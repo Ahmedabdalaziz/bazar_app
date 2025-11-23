@@ -1,4 +1,4 @@
-import 'package:bazar_app/core/error/failure.dart';
+import 'package:bazar_app/core/error_handler/failure.dart';
 import 'package:bazar_app/feature/authors/data/models/authors_model/author_model.dart';
 import 'package:bazar_app/feature/authors/data/repositories/author_details_repository.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';

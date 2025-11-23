@@ -908,6 +908,21 @@ class S {
   String get published {
     return Intl.message('Published', name: 'published', desc: '', args: []);
   }
+
+  /// `Continue Shopping`
+  String get continueShopping {
+    return Intl.message(
+      'Continue Shopping',
+      name: 'continueShopping',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `View Cart`
+  String get viewCart {
+    return Intl.message('View Cart', name: 'viewCart', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

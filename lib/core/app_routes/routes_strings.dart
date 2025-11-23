@@ -11,4 +11,5 @@ sealed class Routing {
   static const String publisherDetailsPage = '/publisherDetailsPage';
   static const String booksListPage = '/booksListPage';
   static const String bookDetailsPage = '/bookDetailsPage';
+  static const String cartScreen = '/cartScreen';
 }

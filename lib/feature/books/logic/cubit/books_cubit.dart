@@ -1,4 +1,4 @@
-import 'package:bazar_app/core/error/failure.dart';
+import 'package:bazar_app/core/error_handler/failure.dart';
 import 'package:bazar_app/feature/books/data/repos/books_repo.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -64,6 +64,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "category": MessageLookupByLibrary.simpleMessage("الفئات"),
     "comingSoon": MessageLookupByLibrary.simpleMessage("لسه بنجهزها"),
     "continueButton": MessageLookupByLibrary.simpleMessage("استمرار"),
+    "continueShopping": MessageLookupByLibrary.simpleMessage("متابعة التسوق"),
     "createAccount": MessageLookupByLibrary.simpleMessage(
       "إنشاء حساب واختيار القائمة المفضلة",
     ),
@@ -230,6 +231,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل.",
     ),
     "vendor": MessageLookupByLibrary.simpleMessage("البائعون"),
+    "viewCart": MessageLookupByLibrary.simpleMessage("عرض السلة"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage(
       "مرحبًا بك في بازار",
     ),

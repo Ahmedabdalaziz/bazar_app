@@ -64,6 +64,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "category": MessageLookupByLibrary.simpleMessage("Category"),
     "comingSoon": MessageLookupByLibrary.simpleMessage("Coming soon"),
     "continueButton": MessageLookupByLibrary.simpleMessage("Continue"),
+    "continueShopping": MessageLookupByLibrary.simpleMessage(
+      "Continue Shopping",
+    ),
     "createAccount": MessageLookupByLibrary.simpleMessage(
       "Create account and choose favorite menu",
     ),
@@ -224,6 +227,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Password must be at least 6 characters.",
     ),
     "vendor": MessageLookupByLibrary.simpleMessage("Vendors"),
+    "viewCart": MessageLookupByLibrary.simpleMessage("View Cart"),
     "welcomeMessage": MessageLookupByLibrary.simpleMessage("Welcome to Bazar"),
     "yourEmail": MessageLookupByLibrary.simpleMessage("Your Email"),
     "yourName": MessageLookupByLibrary.simpleMessage("Your Name"),

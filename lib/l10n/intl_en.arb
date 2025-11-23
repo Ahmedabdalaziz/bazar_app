@@ -101,5 +101,7 @@
   "publisher": "Publisher",
   "language": "Language",
   "pages": "Pages",
-  "published": "Published"
+  "published": "Published",
+  "continueShopping": "Continue Shopping",
+  "viewCart": "View Cart"
 }

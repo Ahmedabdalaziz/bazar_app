@@ -51,7 +51,7 @@ class AuthorHeaderWidget extends StatelessWidget {
             author.name,
             style: theme.textTheme.headlineSmall?.copyWith(
               fontWeight: FontWeight.bold,
-              fontSize: 24.sp,
+              fontSize: 28.sp,
             ),
             textAlign: TextAlign.center,
           ),
@@ -67,7 +67,7 @@ class AuthorHeaderWidget extends StatelessWidget {
                 author.role!,
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.colorScheme.primary,
-                  fontSize: 14.sp,
+                  fontSize: 16.sp,
                 ),
                 textAlign: TextAlign.center,
               ),
@@ -76,13 +76,13 @@ class AuthorHeaderWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.star_rounded, color: Colors.amber, size: 24.sp),
+              Icon(Icons.star_rounded, color: Colors.amber, size: 28.sp),
               horizontalSpace(4),
               Text(
                 (author.avgRating ?? 0.0).toStringAsFixed(1),
                 style: theme.textTheme.titleMedium?.copyWith(
                   fontWeight: FontWeight.bold,
-                  fontSize: 16.sp,
+                  fontSize: 18.sp,
                 ),
               ),
               horizontalSpace(8),
@@ -90,7 +90,7 @@ class AuthorHeaderWidget extends StatelessWidget {
                 s.reviews(author.reviewCount.toString()),
                 style: theme.textTheme.bodyMedium?.copyWith(
                   color: theme.textTheme.bodySmall?.color,
-                  fontSize: 14.sp,
+                  fontSize: 16.sp,
                 ),
               ),
             ],

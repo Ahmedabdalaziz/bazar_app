@@ -219,7 +219,7 @@ class BookService {
   Future<List<BookModel>> getPaginated({
     int page = 0,
     int size = 8,
-    String orderBy = 'created_at',
+    String orderBy = 'avg_rating',
     bool ascending = false,
   }) async {
     final int from = page * size;

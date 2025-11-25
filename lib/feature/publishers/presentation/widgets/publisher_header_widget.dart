@@ -33,8 +33,9 @@ class PublisherHeaderWidget extends StatelessWidget {
           verticalSpace(16),
           Text(
             publisher.name,
-            style: theme.textTheme.headlineSmall?.copyWith(
+            style: theme.textTheme.headlineMedium?.copyWith(
               fontWeight: FontWeight.bold,
+              fontSize: 24.sp,
             ),
             textAlign: TextAlign.center,
           ),

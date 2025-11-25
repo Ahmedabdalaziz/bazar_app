@@ -27,8 +27,16 @@ class _SplashScreenState extends State<SplashScreen> {
 
     if (seen == true) {
       if (isLoggedIn) {
-        await SupabaseRefreshSession.refreshSession();
-        context.pushReplacementNamed(Routing.homeScreen);
+        try {
+          final session = await SupabaseRefreshSession.refreshSession();
+          if (session != null) {
+            context.pushReplacementNamed(Routing.homeScreen);
+          } else {
+            context.pushReplacementNamed(Routing.loginScreen);
+          }
+        } catch (e) {
+          context.pushReplacementNamed(Routing.loginScreen);
+        }
       } else {
         context.pushReplacementNamed(Routing.loginScreen);
       }

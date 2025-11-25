@@ -51,7 +51,7 @@ class _HomeBodyState extends State<HomeBody> {
   }
 
   Future<void> _onRefresh() async {
-    final cubit = getIt<HomeCubit>();
+    final cubit = context.read<HomeCubit>();
     await Future.wait([
       cubit.refreshBooks(page: 0, pageSize: 6),
       cubit.fetchPaginatedVendors(page: 0, size: 6),

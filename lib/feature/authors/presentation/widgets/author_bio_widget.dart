@@ -19,18 +19,18 @@ class AuthorBioWidget extends StatelessWidget {
         children: [
           Text(
             s.about,
-            style: theme.textTheme.titleMedium?.copyWith(
+            style: theme.textTheme.titleLarge?.copyWith(
               fontWeight: FontWeight.bold,
-              fontSize: 18.sp,
+              fontSize: 20.sp,
             ),
           ),
           SizedBox(height: 8.h),
           Text(
             bio,
-            style: theme.textTheme.bodyMedium?.copyWith(
+            style: theme.textTheme.bodyLarge?.copyWith(
               height: 1.5,
               color: theme.textTheme.bodyMedium?.color?.withOpacity(0.8),
-              fontSize: 14.sp,
+              fontSize: 16.sp,
             ),
           ),
         ],

@@ -87,7 +87,8 @@ class OnboardingBody extends StatelessWidget {
                   verticalSpace(10),
                   SignInActionButton(
                     label: s.login,
-                    onPressed: () {
+                    onPressed: () async {
+                      await storage.saveSeen(true);
                       context.pushReplacementNamed(Routing.loginScreen);
                     },
                   ),

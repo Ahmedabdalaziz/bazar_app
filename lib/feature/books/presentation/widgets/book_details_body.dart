@@ -42,16 +42,16 @@ class BookDetailsBody extends StatelessWidget {
             children: [
               Expanded(
                 child: SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
                   padding: EdgeInsets.all(16.w),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       BookDetailsHeader(book: book),
-                      verticalSpace(24),
+                      verticalSpace(16),
                       BookDetailsOverview(book: book),
-                      verticalSpace(24),
+                      verticalSpace(16),
                       BookDetailsInfo(book: book),
-                      verticalSpace(24),
                       const BookQuantityControl(),
                     ],
                   ),

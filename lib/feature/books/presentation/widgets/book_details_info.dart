@@ -20,8 +20,9 @@ class BookDetailsInfo extends StatelessWidget {
       children: [
         Text(
           s.details,
-          style: theme.textTheme.titleMedium?.copyWith(
+          style: theme.textTheme.titleLarge?.copyWith(
             fontWeight: FontWeight.bold,
+            fontSize: 20.sp,
           ),
         ),
         verticalSpace(16),
@@ -52,15 +53,17 @@ class BookDetailsInfo extends StatelessWidget {
       children: [
         Text(
           label,
-          style: theme.textTheme.bodySmall?.copyWith(
+          style: theme.textTheme.bodyMedium?.copyWith(
             color: theme.colorScheme.secondary,
+            fontSize: 14.sp,
           ),
         ),
         verticalSpace(4),
         Text(
           value,
-          style: theme.textTheme.bodyMedium?.copyWith(
-            fontWeight: FontWeight.w500,
+          style: theme.textTheme.bodyLarge?.copyWith(
+            fontWeight: FontWeight.bold,
+            fontSize: 16.sp,
           ),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
